@@ -1,12 +1,12 @@
-/* Import font chữ Inter vào CSS cho gọn HTML */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Bạn có thể thêm các hiệu ứng hoặc CSS tùy chỉnh khác ở đây sau này */
+
 .fallback-icon {
-    /* Đảm bảo ảnh không bị méo */
+
     object-fit: contain; 
 }

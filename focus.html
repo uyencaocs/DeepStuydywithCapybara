@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chế độ Tập Trung | CapyStudy AI</title>
+    <link rel="stylesheet" href="style-tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        .timer-glow {
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+        .bg-meditate {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images/meditate-capy.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body class="bg-capy-zen text-white font-sans min-h-screen flex flex-col items-center justify-center p-6 bg-meditate overflow-hidden">
+
+    <!-- Exit Button -->
+    <a href="dashboard.html" class="absolute top-8 left-8 flex items-center gap-2 text-white/50 hover:text-white transition-colors group">
+        <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white/10">
+            <iconify-icon icon="solar:alt-arrow-left-linear" width="20"></iconify-icon>
+        </div>
+        <span class="font-bold text-sm tracking-widest uppercase">Thoát</span>
+    </a>
+
+    <!-- Settings Portal -->
+    <div class="absolute top-8 right-8 flex gap-4">
+        <button class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all group">
+            <iconify-icon icon="solar:music-note-bold-duotone" width="24" class="text-white/40 group-hover:text-white"></iconify-icon>
+        </button>
+        <button class="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all group">
+            <iconify-icon icon="solar:settings-bold-duotone" width="24" class="text-white/40 group-hover:text-white"></iconify-icon>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col items-center text-center space-y-12 max-w-2xl">
+        
+        <!-- Task Info -->
+        <div class="space-y-2">
+            <span class="px-4 py-1.5 rounded-full bg-capy-accent/20 border border-capy-accent/30 text-capy-accent text-xs font-bold tracking-[0.2em] uppercase">Deep Learning Module 3</span>
+            <h1 class="text-2xl font-medium text-white/80">Đang tập trung giải quyết bài tập tối ưu hóa</h1>
+        </div>
+
+        <!-- Timer Circle -->
+        <div class="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center">
+            <!-- Pulsing Background rings -->
+            <div class="absolute inset-0 bg-capy-accent rounded-full animate-pulse-slow"></div>
+            <div class="absolute inset-4 bg-capy-zen rounded-full border border-white/5"></div>
+            
+            <div class="relative flex flex-col items-center">
+                <div id="timer" class="timer-glow text-7xl sm:text-8xl font-light tracking-tighter mb-2">25:00</div>
+                <div class="flex items-center gap-2 text-white/40 text-sm font-bold uppercase tracking-widest">
+                    <iconify-icon icon="solar:flame-bold" class="text-orange-400"></iconify-icon>
+                    Hết mình nào!
+                </div>
+            </div>
+
+            <!-- Progress Ring (SVG) -->
+            <svg class="absolute inset-0 w-full h-full -rotate-90">
+                <circle cx="50%" cy="50%" r="48%" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none" />
+                <circle cx="50%" cy="50%" r="48%" stroke="#8B5CF6" stroke-width="4" fill="none" stroke-dasharray="100 100" stroke-linecap="round" class="transition-all duration-1000" />
+            </svg>
+        </div>
+
+        <!-- Timer Controls -->
+        <div class="flex items-center gap-8">
+            <button class="w-16 h-16 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
+                <iconify-icon icon="solar:restart-bold" width="28" class="text-white/60"></iconify-icon>
+            </button>
+            <button id="playBtn" class="w-24 h-24 rounded-[2.5rem] bg-white text-capy-zen flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-2xl shadow-white/10">
+                <iconify-icon icon="solar:play-bold" width="40"></iconify-icon>
+            </button>
+            <button class="w-16 h-16 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all">
+                <iconify-icon icon="solar:stop-bold" width="28" class="text-white/60"></iconify-icon>
+            </button>
+        </div>
+
+        <!-- Quote -->
+        <p class="text-white/30 italic text-sm font-light max-w-xs px-4">
+            "Không quan trọng bạn đi chậm thế nào, miễn là bạn không dừng lại."
+        </p>
+    </div>
+
+    <!-- Zen Particles mock -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[20%] left-[10%] w-1 h-1 bg-white/20 rounded-full blur-[1px]"></div>
+        <div class="absolute top-[80%] left-[30%] w-1 h-1 bg-white/20 rounded-full blur-[1px]"></div>
+        <div class="absolute top-[40%] right-[15%] w-1 h-1 bg-white/20 rounded-full blur-[1px]"></div>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        const playBtn = document.getElementById('playBtn');
+        const timerDisplay = document.getElementById('timer');
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            playBtn.innerHTML = isPlaying 
+                ? '<iconify-icon icon="solar:pause-bold" width="40"></iconify-icon>' 
+                : '<iconify-icon icon="solar:play-bold" width="40"></iconify-icon>';
+            
+            if (isPlaying) {
+                // Mock simple countdown
+                let seconds = 1500;
+                const interval = setInterval(() => {
+                    if (!isPlaying) { clearInterval(interval); return; }
+                    seconds--;
+                    const m = Math.floor(seconds / 60);
+                    const s = seconds % 60;
+                    timerDisplay.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                    if (seconds <= 0) {
+                        clearInterval(interval);
+                        alert("Tuyệt vời! Thời gian tập trung đã hết.");
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập - Học Cùng Capybara</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script src="tailwind.config.js"></script>
-    
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    
+    <link rel="stylesheet" href="style-tailwind.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-capy-bg text-gray-900 min-h-screen flex flex-col items-center justify-center p-4 antialiased selection:bg-capy-brown selection:text-white">
@@ -29,7 +24,7 @@
                 <p class="text-sm text-gray-500 italic">Cùng nhau học tập thật "chill" nhé!</p>
             </div>
 
-            <form class="space-y-5" onsubmit="event.preventDefault();">
+            <form class="space-y-5" onsubmit="window.location.href='dashboard.html'; return false;">
                 <div>
                     <div class="relative">
                         <iconify-icon icon="solar:letter-bold" width="20" height="20" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></iconify-icon>
@@ -76,7 +71,7 @@
                 <p class="text-sm text-gray-500 italic">Bắt đầu lên kế hoạch học tập cùng AI</p>
             </div>
 
-            <form class="space-y-4" onsubmit="event.preventDefault();">
+            <form class="space-y-4" onsubmit="window.location.href='dashboard.html'; return false;">
                 <div class="relative">
                     <iconify-icon icon="solar:user-rounded-bold" width="20" height="20" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></iconify-icon>
                     <input type="text" placeholder="Tên hiển thị" class="w-full bg-capy-input border-none rounded-full pl-12 pr-4 py-3.5 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-capy-brown/30 transition-shadow">
