@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống Kê | CapyStudy AI</title>
+    <link rel="stylesheet" href="style-tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #F8FAFC;
+            background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .sidebar-item-active {
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.0) 100%);
+            border-left: 4px solid #8B5CF6;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 10px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 320px;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-glow {
+            box-shadow: 0 0 40px -10px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 min-h-screen flex selection:bg-purple-200">
+
+    <!-- Sidebar (Same as Dashboard) -->
+    <aside
+        class="w-64 bg-white/80 backdrop-blur-xl border-r border-slate-200/60 hidden lg:flex flex-col h-screen sticky top-0 z-30">
+        <div class="p-8 pb-6 text-center lg:text-left">
+            <div
+                class="flex items-center gap-3 text-slate-800 font-extrabold text-2xl tracking-tight leading-none group cursor-pointer">
+                <div
+                    class="w-10 h-10 bg-gradient-to-tr from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-purple-200 group-hover:scale-105 transition-transform">
+                    <iconify-icon icon="solar:leaf-line-duotone" width="24"></iconify-icon>
+                </div>
+                <span>CapyStudy</span>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+            <a href="dashboard.html"
+                class="flex items-center gap-3 px-4 py-3.5 text-slate-500 font-semibold hover:text-slate-800 hover:bg-slate-50 rounded-2xl transition-all group">
+                <iconify-icon icon="solar:widget-add-line-duotone" width="22"
+                    class="transition-transform group-hover:scale-110"></iconify-icon>
+                <span>Dashboard</span>
+            </a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 text-slate-500 font-semibold hover:text-slate-800 hover:bg-slate-50 rounded-2xl transition-all group">
+                <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="22"
+                    class="transition-transform group-hover:-translate-y-1"></iconify-icon>
+                <span>Lịch Trình</span>
+            </a>
+            <a href="stats.html"
+                class="flex items-center gap-3 px-4 py-3 text-capy-primary font-bold sidebar-item-active rounded-r-2xl transition-all group">
+                <iconify-icon icon="solar:chart-square-bold-duotone" width="22"
+                    class="transition-transform group-hover:-translate-y-1"></iconify-icon>
+                <span>Thống Kê</span>
+            </a>
+            <a href="focus.html"
+                class="flex items-center gap-3 px-4 py-3 text-slate-500 font-semibold hover:text-slate-800 hover:bg-slate-50 rounded-2xl transition-all group">
+                <iconify-icon icon="solar:clock-circle-line-duotone" width="22"
+                    class="transition-transform group-hover:rotate-12"></iconify-icon>
+                <span>Tập Trung</span>
+            </a>
+            <a href="#"
+                class="flex items-center gap-3 px-4 py-3 text-slate-500 font-semibold hover:text-slate-800 hover:bg-slate-50 rounded-2xl transition-all group">
+                <iconify-icon icon="solar:settings-line-duotone" width="22"
+                    class="transition-transform group-hover:-translate-y-1"></iconify-icon>
+                <span>Cài Đặt</span>
+            </a>
+        </nav>
+
+        <div class="p-6">
+            <div
+                class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-100 p-5 rounded-3xl relative overflow-hidden group">
+                <div class="relative z-10">
+                    <p class="text-[10px] font-extrabold text-indigo-500 uppercase tracking-widest mb-1 shadow-sm">Nâng
+                        cấp hiệu suất</p>
+                    <p class="text-base font-extrabold text-slate-800 mb-3">CapyStudy Pro ✨</p>
+                    <button
+                        class="bg-indigo-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-indigo-700 transition-colors w-full shadow-md hover:shadow-lg">
+                        Mở khóa ngay
+                    </button>
+                </div>
+                <iconify-icon icon="solar:crown-minimalistic-bold-duotone"
+                    class="absolute -right-3 -bottom-3 text-indigo-200/50 group-hover:scale-110 transition-transform duration-500"
+                    width="80"></iconify-icon>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col min-h-screen">
+        <header
+            class="h-20 bg-white/70 backdrop-blur-xl border-b border-slate-200/60 flex items-center justify-between px-8 sticky top-0 z-20">
+            <h2 class="text-2xl font-extrabold tracking-tight text-slate-800 flex items-center gap-2">Phân Tích Tiến Độ
+                <span class="text-xl">📊</span>
+            </h2>
+            <div class="flex items-center gap-4">
+                <select
+                    class="bg-white border border-slate-200 shadow-sm rounded-xl px-4 py-2 text-sm font-bold text-slate-700 outline-none hover:border-capy-primary focus:ring-2 focus:ring-capy-primary/20 transition-all cursor-pointer appearance-none pr-8 relative">
+                    <option>Tuần này</option>
+                    <option>Tháng này</option>
+                    <option>Học kỳ này</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full custom-scrollbar">
+
+            <!-- Overview Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border-b-4 border-b-purple-500 hover:-translate-y-1 transition-transform group cursor-default">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="solar:clock-circle-bold-duotone" width="24"></iconify-icon>
+                        </div>
+                        <span
+                            class="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                            <iconify-icon icon="solar:chart-up-bold"></iconify-icon> +12%
+                        </span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mb-1">Tổng giờ học</p>
+                    <p class="text-3xl font-extrabold text-slate-800">42.5<span
+                            class="text-base text-slate-500 ml-1">Giờ</span></p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border-b-4 border-b-blue-500 hover:-translate-y-1 transition-transform group cursor-default">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="solar:checklist-minimalistic-bold-duotone" width="24"></iconify-icon>
+                        </div>
+                        <span
+                            class="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                            <iconify-icon icon="solar:chart-up-bold"></iconify-icon> +5%
+                        </span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mb-1">Nhiệm vụ xong
+                    </p>
+                    <p class="text-3xl font-extrabold text-slate-800">128</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border-b-4 border-b-orange-500 hover:-translate-y-1 transition-transform group cursor-default">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="solar:fire-bold-duotone" width="24"></iconify-icon>
+                        </div>
+                        <span
+                            class="bg-slate-100 text-slate-500 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                            <iconify-icon icon="solar:minus-bold"></iconify-icon> Ổn định
+                        </span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mb-1">Streak hiện hành
+                    </p>
+                    <p class="text-3xl font-extrabold text-slate-800">15<span
+                            class="text-base text-slate-500 ml-1">Ngày</span></p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="glass-card p-6 rounded-3xl border-b-4 border-b-emerald-500 hover:-translate-y-1 transition-transform group cursor-default">
+                    <div class="flex items-center justify-between mb-4">
+                        <div
+                            class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <iconify-icon icon="solar:ranking-bold-duotone" width="24"></iconify-icon>
+                        </div>
+                        <span
+                            class="bg-green-100 text-green-600 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                            <iconify-icon icon="solar:double-alt-arrow-up-bold"></iconify-icon> Lên hạng
+                        </span>
+                    </div>
+                    <p class="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest mb-1">Xếp hạng lớp</p>
+                    <p class="text-3xl font-extrabold text-slate-800">#4</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Line Chart -->
+                <div class="lg:col-span-2 glass-card p-8 rounded-[2.5rem]">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
+                        <div>
+                            <h3 class="font-extrabold text-2xl tracking-tight text-slate-800 mb-1">Tiến Độ Học Tập 📈
+                            </h3>
+                            <p class="text-sm text-slate-500 font-medium">Theo dõi số giờ học mỗi ngày trong tuần qua
+                            </p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex items-center gap-2 text-xs font-bold text-slate-600 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
+                                <span class="w-3 h-3 bg-indigo-500 rounded-full shadow-sm"></span> Thực tế
+                            </div>
+                            <div
+                                class="flex items-center gap-2 text-xs font-bold text-slate-600 bg-white px-3 py-1.5 rounded-xl border border-slate-200">
+                                <span class="w-3 h-3 border-2 border-dashed border-slate-400 rounded-full"></span> Mục
+                                tiêu
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="mainChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Risk Alerts & Distribution -->
+                <div class="space-y-6">
+                    <!-- Pie Chart -->
+                    <div class="glass-card p-8 rounded-[2.5rem]">
+                        <h3 class="font-extrabold text-xl tracking-tight text-slate-800 mb-6">Trạng thái môn học</h3>
+                        <div class="chart-container !h-[220px]">
+                            <canvas id="pieChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Alert Box -->
+                    <div
+                        class="bg-gradient-to-br from-red-50 to-rose-50 p-7 rounded-[2.5rem] border border-red-200/60 relative overflow-hidden alert-glow">
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-5">
+                                <div class="flex items-center gap-2 text-red-600 font-extrabold text-lg">
+                                    <iconify-icon icon="solar:danger-triangle-bold-duotone" width="24"
+                                        class="animate-pulse"></iconify-icon>
+                                    <span>Cảnh báo rủi ro</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <div
+                                    class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-red-100 hover:-translate-y-0.5 transition-transform cursor-pointer">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-slate-800">AI Basis</p>
+                                        <span
+                                            class="text-[10px] font-extrabold text-red-500 bg-red-100 px-2 py-0.5 rounded-full">TRỄ
+                                            15%</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 rounded-full h-1.5 mb-1 mt-2">
+                                        <div class="bg-red-500 h-1.5 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-2 font-medium">Tiến độ chậm so với mục tiêu
+                                        chung.</p>
+                                </div>
+
+                                <div
+                                    class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-red-100 hover:-translate-y-0.5 transition-transform cursor-pointer">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <p class="font-bold text-slate-800">Đồ án Web</p>
+                                        <span
+                                            class="text-[10px] font-extrabold text-orange-500 bg-orange-100 px-2 py-0.5 rounded-full">SẮP
+                                            HẾT HẠN</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 mt-2 font-medium flex items-center gap-1">
+                                        <iconify-icon icon="solar:clock-circle-linear"
+                                            class="text-orange-500"></iconify-icon> Còn 2 ngày - Chưa bắt đầu!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <iconify-icon icon="solar:shield-warning-bold-duotone"
+                            class="absolute -right-6 -bottom-6 text-red-500/10" width="140"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Main Line Chart Config
+        const mainCtx = document.getElementById('mainChart').getContext('2d');
+
+        // Create Gradient for Line below the curve
+        const gradientFill = mainCtx.createLinearGradient(0, 0, 0, 300);
+        gradientFill.addColorStop(0, 'rgba(139, 92, 246, 0.4)');
+        gradientFill.addColorStop(1, 'rgba(139, 92, 246, 0.0)');
+
+        new Chart(mainCtx, {
+            type: 'line',
+            data: {
+                labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'CN'],
+                datasets: [{
+                    label: 'Thực tế (Giờ)',
+                    data: [4, 6, 5, 8.5, 3, 9.5, 7.5],
+                    borderColor: '#8B5CF6',
+                    backgroundColor: gradientFill,
+                    borderWidth: 4,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#8B5CF6',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    fill: true,
+                    tension: 0.4 // Smooth curves
+                }, {
+                    label: 'Mục tiêu (Giờ)',
+                    data: [5, 5, 5, 5, 5, 5, 5],
+                    borderColor: '#CBD5E1',
+                    borderWidth: 2,
+                    borderDash: [6, 6],
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
+                    fill: false,
+                    tension: 0
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleFont: { family: 'Outfit', size: 13, weight: 'bold' },
+                        bodyFont: { family: 'Outfit', size: 14, weight: '500' },
+                        padding: 12,
+                        cornerRadius: 12,
+                        displayColors: false,
+                        callbacks: {
+                            label: function (context) {
+                                return context.parsed.y + ' Giờ';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 12,
+                        grid: { color: 'rgba(0,0,0,0.04)', drawBorder: false },
+                        border: { display: false },
+                        ticks: { font: { family: 'Outfit', weight: 'bold', color: '#94A3B8' }, padding: 10 }
+                    },
+                    x: {
+                        grid: { display: false },
+                        border: { display: false },
+                        ticks: { font: { family: 'Outfit', weight: 'bold', color: '#64748B' }, padding: 10 }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+            }
+        });
+
+        // Distribution Pie Chart
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Hoàn thành tốt', 'Đang thực hiện', 'Chậm tiến độ'],
+                datasets: [{
+                    data: [65, 25, 10],
+                    backgroundColor: ['#10B981', '#F59E0B', '#EF4444'],
+                    hoverBackgroundColor: ['#059669', '#D97706', '#DC2626'],
+                    borderWidth: 4,
+                    borderColor: '#ffffff',
+                    cutout: '75%',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 24,
+                            font: { family: 'Outfit', weight: 'bold', size: 12, color: '#64748B' }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        titleFont: { family: 'Outfit' },
+                        bodyFont: { family: 'Outfit', weight: 'bold' },
+                        padding: 10,
+                        cornerRadius: 10
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

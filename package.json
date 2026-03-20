@@ -1,0 +1,36 @@
+{
+  "name": "deeplearningwithcarbybara",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "baseline-browser-mapping": "^2.10.8",
+    "browserslist": "^4.28.1",
+    "caniuse-lite": "^1.0.30001779",
+    "electron-to-chromium": "^1.5.313",
+    "escalade": "^3.2.0",
+    "fraction.js": "^5.3.4",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.36",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "source-map-js": "^1.2.1",
+    "update-browserslist-db": "^1.2.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.27",
+    "eslint": "^10.0.3",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^3.4.19"
+  },
+  "scripts": {
+    "start": "npx serve ./DeepStuydywithCarbybara",
+    "build": "tailwindcss -i ./src/input.css -o ./wwwroot/css/tailwind.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./wwwroot/css/tailwind.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

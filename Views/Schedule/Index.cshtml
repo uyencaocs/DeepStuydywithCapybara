@@ -1,0 +1,175 @@
+@{
+    ViewData["Title"] = "Lịch Trình";
+    var days = new[] { "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "CN" };
+    var hours = Enumerable.Range(6, 18).Select(h => $"{h:D2}:00").ToList(); // 06:00 to 23:00
+}
+
+<div class="p-6 md:p-8 space-y-6 max-w-[1600px] mx-auto w-full">
+
+    <!-- Hero Banner with Overlay -->
+    <div class="gradient-card rounded-[2rem] overflow-hidden relative min-h-[160px] flex items-center">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-[#3D2010]/60 z-0 pointer-events-none"></div>
+
+        <!-- Text Content -->
+        <div class="relative z-10 p-8 w-full md:w-1/2">
+            <h2 class="text-3xl font-black text-white mb-2 tracking-tight drop-shadow-lg">Hành trình hôm nay của bạn 🎒</h2>
+            <p class="text-white/80 font-medium drop-shadow-md">Sắp xếp thời gian thông minh, học tập nhàn tênh.</p>
+        </div>
+
+        <!-- Capy Backpack Image -->
+        <div class="absolute right-0 top-0 bottom-0 w-1/3 md:w-1/4 pointer-events-none">
+            <img src="~/images/tải xuống (2).jpg" alt="Capy Backpack" class="w-full h-full object-cover object-center opacity-90 drop-shadow-2xl">
+        </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/70 backdrop-blur-md p-4 rounded-2xl border border-[#E8C9A0] shadow-sm">
+        <div class="flex gap-2">
+            <button class="bg-[#FDF1E3] text-[#6B4226] p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon icon="solar:alt-arrow-left-line-duotone" width="20"></iconify-icon></button>
+            <div class="bg-white border border-[#E8C9A0] px-4 py-2 rounded-xl flex items-center justify-center font-bold text-[#3D2010] shadow-sm tracking-wide">
+                Tuần 20 - 26/03/2026
+            </div>
+            <button class="bg-[#FDF1E3] text-[#6B4226] p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon icon="solar:alt-arrow-right-line-duotone" width="20"></iconify-icon></button>
+        </div>
+
+        <button id="btn-optimize-ai" class="bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white px-5 py-2.5 rounded-xl flex items-center gap-2 font-extrabold text-sm shadow-lg shadow-orange-200 hover:-translate-y-0.5 active:scale-95 transition-all">
+            <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="18" class="animate-pulse"></iconify-icon>
+            Tối ưu hóa lịch trình bằng AI
+        </button>
+    </div>
+
+    <!-- CSS Grid Calendar (6:00 - 23:00) -->
+    <!-- Scrollable container for the huge grid -->
+    <div class="bg-white rounded-3xl border border-[#E8C9A0] shadow-xl overflow-hidden flex flex-col h-[650px]">
+        
+        <!-- Header Row (Days) -->
+        <div class="grid grid-cols-8 border-b border-[#E8C9A0] bg-[#FDF1E3] sticky top-0 z-20">
+            <!-- Time Column Header Placeholder -->
+            <div class="p-3 border-r border-[#E8C9A0]/50 text-center flex items-center justify-center pointer-events-none">
+                <iconify-icon icon="solar:clock-circle-bold-duotone" width="24" class="text-[#A67C52]"></iconify-icon>
+            </div>
+            @foreach(var day in days)
+            {
+                <div class="p-3 text-center border-r border-[#E8C9A0]/50 last:border-0 relative">
+                    <p class="text-[11px] font-extrabold text-[#8B5E3C] uppercase tracking-widest">@day</p>
+                    @if(day == "Thứ 4")
+                    {
+                        <!-- Current Day Highlight -->
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#F4831F] rounded-t-md"></div>
+                        <p class="text-lg font-black text-[#F4831F]">25</p>
+                    }
+                    else
+                    {
+                        <p class="text-lg font-black text-[#3D2010]">@((23 + Array.IndexOf(days, day)).ToString())</p>
+                    }
+                </div>
+            }
+        </div>
+
+        <!-- Scrollable Grid Body -->
+        <div class="overflow-y-auto flex-1 custom-scrollbar relative">
+            <div class="grid grid-cols-8 relative min-w-[700px]">
+                
+                <!-- Time Column -->
+                <div class="col-span-1 border-r border-[#E8C9A0]/50 bg-white/50 sticky left-0 z-10">
+                    @foreach(var hour in hours)
+                    {
+                        <div class="h-16 border-b border-dashed border-[#E8C9A0]/30 flex items-start justify-center pt-2">
+                            <span class="text-[10px] font-bold text-[#A67C52]">@hour</span>
+                        </div>
+                    }
+                </div>
+
+                <!-- 7 Days Columns -->
+                <div class="col-span-7 grid grid-cols-7 relative">
+                    <!-- Background Grid Lines -->
+                    <div class="absolute inset-0 grid grid-cols-7 pointer-events-none">
+                        @for (int i=0; i<7; i++)
+                        {
+                            <div class="border-r border-[#E8C9A0]/30 last:border-0 h-full"></div>
+                        }
+                    </div>
+                    <div class="absolute inset-0 pointer-events-none flex flex-col">
+                        @foreach(var cur in hours)
+                        {
+                            <div class="h-16 w-full border-b border-dashed border-[#E8C9A0]/30"></div>
+                        }
+                    </div>
+
+                    <!-- Example Hardcoded Events (Grid placement using top/height percentages or inline styles) -->
+                    <!-- Monday (col 1): 08:00 to 10:00 (Starts at hour 2, lasts 2 hours, total grid is 18 blocks) -->
+                    <div class="absolute left-0 w-[14.28%] px-1" style="top: calc(16 * 4px * 2); height: calc(16 * 4px * 2);"> <!-- Each hour block is h-16 (64px) -->
+                        <div class="w-full h-full bg-blue-50 border-l-4 border-blue-500 rounded-lg p-2 shadow-sm relative group hover:bg-blue-100 transition-colors cursor-pointer overflow-hidden">
+                            <p class="text-[10px] font-extrabold text-blue-800">08:00 - 10:00</p>
+                            <p class="text-xs font-black text-[#3D2010] leading-tight mt-0.5">Hệ quản trị CSDL</p>
+                            <iconify-icon icon="solar:database-bold-duotone" class="absolute bottom-1 right-2 text-blue-200 group-hover:scale-110 transition-transform" width="24"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- Wednesday (col 3): 14:00 to 17:00 (Starts at hour 8, lasts 3 hours) -->
+                    <!-- 1 hour = 64px. 8 hours = 512px top. 3 hours = 192px height -->
+                    <div class="absolute w-[14.28%] px-1" style="left: calc(14.28% * 2); top: 512px; height: 192px;">
+                        <div class="w-full h-full bg-[#FEFBF6] border-l-4 border-[#F4831F] rounded-lg p-2 shadow-sm relative group hover:bg-[#FDF1E3] transition-colors cursor-pointer overflow-hidden">
+                            <span class="absolute top-1 right-1 flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                            </span>
+                            <p class="text-[10px] font-extrabold text-[#C8620F]">14:00 - 17:00</p>
+                            <p class="text-xs font-black text-[#3D2010] leading-tight mt-0.5">Deep Learning</p>
+                            <p class="text-[10px] text-[#8B5E3C] font-semibold mt-1">Làm bài tập cuối kỳ</p>
+                            <iconify-icon icon="solar:cpu-bold-duotone" class="absolute bottom-1 right-2 text-orange-200 group-hover:scale-110 transition-transform" width="32"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <!-- AI Suggested Slots Template (Hidden by default, shown when Tối Ưu Hóa is clicked) -->
+                    <!-- Example: Thursday 09:00 - 11:00 (Left: 42.84%, Top: 192px, Height: 128px) -->
+                    <div class="ai-suggestion absolute w-[14.28%] px-1 opacity-0 scale-95 transition-all duration-500" style="left: calc(14.28% * 3); top: 192px; height: 128px;">
+                        <div class="w-full h-full bg-gradient-to-br from-[#FDF1E3] to-[#FEFBF6] border-2 border-dashed border-[#F4831F] rounded-lg p-2 relative flex flex-col items-center justify-center text-center cursor-pointer hover:border-solid">
+                            <iconify-icon icon="solar:magic-stick-3-bold-duotone" class="text-[#F4831F] mb-1" width="20"></iconify-icon>
+                            <p class="text-[9px] font-extrabold text-[#C8620F] uppercase">Gợi ý từ AI</p>
+                            <p class="text-[10px] font-black text-[#3D2010] leading-tight">Ôn tập Deep Learning</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Current Time Indicator Line (e.g. Wednesday 10:30) 10:30 is 4.5 hours from 06:00 -> 288px top -->
+            <div class="absolute left-0 right-0 border-t-2 border-red-500 z-20 pointer-events-none" style="top: 288px;">
+                <div class="absolute -left-1 -top-1.5 w-3 h-3 bg-red-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Simulate AI Optimization logic
+        document.getElementById('btn-optimize-ai').addEventListener('click', function() {
+            var btn = this;
+            var originalText = btn.innerHTML;
+            
+            // Loading state
+            btn.innerHTML = '<iconify-icon icon="solar:spuare-academic-bold-duotone" width="18" class="animate-spin"></iconify-icon> Đang tính toán...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                // Show AI suggestions
+                const suggestions = document.querySelectorAll('.ai-suggestion');
+                suggestions.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.remove('opacity-0', 'scale-95');
+                        el.classList.add('opacity-100', 'scale-100');
+                    }, index * 150);
+                });
+                
+                // Reset button
+                btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold-duotone" width="18"></iconify-icon> Đã lấp đầy chỗ trống';
+                btn.classList.remove('opacity-80', 'cursor-not-allowed', 'from-[#F4831F]', 'to-[#C8620F]');
+                btn.classList.add('from-green-500', 'to-emerald-600');
+                
+            }, 1200);
+        });
+    </script>
+}

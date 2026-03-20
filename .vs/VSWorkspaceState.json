@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin",
+    "\\bin\\Debug",
+    "\\bin\\Release",
+    "\\wwwroot",
+    "\\wwwroot\\js",
+    "\\wwwroot\\lib",
+    "\\wwwroot\\lib\\bootstrap",
+    "\\wwwroot\\lib\\jquery",
+    "\\wwwroot\\lib\\jquery-validation"
+  ],
+  "SelectedNode": "\\Migrations",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,142 @@
+@{
+    ViewData["Title"] = "Cài Đặt Hệ Thống";
+}
+
+<div class="p-6 md:p-8 max-w-6xl mx-auto w-full">
+    
+    <div class="mb-8">
+        <h1 class="text-3xl font-black text-[#3D2010] tracking-tight mb-2">Cài Đặt ⚙️</h1>
+        <p class="text-[#8B5E3C] font-medium">Tùy chỉnh tài khoản, thông báo và thú cưng Capybara của bạn.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8">
+        
+        <!-- Left Nav list -->
+        <div class="w-full md:w-64 shrink-0">
+            <div class="bg-white rounded-3xl p-3 border border-[#E8C9A0] shadow-sm sticky top-28">
+                <nav class="space-y-1">
+                    <button class="w-full text-left px-4 py-3 bg-[#FDF1E3] text-[#6B4226] font-bold rounded-2xl flex items-center gap-3 transition-colors">
+                        <iconify-icon icon="solar:user-id-bold-duotone" width="20"></iconify-icon> Hồ sơ cá nhân
+                    </button>
+                    <button class="w-full text-left px-4 py-3 text-[#A67C52] font-semibold hover:bg-orange-50 hover:text-[#3D2010] rounded-2xl flex items-center gap-3 transition-colors">
+                        <iconify-icon icon="solar:bell-bing-bold-duotone" width="20"></iconify-icon> Thông báo
+                    </button>
+                    <button class="w-full text-left px-4 py-3 text-[#A67C52] font-semibold hover:bg-orange-50 hover:text-[#3D2010] rounded-2xl flex items-center gap-3 transition-colors">
+                        <iconify-icon icon="solar:calendar-date-bold-duotone" width="20"></iconify-icon> Lịch đồng bộ
+                    </button>
+                    <button class="w-full text-left px-4 py-3 text-[#A67C52] font-semibold hover:bg-orange-50 hover:text-[#3D2010] rounded-2xl flex items-center gap-3 transition-colors">
+                        <iconify-icon icon="solar:cat-bold-duotone" width="20"></iconify-icon> Thú cưng (Pet)
+                    </button>
+                    <div class="h-px bg-[#E8C9A0]/50 my-2 mx-2"></div>
+                    <button class="w-full text-left px-4 py-3 text-red-500 font-semibold hover:bg-red-50 rounded-2xl flex items-center gap-3 transition-colors">
+                        <iconify-icon icon="solar:logout-2-bold-duotone" width="20"></iconify-icon> Đăng xuất
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Right Content Panels -->
+        <div class="flex-1 space-y-8">
+            
+            <!-- Panel 1: Profile -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-[#E8C9A0] shadow-sm">
+                <h3 class="text-xl font-black text-[#3D2010] mb-6 border-b border-[#FDF1E3] pb-4">Hồ sơ cá nhân</h3>
+                
+                <div class="flex flex-col sm:flex-row gap-6 mb-8">
+                    <!-- Right image requested by user -->
+                    <div class="w-32 h-32 rounded-full border-4 border-[#FDF1E3] shadow-lg overflow-hidden shrink-0 relative group cursor-pointer">
+                        <img src="~/images/tải xuống (4).jpg" onerror="this.src='/images/tải xuống (3).jpg'" alt="Profile Capy" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <iconify-icon icon="solar:camera-add-bold-duotone" class="text-white" width="28"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="flex-1 space-y-4">
+                        <div>
+                            <label class="block text-xs font-extrabold text-[#A67C52] uppercase mb-1.5">Tên hiển thị</label>
+                            <input type="text" value="@(User.Identity != null && User.Identity.IsAuthenticated ? User.Identity.Name ?? "" : "Sinh viên Ngoại Thương")" class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-xl px-4 py-2.5 text-[#3D2010] font-bold focus:bg-white focus:ring-2 focus:ring-[#F4831F]/30 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-extrabold text-[#A67C52] uppercase mb-1.5">Email liên kết</label>
+                            <input type="email" value="student@ftu.edu.vn" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-slate-500 font-medium outline-none cursor-not-allowed" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 2: Integrations -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-[#E8C9A0] shadow-sm">
+                <h3 class="text-xl font-black text-[#3D2010] mb-6 border-b border-[#FDF1E3] pb-4">Đồng bộ dữ liệu</h3>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 rounded-2xl border border-[#E8C9A0] hover:bg-[#FDF1E3]/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-blue-500">
+                                <!-- Google Logo mock -->
+                                <svg class="w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35 11.1h-9.1v2.92h5.27c-.23 1.25-1 2.3-2.07 2.97v2.46h3.35c1.96-1.8 3.1-4.46 3.1-7.46c0-.52-.05-1.02-.12-1.49l-.43.6zM12.25 21a8.6 8.6 0 0 0 5.96-2.18L14.86 16.3c-.76.5-1.74.8-2.61.8c-2.6 0-4.81-1.76-5.6-4.12H3.19v2.53A8.99 8.99 0 0 0 12.25 21zM6.65 12.98c-.2-.6-.31-1.24-.31-1.9c0-.66.11-1.3.31-1.9V6.65H3.19A8.99 8.99 0 0 0 2 11.08c0 1.45.35 2.82.96 4.04l3.69-2.14zM12.25 1.16c1.61 0 3.05.55 4.19 1.64l3.14-3.14A8.9 8.9 0 0 0 12.25.16a8.99 8.99 0 0 0-8.1 4.36L7.6 6.64c.79-2.36 3-4.12 5.6-4.12h-.95z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-[#3D2010]">Google Calendar</h4>
+                                <p class="text-xs text-[#A67C52] font-medium mt-0.5">Tự động chèn lịch trống để Capy xếp lịch AI.</p>
+                            </div>
+                        </div>
+                        <button class="bg-[#F4831F] text-white px-4 py-2 rounded-xl text-xs font-extrabold shadow-md hover:bg-[#C8620F] transition-colors">Kết nối</button>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 rounded-2xl border border-[#E8C9A0] hover:bg-[#FDF1E3]/30 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-xl shadow-sm flex items-center justify-center text-white">
+                                <iconify-icon icon="mdi:microsoft-outlook" width="24"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-extrabold text-[#3D2010]">Microsoft Outlook</h4>
+                                <p class="text-xs text-[#A67C52] font-medium mt-0.5">Chưa liên kết tài khoản trường.</p>
+                            </div>
+                        </div>
+                        <button class="bg-white border-2 border-[#E8C9A0] text-[#6B4226] px-4 py-2 rounded-xl text-xs font-extrabold shadow-sm hover:bg-[#FDF1E3] transition-colors">Kết nối</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 3: Pet Customizer -->
+            <div class="bg-gradient-to-br from-[#FEFBF6] to-[#FDF1E3] rounded-3xl p-6 md:p-8 border border-[#E8C9A0] shadow-sm relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-48 h-48 bg-orange-100 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+                
+                <h3 class="text-xl font-black text-[#3D2010] mb-2 relative z-10">Cửa hàng Thú Cưng (Capy Pet)</h3>
+                <p class="text-sm text-[#A67C52] font-medium mb-6 relative z-10">Chọn người bạn đồng hành cùng bạn trong các banner và góc làm việc.</p>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 relative z-10">
+                    <!-- Pet 1 -->
+                    <div class="bg-white rounded-2xl p-2 border-2 border-[#F4831F] shadow-md cursor-pointer relative">
+                        <span class="absolute -top-2 -right-2 bg-[#F4831F] text-white w-6 h-6 rounded-full flex items-center justify-center focus:outline-none">
+                            <iconify-icon icon="solar:check-circle-bold" width="16"></iconify-icon>
+                        </span>
+                        <img src="~/images/tải xuống (3).jpg" class="w-full h-24 object-cover rounded-xl" alt="Pet 1">
+                        <p class="text-center text-xs font-extrabold text-[#3D2010] mt-2 pb-1">Học sinh ngoan</p>
+                    </div>
+                    <!-- Pet 2 -->
+                    <div class="bg-white/60 rounded-2xl p-2 border-2 border-transparent hover:border-[#E8C9A0] cursor-pointer transition-all">
+                        <img src="~/images/tải xuống (2).jpg" class="w-full h-24 object-cover rounded-xl opacity-80" alt="Pet 2">
+                        <p class="text-center text-xs font-bold text-[#8B5E3C] mt-2 pb-1">Mọt sách🎒</p>
+                    </div>
+                    <!-- Pet 3 -->
+                    <div class="bg-white/60 rounded-2xl p-2 border-2 border-transparent hover:border-[#E8C9A0] cursor-pointer transition-all">
+                        <img src="~/images/capybaraa photocopy.jpg" class="w-full h-24 object-cover rounded-xl opacity-80" alt="Pet 3">
+                        <p class="text-center text-xs font-bold text-[#8B5E3C] mt-2 pb-1">Nhiếp ảnh📸</p>
+                    </div>
+                    <!-- Pet 4 -->
+                    <div class="bg-white/60 rounded-2xl p-2 border-2 border-transparent cursor-not-allowed opacity-50 grayscale">
+                         <div class="w-full h-24 bg-slate-200 rounded-xl flex items-center justify-center">
+                            <iconify-icon icon="solar:lock-bold-duotone" width="24" class="text-slate-400"></iconify-icon>
+                        </div>
+                        <p class="text-center text-xs font-bold text-slate-500 mt-2 pb-1">Cấp độ 10</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 text-right">
+                    <button class="bg-[#6B4226] text-white px-6 py-2.5 rounded-xl text-sm font-extrabold shadow-md hover:bg-[#3D2010] transition-colors">Lưu thay đổi</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
