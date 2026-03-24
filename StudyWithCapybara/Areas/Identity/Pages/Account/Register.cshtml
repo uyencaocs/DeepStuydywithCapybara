@@ -1,0 +1,125 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+}
+
+<style>
+    /* Dùng chung bộ màu với trang Login */
+    :root {
+        --capybara-brown: #A65E2E;
+        --capybara-deep-brown: #4A2E1B;
+        --capybara-bg: #FAF3E0;
+    }
+
+    body {
+        background-color: var(--capybara-bg);
+        color: var(--capybara-deep-brown);
+    }
+
+    .capybara-card {
+        background: #ffffff;
+        border-radius: 24px;
+        box-shadow: 0 15px 35px rgba(74, 46, 27, 0.08);
+        padding: 45px 35px;
+        max-width: 420px;
+        width: 100%;
+        margin: auto;
+        border: 1px solid rgba(166, 94, 46, 0.1);
+    }
+
+    .capybara-btn {
+        background-color: var(--capybara-brown);
+        color: white;
+        border-radius: 14px;
+        padding: 14px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .capybara-btn:hover {
+            background-color: var(--capybara-deep-brown);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 46, 27, 0.2);
+        }
+
+    .form-control-custom {
+        background-color: #FCFBF9;
+        border: 1.5px solid #EAE3D9;
+        border-radius: 12px;
+        padding: 12px 15px;
+        color: var(--capybara-deep-brown);
+    }
+
+        .form-control-custom:focus {
+            box-shadow: 0 0 0 4px rgba(166, 94, 46, 0.15);
+            border-color: var(--capybara-brown);
+        }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #BDB5AD;
+        font-size: 1.2rem;
+        z-index: 10;
+        transition: color 0.3s;
+    }
+
+        .toggle-password:hover {
+            color: var(--capybara-brown);
+        }
+</style>
+
+<div class="d-flex justify-content-center align-items-center mt-5 mb-5">
+    <div class="capybara-card text-center">
+        <div class="mb-3">
+            <img src="~/images/capybara.png" alt="Logo của tôi" class="img-fluid" style="max-height: 80px;">
+        </div>
+
+        <h3 class="fw-bold mb-2" style="color: var(--capybara-deep-brown);">Bắt đầu ngay!</h3>
+        <p class="mb-4 small" style="color: #8A7B70;">Tạo tài khoản để AI giúp bạn lập kế hoạch.</p>
+
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3 text-start small"></div>
+
+            <div class="form-floating mb-3 text-start">
+                <input asp-for="Input.Email" class="form-control form-control-custom" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Input.Email" style="color: #8A7B70;"><i class="bi bi-envelope me-2"></i>Email của bạn</label>
+                <span asp-validation-for="Input.Email" class="text-danger small"></span>
+            </div>
+
+            <div class="form-floating mb-3 text-start position-relative">
+                <input asp-for="Input.Password" class="form-control form-control-custom" autocomplete="new-password" aria-required="true" placeholder="password" type="password" />
+                <label asp-for="Input.Password" style="color: #8A7B70;"><i class="bi bi-lock me-2"></i>Mật khẩu</label>
+                <i class="bi bi-eye-slash toggle-password" id="toggleEye1"></i>
+                <span asp-validation-for="Input.Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-floating mb-4 text-start position-relative">
+                <input asp-for="Input.ConfirmPassword" class="form-control form-control-custom" autocomplete="new-password" aria-required="true" placeholder="password" type="password" />
+                <label asp-for="Input.ConfirmPassword" style="color: #8A7B70;"><i class="bi bi-shield-check me-2"></i>Xác nhận mật khẩu</label>
+                <i class="bi bi-eye-slash toggle-password" id="toggleEye2"></i>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger small"></span>
+            </div>
+
+            <button id="registerSubmit" type="submit" class="w-100 capybara-btn mb-4">Đăng ký tài khoản</button>
+
+            <div>
+                <p class="small mb-0" style="color: #8A7B70;">
+                    Đã có tài khoản? <a asp-page="./Login" class="text-decoration-none fw-bold" style="color: var(--capybara-brown);">Đăng nhập</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/password-toggle.js"></script>
+}

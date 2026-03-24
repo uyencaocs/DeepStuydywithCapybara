@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ - Study With Capybara";
+}
+
+<style>
+    /* Chỉnh màu nền cho toàn bộ trang */
+    body {
+        background-color: #F7F1E6 !important; /* Màu be nhạt giống ảnh 2 */
+    }
+
+    /* Vùng nội dung chính được căn giữa */
+    .hero-section {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .hero-title {
+        color: #4A2E1B; /* Màu nâu đậm */
+        font-weight: 900;
+        font-size: 3rem;
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        color: #4A2E1B;
+        font-size: 1.25rem;
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .btn-cta {
+        background-color: #A65E2E; /* Màu nâu của nút */
+        color: white;
+        font-weight: 700;
+        padding: 15px 40px;
+        border-radius: 12px;
+        font-size: 1.3rem;
+        border: none;
+        margin-top: 30px;
+        margin-bottom: 50px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-cta:hover {
+            background-color: #4A2E1B;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 46, 27, 0.2);
+        }
+
+    /* Khung chứa ảnh Mockup */
+    .mockup-container {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+        .mockup-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(74, 46, 27, 0.15);
+        }
+</style>
+
+<div class="hero-section container">
+    <h1 class="hero-title">Capybara Planner: Học thong dong, sống chủ động.</h1>
+
+    <p class="hero-subtitle">Lập Kế Hoạch Học Tập Thông Minh. Cá Nhân Hóa. Tự Động. Hoàn Tất.</p>
+
+    <a href="#" class="btn-cta">Xếp Lịch Học Chill Ngay</a>
+
+    <div class="mockup-container">
+        <img src="~/images/Capybara03.jpg" alt="Giao diện Capybara Planner">
+    </div>
+</div>
