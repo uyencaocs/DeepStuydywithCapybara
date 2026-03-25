@@ -15,6 +15,29 @@ namespace DeeplearningwithCapybara.Controllers
 
         public IActionResult Index()
         {
+            var hour = DateTime.Now.Hour;
+            string greeting;
+            string subGreeting;
+
+            if (hour >= 5 && hour < 12)
+            {
+                greeting = "Chào buổi sáng! ☀️";
+                subGreeting = "Chúc bạn một ngày học tập đầy năng lượng.";
+            }
+            else if (hour >= 12 && hour < 18)
+            {
+                greeting = "Chào buổi chiều! ☕";
+                subGreeting = "Đừng quên nghỉ ngơi một chút giữa các task nhé.";
+            }
+            else
+            {
+                greeting = "Chào buổi tối! ✨";
+                subGreeting = "Sắp xếp xong việc rồi nghỉ ngơi cùng Capy thôi.";
+            }
+
+            ViewBag.Greeting = greeting;
+            ViewBag.SubGreeting = subGreeting;
+
             return View();
         }
 
@@ -28,5 +51,6 @@ namespace DeeplearningwithCapybara.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

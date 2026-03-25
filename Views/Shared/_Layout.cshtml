@@ -22,9 +22,9 @@
             --capy-brown-light: #FDF1E3;
             --capy-orange: #F4831F;
             --capy-orange-dark: #C8620F;
-            --capy-bg: #FEFBF6;
-            --sidebar-w: 17rem;
-            /* 272px */
+            --capy-bg: #FDF8F3;
+            --sidebar-w: 5rem;
+            /* 80px */
         }
 
         * {
@@ -35,32 +35,14 @@
             background-color: var(--capy-bg);
             background-image: radial-gradient(#E7D9CC 1px, transparent 1px);
             background-size: 24px 24px;
-            color: #3D2010;
+            color: #000000;
         }
 
         /* ===== Collapsible Sidebar ===== */
         #sidebar {
             width: var(--sidebar-w);
             flex-shrink: 0;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.3s;
-            overflow: hidden;
-        }
-
-        #sidebar.collapsed {
-            width: 0 !important;
-            min-width: 0 !important;
-            border-right: none;
-        }
-
-        #sidebar .sidebar-label {
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            transform-origin: left center;
-        }
-
-        #sidebar.collapsed .sidebar-label {
-            opacity: 0;
-            transform: scale(0);
-            pointer-events: none;
+            overflow: visible; /* To allow dropdowns */
         }
 
         #toggle-sidebar-btn {
@@ -96,7 +78,7 @@
         }
 
         .gradient-card {
-            background: linear-gradient(135deg, var(--capy-brown) 0%, #3D2010 100%);
+            background: linear-gradient(135deg, var(--capy-brown) 0%, #000000 100%);
         }
 
         /* ===== Animations ===== */
@@ -166,8 +148,8 @@
         .profile-menu {
             display: none;
             position: absolute;
-            right: 0;
-            top: calc(100% + 12px);
+            left: calc(100% + 12px);
+            bottom: 0;
             min-width: 220px;
             background: #fff;
             border: 1px solid #F3E4D0;
@@ -224,75 +206,51 @@
 <body class="min-h-screen flex">
 
     <!-- ===== SIDEBAR ===== -->
-    <aside id="sidebar"
-        class="bg-white/90 backdrop-blur-xl border-r border-[#F0DDC8] hidden lg:flex flex-col h-screen sticky top-0 z-30">
+    <aside id="sidebar" class="bg-white/90 backdrop-blur-xl border-r border-[#F0DDC8] hidden lg:flex flex-col items-center py-6 h-screen sticky top-0 z-50">
         <!-- Logo -->
-        <div class="px-5 py-4 border-b border-[#F0DDC8] flex items-center gap-3 min-w-0">
-            <div
-                class="w-11 h-11 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md shrink-0 capy-breathe">
-                <img src="~/images/capybaraa photocopy.jpg" alt="CapyStudy Logo" class="w-full h-full object-cover">
-            </div>
-            <div class="sidebar-label min-w-0">
-                <p class="text-lg font-black text-[#3D2010] tracking-tight leading-none whitespace-nowrap">CapyStudy</p>
-                <p class="text-[10px] font-bold text-[#A67C52] uppercase tracking-widest mt-0.5 whitespace-nowrap">AI
-                    Study Planner</p>
-            </div>
-        </div>
+        <a href="/" class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md capy-breathe mb-8 block transition-transform hover:scale-105">
+            <img src="~/images/capybaraa photocopy.jpg" alt="CapyStudy Logo" class="w-full h-full object-cover">
+        </a>
 
-        <nav class="flex-1 px-3 space-y-1 mt-5 overflow-y-auto custom-scrollbar">
-            <a asp-controller="Home" asp-action="Index"
-                class="flex items-center gap-3 px-4 py-3.5 @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "sidebar-item-active font-bold text-[#6B4226]" : "text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3]") rounded-r-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:widget-add-bold-duotone" width="24"
-                    class="shrink-0 group-hover:scale-110 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Dashboard</span>
+        <nav class="flex-1 flex flex-col items-center gap-4 w-full">
+            <a asp-controller="Home" asp-action="Index" title="Dashboard"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:widget-add-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
             </a>
-            <a asp-controller="Study" asp-action="Index"
-                class="flex items-center gap-3 px-4 py-3.5 @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Study" ? "sidebar-item-active font-bold text-[#6B4226]" : "text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3]") rounded-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:book-bookmark-bold-duotone" width="24"
-                    class="shrink-0 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Kế hoạch học tập</span>
+            <a asp-controller="Schedule" asp-action="Index" title="Lịch Trình"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
             </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3.5 text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3] rounded-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="24"
-                    class="shrink-0 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Lịch Trình</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3.5 text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3] rounded-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:chart-square-line-duotone" width="24"
-                    class="shrink-0 group-hover:-translate-y-0.5 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Thống Kê</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3.5 text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3] rounded-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:clock-circle-line-duotone" width="24"
-                    class="shrink-0 group-hover:rotate-12 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Tập Trung</span>
-            </a>
-            <a href="#"
-                class="flex items-center gap-3 px-4 py-3.5 text-[#7A5C40] font-semibold hover:text-[#6B4226] hover:bg-[#FDF1E3] rounded-2xl transition-all group whitespace-nowrap">
-                <iconify-icon icon="solar:settings-line-duotone" width="24"
-                    class="shrink-0 group-hover:rotate-12 transition-transform"></iconify-icon>
-                <span class="sidebar-label">Cài Đặt</span>
+            <a asp-controller="Focus" asp-action="Index" title="Tập Trung"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:clock-circle-line-duotone" width="26" class="transition-transform group-hover:rotate-12"></iconify-icon>
             </a>
         </nav>
 
-        <!-- Upgrade Banner -->
-        <div class="p-4 sidebar-label">
-            <div
-                class="bg-gradient-to-br from-[#FDF1E3] to-[#FAE3C6] border border-[#E8C38A] p-5 rounded-3xl relative overflow-hidden group">
-                <div class="relative z-10">
-                    <p class="text-[10px] font-extrabold text-[#A67C52] uppercase tracking-widest mb-1">Nâng cấp</p>
-                    <p class="text-sm font-black text-[#3D2010] mb-3">CapyStudy Pro ✨</p>
-                    <button
-                        class="w-full bg-[#6B4226] text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-[#3D2010] transition-colors shadow-md">
-                        Mở khóa ngay
-                    </button>
+        <!-- Profile at the bottom -->
+        <div class="mt-auto profile-dropdown w-full flex justify-center">
+            <div class="w-12 h-12 rounded-full border-2 border-[#E8C9A0] overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+                <img src="~/images/tải xuống.jpg" alt="Avatar" class="w-full h-full object-cover">
+            </div>
+            <!-- Profile Menu -->
+            <div class="profile-menu">
+                <div class="px-4 py-3 border-b border-[#F3E4D0]">
+                    <p class="text-xs font-black text-black">@(User.Identity != null && User.Identity.IsAuthenticated ? User.Identity.Name ?? "Người dùng" : "Khách viếng thăm")</p>
+                    <p class="text-[10px] text-black font-semibold mt-0.5">@(User.Identity != null && User.Identity.IsAuthenticated ? "Đã đăng nhập" : "Chưa đăng nhập")</p>
                 </div>
-                <iconify-icon icon="solar:crown-minimalistic-bold-duotone"
-                    class="absolute -right-3 -bottom-3 text-[#E8C38A]/60 group-hover:scale-110 transition-transform duration-500"
-                    width="80"></iconify-icon>
+                <a href="#"><iconify-icon icon="solar:user-circle-line-duotone" width="18"></iconify-icon>Hồ sơ</a>
+                <a href="#"><iconify-icon icon="solar:settings-line-duotone" width="18"></iconify-icon>Cài đặt</a>
+                <div class="menu-divider"></div>
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="m-0">
+                        <button type="submit" class="logout-btn w-full text-left"><iconify-icon icon="solar:logout-2-bold-duotone" width="18"></iconify-icon>Đăng xuất</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
+                }
             </div>
         </div>
     </aside>
@@ -303,92 +261,24 @@
         <header
             class="h-20 bg-white/80 backdrop-blur-xl border-b border-[#F0DDC8] flex items-center justify-between px-6 sticky top-0 z-20">
             <div class="flex items-center gap-4">
-                <!-- Sidebar Toggle Button -->
-                <button id="toggle-sidebar-btn"
-                    class="p-2.5 text-[#7A5C40] hover:text-[#3D2010] hover:bg-[#FDF1E3] rounded-xl transition-all border border-transparent hover:border-[#E8C9A0]"
-                    title="Thu gọn / Mở rộng Sidebar">
-                    <iconify-icon icon="solar:sidebar-minimalistic-line-duotone" width="24"></iconify-icon>
-                </button>
-                <div>
-                    <h2 class="text-lg font-black text-[#3D2010] tracking-tight">Chào buổi sáng@(User.Identity != null
-                        && User.Identity.IsAuthenticated ? $", {User.Identity.Name ?? ""}" : "")! 👋</h2>
-                    <p class="text-xs text-[#A67C52] font-medium hidden sm:block mt-0.5">Sẵn sàng để hoàn thành mục tiêu
-                        hôm nay chưa?</p>
-                </div>
-            </div>
-            <div class="flex items-center gap-5">
+    <!-- Removed Header Profile and Toggle since Sidebar is minimal now -->
                 <!-- Search -->
                 <div class="relative hidden md:block group">
                     <input type="text" placeholder="Tìm kiếm..."
-                        class="bg-[#FDF1E3]/80 border border-[#E8C9A0] rounded-full pl-11 pr-5 py-2.5 text-sm w-56 focus:bg-white focus:ring-2 focus:ring-[#F4831F]/30 focus:border-[#F4831F] transition-all outline-none font-semibold placeholder:text-[#C4A882]">
+                        class="bg-[#FDF1E3]/80 border border-[#E8C9A0] rounded-full pl-11 pr-5 py-2.5 text-sm w-56 focus:bg-white focus:ring-2 focus:ring-[#F4831F]/30 focus:border-[#F4831F] transition-all outline-none font-semibold placeholder:text-black">
                     <iconify-icon icon="solar:magnifer-linear" width="18"
-                        class="absolute left-4 top-1/2 -translate-y-1/2 text-[#C4A882] group-focus-within:text-[#F4831F] transition-colors"></iconify-icon>
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-black group-focus-within:text-black transition-colors"></iconify-icon>
                 </div>
                 <!-- Notifications -->
                 <button
-                    class="relative p-2.5 text-[#A67C52] hover:text-[#6B4226] hover:bg-[#FDF1E3] transition-all bg-white rounded-full border border-[#E8C9A0] shadow-sm hover:shadow-md">
-                    <iconify-icon icon="solar:bell-line-duotone" width="22"
-                        style="color: var(--capy-orange);"></iconify-icon>
-                    <span
-                        class="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+                    class="relative p-2.5 text-black hover:text-black hover:bg-[#FDF1E3] transition-all bg-white rounded-full border border-[#E8C9A0] shadow-sm hover:shadow-md">
+                    <div class="relative">
+                        <img src="~/images/tải xuống.jpg" alt="Avatar" class="profile-avatar">
+                        <div
+                            class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#8CA894] border-2 border-white rounded-full">
+                        </div>
+                    </div>
                 </button>
-                <!-- Profile Dropdown -->
-                <div class="profile-dropdown pl-5 border-l border-[#E8C9A0]">
-                    <div class="flex items-center gap-3 cursor-pointer select-none" tabindex="0">
-                        <div class="text-right hidden sm:block">
-                            <p class="text-sm font-extrabold text-[#3D2010]">@(User.Identity != null &&
-                                User.Identity.IsAuthenticated ? User.Identity.Name ?? "Khách" : "Khách")</p>
-                            <p class="text-[10px] text-[#A67C52] font-bold uppercase tracking-wider mt-0.5">Thành viên
-                            </p>
-                        </div>
-                        <div class="relative">
-                            <img src="~/images/tải xuống.jpg" alt="Avatar" class="profile-avatar">
-                            <div
-                                class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full">
-                            </div>
-                        </div>
-                        <iconify-icon icon="solar:alt-arrow-down-linear" width="14"
-                            class="text-[#A67C52] shrink-0"></iconify-icon>
-                    </div>
-                    <div class="profile-menu">
-                        <div class="px-4 py-3 border-b border-[#F3E4D0]">
-                            <p class="text-xs font-black text-[#3D2010]">@(User.Identity != null &&
-                                User.Identity.IsAuthenticated ? User.Identity.Name ?? "Người dùng" : "Khách viếng thăm")
-                            </p>
-                            <p class="text-[10px] text-[#A67C52] font-semibold mt-0.5">@(User.Identity != null &&
-                                User.Identity.IsAuthenticated ? "Đã đăng nhập" : "Chưa đăng nhập")</p>
-                        </div>
-                        <a href="#"><iconify-icon icon="solar:user-circle-line-duotone" width="18"></iconify-icon>Hồ sơ
-                            của tôi</a>
-                        <a href="#"><iconify-icon icon="solar:settings-line-duotone" width="18"></iconify-icon>Cài
-                            đặt</a>
-                        <a href="#"><iconify-icon icon="solar:chart-square-line-duotone" width="18"></iconify-icon>Thống
-                            kê nâng cao</a>
-                        <div class="menu-divider"></div>
-                        @if (User.Identity != null && User.Identity.IsAuthenticated)
-
-
-
-                        {
-                            <form asp-area="Identity" asp-page="/Account/Logout"
-                                asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button type="submit" class="logout-btn"><iconify-icon icon="solar:logout-2-bold-duotone"
-                                        width="18"></iconify-icon>Đăng xuất</button>
-                            </form>
-                        }
-
-
-
-                        else
-
-
-
-                        {
-                            <a asp-area="Identity" asp-page="/Account/Login"><iconify-icon icon="solar:login-2-bold-duotone"
-                                    width="18"></iconify-icon>Đăng nhập / Đăng ký</a>
-                        }
-                    </div>
-                </div>
             </div>
         </header>
 
@@ -402,29 +292,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <!-- Collapsible Sidebar JS -->
-    <script>
-        (function () {
-            const sidebar = document.getElementById('sidebar');
-            const btn = document.getElementById('toggle-sidebar-btn');
-            const STORAGE_KEY = 'capystudy_sidebar_collapsed';
-
-            // Restore state from localStorage
-            if (localStorage.getItem(STORAGE_KEY) === 'true') {
-                sidebar.classList.add('collapsed');
-            }
-
-            btn.addEventListener('click', function () {
-                const isCollapsed = sidebar.classList.toggle('collapsed');
-                localStorage.setItem(STORAGE_KEY, isCollapsed);
-                // Update button icon
-                const icon = btn.querySelector('iconify-icon');
-                icon.setAttribute('icon', isCollapsed
-                    ? 'solar:sidebar-minimalistic-bold-duotone'
-                    : 'solar:sidebar-minimalistic-line-duotone');
-            });
-        })();
-    </script>
+    <!-- Removed Collapsible Sidebar JS -->
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

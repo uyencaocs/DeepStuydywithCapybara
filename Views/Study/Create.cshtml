@@ -4,12 +4,12 @@
 }
 
 <div class="max-w-2xl mx-auto w-full p-8 mt-10 bg-white rounded-[2.5rem] shadow-sm border border-slate-200">
-    <h1 class="text-3xl font-extrabold text-slate-800 mb-6 text-center">Tạo kế hoạch học tập mới</h1>
+    <h1 class="text-3xl font-extrabold text-black mb-6 text-center">Tạo kế hoạch học tập mới</h1>
 
     <form action="@Url.Action("CreatePlan", "Study")" method="post" class="space-y-6">
         <div>
             <label class="text-xs font-extrabold text-capy-primary uppercase tracking-widest ml-4 mb-2 block">Chọn Môn Học</label>
-            <select name="CourseId" required class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-slate-700">
+            <select name="CourseId" required class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-black">
                 @if(Model != null)
                 {
                     foreach (var course in Model)
@@ -22,21 +22,21 @@
 
         <div>
             <label class="text-xs font-extrabold text-capy-primary uppercase tracking-widest ml-4 mb-2 block">Ngày Thi / Hạn Chót (Exam Date)</label>
-            <input type="datetime-local" name="ExamDate" required class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-slate-700">
+            <input type="datetime-local" name="ExamDate" required class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-black">
         </div>
 
         <div>
             <label class="text-xs font-extrabold text-capy-primary uppercase tracking-widest ml-4 mb-2 block">Phòng</label>
-            <input type="text" name="Room" placeholder="Phòng thi hoặc địa điểm học" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-slate-700">
+            <input type="text" name="Room" placeholder="Phòng thi hoặc địa điểm học" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-black">
         </div>
 
         <div>
             <label class="text-xs font-extrabold text-capy-primary uppercase tracking-widest ml-4 mb-2 block">Ghi Chú</label>
-            <textarea name="Note" rows="3" placeholder="Mục tiêu hoặc lưu ý thêm..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-slate-700"></textarea>
+            <textarea name="Note" rows="3" placeholder="Mục tiêu hoặc lưu ý thêm..." class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:ring-2 focus:ring-capy-primary/20 focus:border-capy-primary transition-all font-bold text-black"></textarea>
         </div>
 
         <div class="flex gap-4 pt-4">
-            <a href="@Url.Action("Index")" class="w-1/3 text-center bg-slate-100 hover:bg-slate-200 text-slate-600 font-extrabold py-4 rounded-2xl transition-all">
+            <a href="@Url.Action("Index")" class="w-1/3 text-center bg-slate-100 hover:bg-slate-200 text-black font-extrabold py-4 rounded-2xl transition-all">
                 Hủy
             </a>
             <button type="submit" class="w-2/3 bg-capy-primary text-white font-extrabold py-4 rounded-2xl shadow-lg shadow-capy-primary/30 hover:bg-capy-brownHover transition-all active:scale-[0.98]">
