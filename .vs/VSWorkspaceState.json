@@ -1,16 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bin",
-    "\\bin\\Debug",
-    "\\bin\\Release",
-    "\\wwwroot",
+    "\\Views",
+    "\\wwwroot\\images",
     "\\wwwroot\\js",
     "\\wwwroot\\lib",
     "\\wwwroot\\lib\\bootstrap",
     "\\wwwroot\\lib\\jquery",
     "\\wwwroot\\lib\\jquery-validation"
   ],
-  "SelectedNode": "\\Migrations",
+  "SelectedNode": "\\Views\\index.html",
   "PreviewInSolutionExplorer": false
 }
