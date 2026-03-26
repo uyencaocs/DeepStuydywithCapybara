@@ -217,9 +217,17 @@
                 class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
                 <iconify-icon icon="solar:widget-add-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
             </a>
+            <a asp-controller="Study" asp-action="Index" title="Kế hoạch học tập"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Study" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:clipboard-list-bold-duotone" width="26" class="transition-transform group-hover:rotate-6"></iconify-icon>
+            </a>
             <a asp-controller="Schedule" asp-action="Index" title="Lịch Trình"
                 class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
                 <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+            </a>
+            <a asp-controller="Stats" asp-action="Index" title="Thống Kê"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Stats" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:chart-2-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
             </a>
             <a asp-controller="Focus" asp-action="Index" title="Tập Trung"
                 class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
@@ -243,13 +251,13 @@
                 <div class="menu-divider"></div>
                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
-                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="m-0">
+                    <form asp-controller="Account" asp-action="Logout" class="m-0" method="post">
                         <button type="submit" class="logout-btn w-full text-left"><iconify-icon icon="solar:logout-2-bold-duotone" width="18"></iconify-icon>Đăng xuất</button>
                     </form>
                 }
                 else
                 {
-                    <a asp-area="Identity" asp-page="/Account/Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
+                    <a asp-controller="Account" asp-action="Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
                 }
             </div>
         </div>

@@ -6,9 +6,9 @@ namespace DeeplearningwithCapybara.Models
     public class StudyPlans
     {
         [Key]
-        public int ExamId { get; set; }
+        public int PlanId { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; } = null!;
 
         public int CourseId { get; set; }
 

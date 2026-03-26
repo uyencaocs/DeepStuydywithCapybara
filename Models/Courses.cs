@@ -12,7 +12,7 @@ namespace DeeplearningwithCapybara.Models
 
         public int Credits { get; set; }
 
-        public string Description { get; set; } = null!;
+        public string? Description { get; set; }
 
         public ICollection<Schedules> Schedules { get; set; } = null!;
 

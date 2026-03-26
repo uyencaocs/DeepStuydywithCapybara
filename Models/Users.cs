@@ -1,28 +1,29 @@
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace DeeplearningwithCapybara.Models
 {
-    public class Users
+    // Kế thừa từ IdentityUser để sử dụng hệ thống Auth của Microsoft
+    // Lưu ý: IdentityUser mặc định dùng kiểu Id là string (Guid). 
+    // Nếu bạn muốn dùng int làm khóa chính, hãy dùng: IdentityUser<int>
+    public class Users : IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }
+        // Các thuộc tính sau ĐÃ CÓ SẴN trong IdentityUser, bạn KHÔNG CẦN viết lại:
+        // - Id (Thay thế cho UserId)
+        // - UserName (Thay thế cho Username)
+        // - Email
+        // - PasswordHash
 
+        // Bạn chỉ thêm các thuộc tính mở rộng (Custom Fields) mà Identity không có:
+        
         [Required]
-        public string Username { get; set; } = null!;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public string Email { get; set; } = null!;
+        // Các mối quan hệ (Navigation Properties) giữ nguyên
+        public ICollection<Schedules> Schedules { get; set; } = new List<Schedules>();
 
-        [Required]
-        public string PasswordHash { get; set; } = null!;
+        public ICollection<Exams> Exams { get; set; } = new List<Exams>();
 
-        public string? IdentityUserId { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public ICollection<Schedules> Schedules { get; set; } = null!;
-
-        public ICollection<Exams> Exams { get; set; } = null!;
-
-        public ICollection<StudyPlans> StudyPlans { get; set; } = null!;
+        public ICollection<StudyPlans> StudyPlans { get; set; } = new List<StudyPlans>();
     }
 }
