@@ -1,0 +1,65 @@
+@model DeeplearningwithCapybara.Controllers.RegisterDto
+@{
+    ViewData["Title"] = "Gia Nhập Đội Capy";
+}
+
+<div class="flex items-center justify-center min-h-[calc(100vh-120px)] p-6">
+    <div class="glass-card w-full max-w-md p-8 rounded-[2.5rem] border border-[#E8C9A0] shadow-2xl relative overflow-hidden bg-white/70 backdrop-blur-md">
+        
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 mx-auto mb-4 rounded-full border-4 border-[#FDF1E3] shadow-lg overflow-hidden animate-float">
+                <img src="~/images/capybaraa photocopy.jpg" alt="Capy Study" class="w-full h-full object-cover">
+            </div>
+            <h2 class="text-2xl font-black text-black tracking-tight">Tạo tài khoản mới! 🌿</h2>
+            <p class="text-xs font-bold text-[#8B5E3C] mt-2">Đăng ký để Capy lưu lại quá trình rèn luyện của bạn.</p>
+        </div>
+
+        <form asp-action="Register" method="post" class="space-y-5">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 text-xs font-bold mb-4"></div>
+            
+            <div>
+                <label asp-for="Email" class="block text-[10px] font-black text-black uppercase tracking-widest mb-1.5 ml-1">Email Học Viên</label>
+                <div class="relative">
+                    <iconify-icon icon="solar:user-id-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B4226]" width="20"></iconify-icon>
+                    <input asp-for="Email" placeholder="Nhập email của bạn..." class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-3 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#6B4226]/10 outline-none transition-all shadow-sm">
+                    <span asp-validation-for="Email" class="text-[10px] text-red-500 font-bold mt-1"></span>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Password" class="block text-[10px] font-black text-black uppercase tracking-widest mb-1.5 ml-1">Mật khẩu (Tối thiểu 6 ký tự)</label>
+                <div class="relative">
+                    <iconify-icon icon="solar:key-minimalistic-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B4226]" width="20"></iconify-icon>
+                    <input asp-for="Password" type="password" placeholder="Tạo mật khẩu bảo mật..." class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-3 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#6B4226]/10 outline-none transition-all shadow-sm">
+                    <span asp-validation-for="Password" class="text-[10px] text-red-500 font-bold mt-1"></span>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Role" class="block text-[10px] font-black text-black uppercase tracking-widest mb-1.5 ml-1">Bạn tham gia với tư cách là</label>
+                <div class="relative">
+                    <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#6B4226]" width="20"></iconify-icon>
+                    <select asp-for="Role" asp-items="@Model.RoleList" class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-3 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#6B4226]/10 outline-none transition-all shadow-sm appearance-none">
+                        <option value="" disabled selected>-- Chọn vai trò của bạn --</option>
+                    </select>
+                    <iconify-icon icon="solar:alt-arrow-down-bold-duotone" class="absolute right-4 top-1/2 -translate-y-1/2 text-[#6B4226] pointer-events-none" width="18"></iconify-icon>
+                    <span asp-validation-for="Role" class="text-[10px] text-red-500 font-bold mt-1"></span>
+                </div>
+            </div>
+
+            <div class="bg-[#FDF1E3] p-4 rounded-2xl border border-[#E8C9A0]/50 flex gap-3">
+                <iconify-icon icon="solar:shield-check-bold-duotone" class="text-[#F4831F]" width="24"></iconify-icon>
+                <p class="text-[10px] font-medium text-black leading-tight italic">Mọi dữ liệu học tập của bạn sẽ được bảo mật tuyệt đối bởi đội ngũ CapyStudy.</p>
+            </div>
+
+            <button type="submit" class="w-full bg-[#6B4226] text-white py-3.5 rounded-2xl font-black text-sm shadow-lg shadow-stone-200 hover:bg-black transition-all mt-2 uppercase tracking-wider">
+                XÁC NHẬN THAM GIA
+            </button>
+        </form>
+
+        <div class="mt-8 text-center">
+            <p class="text-xs font-bold text-black">Đã có tài khoản rồi? ✨</p>
+            <a asp-action="Login" class="inline-block mt-2 text-sm font-black text-[#F4831F] hover:text-[#C8620F] transition-colors">QUAY LẠI ĐĂNG NHẬP</a>
+        </div>
+    </div>
+</div>

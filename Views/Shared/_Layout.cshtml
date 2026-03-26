@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CapyStudy AI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DeeplearningwithCapybara.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        :root {
+            --capy-brown: #6B4226;
+            --capy-brown-mid: #8B5E3C;
+            --capy-brown-light: #FDF1E3;
+            --capy-orange: #F4831F;
+            --capy-orange-dark: #C8620F;
+            --capy-bg: #FDF8F3;
+            --sidebar-w: 5rem;
+            /* 80px */
+        }
+
+        * {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        body {
+            background-color: var(--capy-bg);
+            background-image: radial-gradient(#E7D9CC 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: #000000;
+        }
+
+        /* ===== Collapsible Sidebar ===== */
+        #sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            overflow: visible; /* To allow dropdowns */
+        }
+
+        #toggle-sidebar-btn {
+            transition: background 0.2s;
+        }
+
+        /* ===== Sidebar Styling ===== */
+        .sidebar-item-active {
+            background: linear-gradient(90deg, rgba(107, 66, 38, 0.12) 0%, rgba(107, 66, 38, 0) 100%);
+            border-left: 4px solid var(--capy-brown);
+            color: var(--capy-brown) !important;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #D6C4AE;
+            border-radius: 10px;
+        }
+
+        /* ===== Cards ===== */
+        .glass-card {
+            background: rgba(255, 252, 248, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(240, 221, 200, 0.85);
+            box-shadow: 0 8px 24px -8px rgba(107, 66, 38, 0.08);
+        }
+
+        .gradient-card {
+            background: linear-gradient(135deg, var(--capy-brown) 0%, #000000 100%);
+        }
+
+        /* ===== Animations ===== */
+        /* ===== Sidebar hover: white text on capy-brown ===== */
+        #sidebar nav a:not(.sidebar-item-active):hover {
+            background-color: var(--capy-brown) !important;
+            color: #fff !important;
+        }
+
+        #sidebar nav a:not(.sidebar-item-active):hover iconify-icon {
+            color: var(--capy-orange) !important;
+        }
+
+        /* whitespace nowrap prevents text wrapping during collapse */
+        #sidebar {
+            white-space: nowrap;
+        }
+
+        /* Profile Avatar fixed size */
+        .profile-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 3px solid #E8C9A0;
+            box-shadow: 0 4px 10px rgba(107, 66, 38, 0.15);
+            object-fit: cover;
+            display: block;
+        }
+
+        .capy-breathe {
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        @@keyframes breathe {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @@keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-14px);
+            }
+        }
+
+        /* ===== Profile Dropdown ===== */
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            left: calc(100% + 12px);
+            bottom: 0;
+            min-width: 220px;
+            background: #fff;
+            border: 1px solid #F3E4D0;
+            border-radius: 1.25rem;
+            box-shadow: 0 20px 40px -10px rgba(107, 66, 38, 0.2);
+            z-index: 200;
+            overflow: hidden;
+        }
+
+        .profile-dropdown:focus-within .profile-menu,
+        .profile-dropdown:hover .profile-menu {
+            display: block;
+        }
+
+        .profile-menu a,
+        .profile-menu button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #5c3d1e;
+            background: none;
+            border: none;
+            text-decoration: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .profile-menu a:hover,
+        .profile-menu button:hover {
+            background: var(--capy-brown-light);
+        }
+
+        .profile-menu .menu-divider {
+            height: 1px;
+            background: #F3E4D0;
+            margin: 4px 0;
+        }
+
+        .profile-menu .logout-btn {
+            color: #c0392b;
+        }
+
+        .profile-menu .logout-btn:hover {
+            background: #fff5f5;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside id="sidebar" class="bg-white/90 backdrop-blur-xl border-r border-[#F0DDC8] hidden lg:flex flex-col items-center py-6 h-screen sticky top-0 z-50">
+        <!-- Logo -->
+        <a href="/" class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md capy-breathe mb-8 block transition-transform hover:scale-105">
+            <img src="~/images/capybaraa photocopy.jpg" alt="CapyStudy Logo" class="w-full h-full object-cover">
+        </a>
+
+        <nav class="flex-1 flex flex-col items-center gap-4 w-full">
+            <a asp-controller="Home" asp-action="Index" title="Dashboard"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:widget-add-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
+            </a>
+            <a asp-controller="Study" asp-action="Index" title="Kế hoạch học tập"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Study" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:clipboard-list-bold-duotone" width="26" class="transition-transform group-hover:rotate-6"></iconify-icon>
+            </a>
+            <a asp-controller="Schedule" asp-action="Index" title="Lịch Trình"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+            </a>
+            <a asp-controller="Stats" asp-action="Index" title="Thống Kê"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Stats" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:chart-2-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
+            </a>
+            <a asp-controller="Focus" asp-action="Index" title="Tập Trung"
+                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+                <iconify-icon icon="solar:clock-circle-line-duotone" width="26" class="transition-transform group-hover:rotate-12"></iconify-icon>
+            </a>
+        </nav>
+
+        <!-- Profile at the bottom -->
+        <div class="mt-auto profile-dropdown w-full flex justify-center">
+            <div class="w-12 h-12 rounded-full border-2 border-[#E8C9A0] overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow">
+                <img src="~/images/tải xuống.jpg" alt="Avatar" class="w-full h-full object-cover">
+            </div>
+            <!-- Profile Menu -->
+            <div class="profile-menu">
+                <div class="px-4 py-3 border-b border-[#F3E4D0]">
+                    <p class="text-xs font-black text-black">@(User.Identity != null && User.Identity.IsAuthenticated ? User.Identity.Name ?? "Người dùng" : "Khách viếng thăm")</p>
+                    <p class="text-[10px] text-black font-semibold mt-0.5">@(User.Identity != null && User.Identity.IsAuthenticated ? "Đã đăng nhập" : "Chưa đăng nhập")</p>
+                </div>
+                <a href="#"><iconify-icon icon="solar:user-circle-line-duotone" width="18"></iconify-icon>Hồ sơ</a>
+                <a href="#"><iconify-icon icon="solar:settings-line-duotone" width="18"></iconify-icon>Cài đặt</a>
+                <div class="menu-divider"></div>
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <form asp-controller="Account" asp-action="Logout" class="m-0" method="post">
+                        <button type="submit" class="logout-btn w-full text-left"><iconify-icon icon="solar:logout-2-bold-duotone" width="18"></iconify-icon>Đăng xuất</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
+                }
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="flex-1 flex flex-col min-h-screen overflow-x-hidden transition-all duration-300">
+        <!-- Top Header -->
+        <header
+            class="h-20 bg-white/80 backdrop-blur-xl border-b border-[#F0DDC8] flex items-center justify-between px-6 sticky top-0 z-20">
+            <div class="flex items-center gap-4">
+    <!-- Removed Header Profile and Toggle since Sidebar is minimal now -->
+                <!-- Search -->
+                <div class="relative hidden md:block group">
+                    <input type="text" placeholder="Tìm kiếm..."
+                        class="bg-[#FDF1E3]/80 border border-[#E8C9A0] rounded-full pl-11 pr-5 py-2.5 text-sm w-56 focus:bg-white focus:ring-2 focus:ring-[#F4831F]/30 focus:border-[#F4831F] transition-all outline-none font-semibold placeholder:text-black">
+                    <iconify-icon icon="solar:magnifer-linear" width="18"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 text-black group-focus-within:text-black transition-colors"></iconify-icon>
+                </div>
+                <!-- Notifications -->
+                <button
+                    class="relative p-2.5 text-black hover:text-black hover:bg-[#FDF1E3] transition-all bg-white rounded-full border border-[#E8C9A0] shadow-sm hover:shadow-md">
+                    <div class="relative">
+                        <img src="~/images/tải xuống.jpg" alt="Avatar" class="profile-avatar">
+                        <div
+                            class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#8CA894] border-2 border-white rounded-full">
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <!-- Dynamic Body -->
+        <div class="w-full flex-1">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Removed Collapsible Sidebar JS -->
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

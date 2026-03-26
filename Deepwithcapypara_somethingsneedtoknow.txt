@@ -1,0 +1,7 @@
+Deepwithcapypara:
+
+http://localhost:5068/Study (Kế hoạch học tập)
+http://localhost:5068/Schedule (Lịch trình)
+http://localhost:5068/Stats (Thống kê)
+http://localhost:5068/Focus (Pomodoro tập trung)
+http://localhost:5068/Settings (Cài đặt hệ thống)

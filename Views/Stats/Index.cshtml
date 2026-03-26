@@ -1,0 +1,233 @@
+@{
+    ViewData["Title"] = "Thống Kê";
+    var days = new[] { "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "CN" };
+}
+
+<div class="p-6 md:p-8 space-y-8 max-w-[1400px] mx-auto w-full">
+    
+    <!-- Header -->
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-3xl font-black text-black tracking-tight mb-2">Thống Kê Học Tập 📊</h1>
+            <p class="text-black font-medium">Báo cáo chi tiết về năng suất, giờ học và phần thưởng của bạn.</p>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+            <select class="bg-white border border-[#E8C9A0] text-black font-bold py-2 px-4 rounded-xl shadow-sm outline-none focus:ring-2 focus:ring-[#F4831F]/30">
+                <option>Tuần này</option>
+                <option>Tháng này</option>
+                <option>Năm nay</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Quick Stats Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="bg-white p-5 rounded-3xl border border-[#E8C9A0] shadow-sm relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-20 h-20 bg-orange-100 rounded-full blur-2xl group-hover:bg-orange-200 transition-colors"></div>
+            <p class="text-xs font-bold text-black uppercase tracking-wider mb-1">Tổng giờ học</p>
+            <h3 class="text-3xl font-black text-black">42h <span class="text-sm font-bold text-black">+5h</span></h3>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border border-[#E8C9A0] shadow-sm relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-20 h-20 bg-blue-100 rounded-full blur-2xl group-hover:bg-blue-200 transition-colors"></div>
+            <p class="text-xs font-bold text-black uppercase tracking-wider mb-1">Task hoàn thành</p>
+            <h3 class="text-3xl font-black text-black">128 <span class="text-sm font-bold text-black">+12%</span></h3>
+        </div>
+        <div class="bg-white p-5 rounded-3xl border border-[#E8C9A0] shadow-sm relative overflow-hidden group">
+            <div class="absolute -right-4 -top-4 w-20 h-20 bg-red-100 rounded-full blur-2xl group-hover:bg-red-200 transition-colors"></div>
+            <p class="text-xs font-bold text-black uppercase tracking-wider mb-1">Chuỗi ngày (Streak)</p>
+            <h3 class="text-3xl font-black text-black">14 <span class="text-sm font-bold text-black">🔥</span></h3>
+        </div>
+        <div class="bg-gradient-to-br from-[#6B4226] to-[#000000] p-5 rounded-3xl shadow-lg relative overflow-hidden">
+            <div class="absolute right-0 bottom-0 opacity-20">
+                <iconify-icon icon="solar:cup-star-bold-duotone" width="80"></iconify-icon>
+            </div>
+            <p class="text-xs font-bold text-orange-200 uppercase tracking-wider mb-1 relative z-10">Mức độ tập trung</p>
+            <h3 class="text-3xl font-black text-white relative z-10">92%</h3>
+        </div>
+    </div>
+
+    <!-- Main Charts Section -->
+    <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Left: Bar Chart -->
+        <div class="lg:col-span-2 bg-white rounded-3xl p-6 border border-[#E8C9A0] shadow-md flex flex-col">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="text-lg font-black text-black">Giờ học: Kế Hoạch vs Thực Tế</h3>
+                    <p class="text-xs text-black mt-1 font-medium">Bạn đang bám sát mục tiêu rất tốt!</p>
+                </div>
+                <!-- Legend -->
+                <div class="flex items-center gap-4 text-xs font-bold">
+                    <span class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full bg-[#E8C9A0]"></div>Kế hoạch</span>
+                    <span class="flex items-center gap-1.5"><div class="w-3 h-3 rounded-full bg-[#F4831F]"></div>Thực tế</span>
+                </div>
+            </div>
+            <!-- Canvas for Chart.js -->
+            <div class="flex-1 w-full min-h-[300px] relative">
+                <canvas id="hoursChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Right: Badges / Rewards -->
+        <div class="bg-gradient-to-b from-[#FDF1E3] to-white rounded-3xl p-6 border border-[#E8C9A0] shadow-md flex flex-col">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-orange-100 text-black flex items-center justify-center">
+                    <iconify-icon icon="solar:medal-ribbons-star-bold-duotone" width="24"></iconify-icon>
+                </div>
+                <div>
+                    <h3 class="text-lg font-black text-black leading-tight">Xem lại thành tựu</h3>
+                    <p class="text-xs text-black font-semibold mt-0.5">Thành quả nỗ lực của bạn</p>
+                </div>
+            </div>
+
+            <div class="flex-1 space-y-4 relative z-10">
+                <!-- Badge 1 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-orange-100 flex items-center gap-4 hover:scale-105 transition-transform cursor-pointer group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-300 to-orange-500 rounded-full flex items-center justify-center text-white shadow-lg shrink-0 group-hover:rotate-12 transition-transform">
+                        <iconify-icon icon="solar:star-fall-minimalistic-2-bold-duotone" width="24"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-black">Huy Hiệu Quýt Vàng 🍊</h4>
+                        <p class="text-[10px] text-black font-medium leading-tight mt-1">Hoàn thành 100% kế hoạch tuần 3 liên tiếp.</p>
+                    </div>
+                </div>
+
+                <!-- Badge 2 -->
+                <div class="bg-white p-4 rounded-2xl shadow-sm border border-[#E8C9A0] flex items-center gap-4 hover:scale-105 transition-transform cursor-pointer group">
+                     <div class="w-12 h-12 bg-gradient-to-br from-[#6B4226] to-[#000000] rounded-full flex items-center justify-center text-orange-200 shadow-lg shrink-0 group-hover:rotate-12 transition-transform">
+                        <iconify-icon icon="solar:moon-sleep-bold-duotone" width="24"></iconify-icon>
+                    </div>
+                    <div>
+                        <h4 class="font-extrabold text-black">Cú Đêm Chăm Chỉ 🦉</h4>
+                        <p class="text-[10px] text-black font-medium leading-tight mt-1">Học liên tục 3 tiếng sau 10 giờ tối.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Capy Avatar Camera image -->
+            <div class="mt-4 -mb-6 -mx-6 h-32 relative overflow-hidden rounded-b-3xl">
+                <img src="~/images/capybaraa photocopy.jpg" class="w-full h-full object-cover opacity-80 mix-blend-multiply" alt="Capy Photographer">
+                <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Github Style Contribution Heatmap -->
+    <div class="bg-white rounded-3xl p-6 border border-[#E8C9A0] shadow-md">
+        <div class="mb-5">
+            <h3 class="text-lg font-black text-black">Mức độ đóng góp (Năm 2026)</h3>
+            <p class="text-xs text-black mt-1 font-medium">Càng học nhiều, màu cam tương ứng càng đậm.</p>
+        </div>
+        
+        <!-- Heatmap Container -->
+        <!-- For demo, we just draw standard github rects -->
+        <div class="flex overflow-x-auto pb-4 custom-scrollbar">
+            <div class="flex flex-col gap-1 min-w-max">
+                <!-- 52 weeks -->
+                <div class="flex gap-1 items-end text-[9px] font-bold text-black mb-1">
+                    @for(int i=0; i<12; i++){ <div class="w-[52px]">Tháng @(i+1)</div> }
+                </div>
+                <!-- 7 days rows -->
+                @for(int d=0; d<7; d++)
+                {
+                    <div class="flex gap-1 items-center">
+                        <div class="w-8 text-[9px] font-bold text-black">@(d % 2 == 0 ? days[d] : "")</div>
+                        @for(int w=0; w<52; w++)
+                        {
+                            // Randomize colors for demo mock data
+                            var level = new Random((w * 7) + d).Next(0, 5); 
+                            var colorClass = level switch {
+                                0 => "bg-[#FDF1E3]",
+                                1 => "bg-[#F4831F]/30",
+                                2 => "bg-[#F4831F]/60",
+                                3 => "bg-[#F4831F]/90",
+                                _ => "bg-[#C8620F]"
+                            };
+                            <div class="w-3 h-3 rounded-[3px] @colorClass hover:ring-2 hover:ring-[#000000] cursor-pointer transition-all" title="Mức độ @level"></div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+        
+        <div class="flex items-center justify-end gap-2 mt-4 text-xs font-bold text-black">
+            <span>Ít</span>
+            <div class="flex gap-1">
+                <div class="w-3 h-3 rounded-[3px] bg-[#FDF1E3]"></div>
+                <div class="w-3 h-3 rounded-[3px] bg-[#F4831F]/30"></div>
+                <div class="w-3 h-3 rounded-[3px] bg-[#F4831F]/60"></div>
+                <div class="w-3 h-3 rounded-[3px] bg-[#F4831F]/90"></div>
+                <div class="w-3 h-3 rounded-[3px] bg-[#C8620F]"></div>
+            </div>
+            <span>Nhiều</span>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('hoursChart').getContext('2d');
+        
+        // Setup gradients for bars
+        let gradientPlanned = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientPlanned.addColorStop(0, '#E8C9A0');
+        gradientPlanned.addColorStop(1, '#FDF1E3');
+
+        let gradientActual = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientActual.addColorStop(0, '#F4831F');
+        gradientActual.addColorStop(1, '#C8620F');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'CN'],
+                datasets: [
+                    {
+                        label: 'Kế hoạch',
+                        data: [4, 5, 3, 6, 4, 8, 2],
+                        backgroundColor: gradientPlanned,
+                        borderRadius: 6,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.8
+                    },
+                    {
+                        label: 'Thực tế',
+                        data: [3.5, 5, 4, 5.5, 4.5, 9, 3],
+                        backgroundColor: gradientActual,
+                        borderRadius: 6,
+                        barPercentage: 0.6,
+                        categoryPercentage: 0.8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#000000',
+                        titleFont: { family: 'Be Vietnam Pro', size: 13, weight: 'bold' },
+                        bodyFont: { family: 'Be Vietnam Pro', size: 12 },
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: true
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: '#F3E4D0', drawBorder: false },
+                        ticks: { font: { family: 'Be Vietnam Pro', weight: 'bold' }, color: '#000000' }
+                    },
+                    x: {
+                        grid: { display: false, drawBorder: false },
+                        ticks: { font: { family: 'Be Vietnam Pro', weight: 'bold' }, color: '#8B5E3C' }
+                    }
+                }
+            }
+        });
+    </script>
+}

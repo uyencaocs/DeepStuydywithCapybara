@@ -1,0 +1,69 @@
+@model DeeplearningwithCapybara.Models.Courses
+@{
+    ViewData["Title"] = "Thêm Môn Học Mới";
+}
+
+<div class="p-6 md:p-8 max-w-4xl mx-auto w-full flex flex-col min-h-[calc(100vh-120px)] justify-center">
+    <div class="glass-card p-8 md:p-12 rounded-[3rem] border border-[#E8C9A0] shadow-2xl relative overflow-hidden bg-white/70 backdrop-blur-md">
+        
+        <!-- Trang trí Capy -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-[#F4831F]/5 rounded-full blur-3xl"></div>
+        
+        <div class="flex flex-col md:flex-row gap-8 items-center mb-10">
+            <div class="w-24 h-24 shrink-0 rounded-3xl overflow-hidden border-4 border-[#FDF1E3] shadow-lg capy-breathe">
+                <img src="~/images/capybaraa photocopy.jpg" alt="Capy Create" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h2 class="text-3xl font-black text-black tracking-tight">Khai báo môn học mới 📝</h2>
+                <p class="text-sm font-bold text-[#8B5E3C] mt-2">Giúp Capy biết bạn đang học gì để tối ưu lộ trình nhé!</p>
+            </div>
+        </div>
+
+        <form asp-action="Create" method="post" class="space-y-6">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 text-xs font-bold mb-4"></div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label asp-for="Credits" class="block text-[10px] font-black text-black uppercase tracking-widest mb-2 ml-1">Số tín chỉ</label>
+                    <div class="relative">
+                        <iconify-icon icon="solar:star-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#F4831F]" width="22"></iconify-icon>
+                        <input asp-for="Credits" type="number" min="1" max="10" class="w-full bg-[#FDF1E3]/40 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-4 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#F4831F]/10 transition-all outline-none shadow-sm">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="CourseName" class="block text-[10px] font-black text-black uppercase tracking-widest mb-2 ml-1">Tên môn học</label>
+                <div class="relative">
+                    <iconify-icon icon="solar:book-bookmark-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#F4831F]" width="22"></iconify-icon>
+                    <input asp-for="CourseName" placeholder="VD: Nhập môn trí tuệ nhân tạo..." class="w-full bg-[#FDF1E3]/40 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-4 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#F4831F]/10 transition-all outline-none shadow-sm">
+                    <span asp-validation-for="CourseName" class="text-[10px] text-red-500 font-bold mt-1"></span>
+                </div>
+            </div>
+
+            <div>
+                <label asp-for="Description" class="block text-[10px] font-black text-black uppercase tracking-widest mb-2 ml-1">Mô tả ngắn (không bắt buộc)</label>
+                <div class="relative">
+                    <iconify-icon icon="solar:notes-bold-duotone" class="absolute left-4 top-4 text-[#F4831F]" width="22"></iconify-icon>
+                    <textarea asp-for="Description" rows="3" placeholder="Ghi chú về môn học này..." class="w-full bg-[#FDF1E3]/40 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-4 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#F4831F]/10 transition-all outline-none shadow-sm resize-none"></textarea>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 pt-4">
+                <a asp-action="Index" class="flex-1 text-center bg-[#FDF1E3] text-[#6B4226] py-4 rounded-2xl font-black text-sm hover:bg-[#E8C9A0] transition-all uppercase tracking-wider no-underline">
+                    Quay lại
+                </a>
+                <button type="submit" class="flex-[2] bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white py-4 rounded-2xl font-black text-sm shadow-lg shadow-orange-100 hover:scale-[1.02] active:scale-95 transition-all uppercase tracking-wider">
+                    Xác nhận thêm môn học
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Ảnh Capy cổ vũ phía dưới -->
+    <div class="mt-8 flex justify-center opacity-50">
+        <div class="w-32 h-32 animate-float">
+             <img src="~/images/tải xuống (3).jpg" alt="Capy Support" class="w-full h-full object-contain mix-blend-multiply">
+        </div>
+    </div>
+</div>

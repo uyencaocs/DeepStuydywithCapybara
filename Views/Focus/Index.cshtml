@@ -1,0 +1,157 @@
+@{
+    ViewData["Title"] = "Tập Trung Đầu Óc";
+}
+
+<!-- Minimalist Focus Mode -->
+<div class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#FDF8F3] text-black overflow-hidden" id="focus-container">
+
+    <!-- Top Left Escape Button -->
+    <a href="@Url.Action("Index", "Home")" class="absolute top-8 left-8 z-20 flex items-center gap-2 text-black hover:text-black transition-colors group">
+        <div class="w-12 h-12 rounded-2xl bg-[#FDF1E3] flex items-center justify-center border border-[#E8C9A0] group-hover:bg-[#E8C9A0] transition-all shadow-sm">
+            <iconify-icon icon="solar:round-alt-arrow-left-bold-duotone" width="28"></iconify-icon>
+        </div>
+        <span class="font-black text-sm uppercase tracking-widest hidden sm:block">Thoát</span>
+    </a>
+
+    <!-- Center Content -->
+    <div class="relative z-10 flex flex-col items-center justify-center w-full px-6 text-center mt-[-40px]">
+        
+        <!-- Capy Visual -->
+        <div class="relative w-48 h-48 md:w-64 md:h-64 mb-8">
+            <img id="capy-visual" src="~/images/tải xuống (2).jpg" alt="Capy Focus" class="w-full h-full object-cover rounded-[2.5rem] border-4 border-[#F0DDC8] shadow-xl capy-breathe transition-all duration-500">
+            <!-- Capy Message / Sign -->
+            <div id="capy-sign" class="absolute -top-8 -right-16 bg-white px-5 py-4 rounded-2xl rounded-bl-none border-2 border-[#E8C9A0] shadow-xl opacity-0 transform translate-y-4 scale-95 transition-all duration-500 min-w-[160px] z-30">
+                <p class="font-black text-sm text-black" id="capy-msg">Giải lao thôi! 💤</p>
+                <button id="btn-rest-start" class="mt-3 w-full bg-[#FDF1E3] text-black text-xs font-bold py-2 rounded-xl border border-[#E8C9A0] hover:bg-[#E8C9A0] active:scale-95 transition-all">Nghỉ 5 phút</button>
+            </div>
+        </div>
+
+        <!-- Task Info (Optional / Minimal) -->
+        <div class="mb-2">
+            <p class="text-black font-black text-xs uppercase tracking-[0.3em] mb-1">Mục tiêu hiện tại</p>
+            <h1 class="text-2xl font-black">Code xong Dashboard UI</h1>
+        </div>
+
+        <!-- Huge Pomodoro Timer -->
+        <div id="countdown-text" class="text-[6rem] md:text-[10rem] font-black tracking-tighter tabular-nums leading-none text-black drop-shadow-sm mb-12" style="font-variant-numeric: tabular-nums;">
+            25:00
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center gap-6">
+            <button id="btn-reset" class="w-16 h-16 rounded-2xl bg-[#FDF1E3] border border-[#E8C9A0] flex items-center justify-center text-black hover:bg-[#E8C9A0] hover:text-black transition-all group shadow-sm active:scale-95">
+                <iconify-icon icon="solar:restart-bold-duotone" width="32" class="group-hover:-rotate-90 transition-transform"></iconify-icon>
+            </button>
+            
+            <button id="btn-play-pause" class="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-[#F4831F] to-[#C8620F] flex items-center justify-center text-white shadow-xl shadow-orange-200 hover:scale-105 active:scale-95 transition-all outline-none">
+                <iconify-icon id="icon-play" icon="solar:play-bold" width="48" class="ml-2"></iconify-icon>
+                <iconify-icon id="icon-pause" icon="solar:pause-bold" width="48" class="hidden"></iconify-icon>
+            </button>
+
+            <button id="btn-skip" class="w-16 h-16 rounded-2xl bg-[#FDF1E3] border border-[#E8C9A0] flex items-center justify-center text-black hover:bg-red-50 hover:text-black hover:border-red-200 transition-all group shadow-sm active:scale-95">
+                <iconify-icon icon="solar:stop-bold-duotone" width="32" class="group-hover:scale-110 transition-transform"></iconify-icon>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        // DOM Elements
+        const countdownText = document.getElementById('countdown-text');
+        const btnPlayPause = document.getElementById('btn-play-pause');
+        const iconPlay = document.getElementById('icon-play');
+        const iconPause = document.getElementById('icon-pause');
+        const btnReset = document.getElementById('btn-reset');
+        const btnSkip = document.getElementById('btn-skip');
+        
+        const capyVisual = document.getElementById('capy-visual');
+        const capySign = document.getElementById('capy-sign');
+        const btnRestStart = document.getElementById('btn-rest-start');
+
+        // Layout Override (Hide sidebar and header)
+        document.body.classList.add('overflow-hidden');
+        if (document.getElementById('sidebar')) document.getElementById('sidebar').style.display = 'none';
+        if (document.querySelector('header')) document.querySelector('header').style.display = 'none';
+
+        // Timer Vars
+        const WORK_TIME = 25 * 60; // 25 mins
+        let timeLeft = WORK_TIME;
+        let isRunning = false;
+        let timerId = null;
+
+        function updateDisplay() {
+            const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const s = (timeLeft % 60).toString().padStart(2, '0');
+            countdownText.textContent = `${m}:${s}`;
+        }
+
+        function finishWork() {
+            clearInterval(timerId);
+            isRunning = false;
+            iconPlay.classList.remove('hidden');
+            iconPause.classList.add('hidden');
+            
+            // Switch Capy to resting mode
+            capyVisual.src = '/images/tải xuống.jpg';
+            capyVisual.classList.remove('capy-breathe');
+            
+            // Show Capy Sign
+            capySign.classList.remove('opacity-0', 'translate-y-4', 'scale-95', 'pointer-events-none');
+            capySign.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+        }
+
+        function toggleTimer() {
+            if (isRunning) {
+                clearInterval(timerId);
+                iconPlay.classList.remove('hidden');
+                iconPause.classList.add('hidden');
+                capyVisual.classList.remove('capy-breathe');
+            } else {
+                timerId = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateDisplay();
+                    } else {
+                        finishWork();
+                    }
+                }, 1000);
+                iconPlay.classList.add('hidden');
+                iconPause.classList.remove('hidden');
+                capyVisual.classList.add('capy-breathe');
+                
+                // Keep image as original and hide sign if working
+                capyVisual.src = '/images/tải xuống (2).jpg';
+                capySign.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+                capySign.classList.add('opacity-0', 'translate-y-4', 'scale-95', 'pointer-events-none');
+            }
+            isRunning = !isRunning;
+        }
+
+        btnPlayPause.addEventListener('click', toggleTimer);
+
+        btnReset.addEventListener('click', () => {
+            clearInterval(timerId);
+            isRunning = false;
+            timeLeft = WORK_TIME;
+            iconPlay.classList.remove('hidden');
+            iconPause.classList.add('hidden');
+            capyVisual.classList.add('capy-breathe');
+            capyVisual.src = '/images/tải xuống (2).jpg';
+            capySign.classList.remove('opacity-100', 'translate-y-0', 'scale-100');
+            capySign.classList.add('opacity-0', 'translate-y-4', 'scale-95', 'pointer-events-none');
+            updateDisplay();
+        });
+
+        btnSkip.addEventListener('click', finishWork);
+
+        btnRestStart.addEventListener('click', () => {
+            // Reset to short break or back to work for now
+            btnReset.click();
+        });
+
+        // Initialize display
+        updateDisplay();
+    </script>
+}

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Views",
+    "\\wwwroot\\images",
+    "\\wwwroot\\js",
+    "\\wwwroot\\lib",
+    "\\wwwroot\\lib\\bootstrap",
+    "\\wwwroot\\lib\\jquery",
+    "\\wwwroot\\lib\\jquery-validation"
+  ],
+  "SelectedNode": "\\Views\\index.html",
+  "PreviewInSolutionExplorer": false
+}

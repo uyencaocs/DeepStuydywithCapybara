@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chế độ Tập Trung | CapyStudy AI</title>
+    <link rel="stylesheet" href="style-tailwind.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .bg-meditate {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.9)), url('images/meditate-capy.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .timer-glow {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 60px rgba(139, 92, 246, 0.4);
+        }
+
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 0.15;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-capy-zen text-white min-h-screen flex flex-col items-center justify-center p-6 bg-meditate overflow-hidden">
+
+    <!-- Header Actions -->
+    <div class="absolute top-8 left-8 right-8 flex justify-between items-start z-50">
+        <a href="dashboard.html" class="flex items-center gap-3 text-white/50 hover:text-white transition-colors group">
+            <div
+                class="w-12 h-12 rounded-2xl glass-btn flex items-center justify-center group-hover:bg-white/20 transition-all group-hover:-translate-x-1">
+                <iconify-icon icon="solar:alt-arrow-left-line-duotone" width="24"></iconify-icon>
+            </div>
+            <span class="font-extrabold text-sm tracking-[0.2em] uppercase hidden sm:block">Thoát</span>
+        </a>
+
+        <div class="flex gap-4">
+            <button
+                class="w-12 h-12 rounded-2xl glass-btn flex items-center justify-center hover:bg-white/20 hover:text-white transition-all text-white/60 group">
+                <iconify-icon icon="solar:music-library-2-line-duotone" width="24"
+                    class="group-hover:scale-110 transition-transform"></iconify-icon>
+            </button>
+            <button
+                class="w-12 h-12 rounded-2xl glass-btn flex items-center justify-center hover:bg-white/20 hover:text-white transition-all text-white/60 group">
+                <iconify-icon icon="solar:volume-loud-line-duotone" width="24"
+                    class="group-hover:scale-110 transition-transform"></iconify-icon>
+            </button>
+            <button
+                class="w-12 h-12 rounded-2xl glass-btn flex items-center justify-center hover:bg-white/20 hover:text-white transition-all text-white/60 group">
+                <iconify-icon icon="solar:settings-line-duotone" width="24"
+                    class="group-hover:scale-110 transition-transform"></iconify-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 flex flex-col items-center text-center max-w-2xl w-full">
+
+        <!-- Task Info -->
+        <div
+            class="glass-panel px-8 py-5 rounded-[2rem] mb-12 flex flex-col items-center gap-2 transform transition-transform hover:scale-105 cursor-default">
+            <div
+                class="flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-[10px] font-extrabold tracking-widest uppercase mb-1">
+                <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                Đang thực hiện
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Deep Learning - Module 3</h1>
+            <p class="text-white/60 font-medium text-sm">Chương 10: Tối ưu hóa Neural Networks</p>
+        </div>
+
+        <!-- Timer Circle -->
+        <div class="relative mb-16">
+            <!-- Pulsing Background rings -->
+            <div class="absolute inset-0 bg-white rounded-full animate-pulse-slow blur-[80px]"></div>
+            <div class="absolute inset-8 bg-purple-500 rounded-full animate-pulse-slow blur-[50px] opacity-30"
+                style="animation-delay: 2s;"></div>
+
+            <div
+                class="relative w-80 h-80 sm:w-96 sm:h-96 flex flex-col items-center justify-center z-10 glass-panel rounded-full shadow-[inset_0_0_50px_rgba(255,255,255,0.05)] border-2 border-white/10">
+                <div id="timer"
+                    class="timer-glow text-7xl sm:text-[7rem] font-light tracking-tighter mb-4 text-white leading-none">
+                    25:00</div>
+                <div
+                    class="flex items-center gap-2 text-purple-200 text-xs font-extrabold uppercase tracking-[0.3em] bg-purple-500/10 px-4 py-1.5 rounded-full border border-purple-500/20">
+                    <iconify-icon icon="solar:flame-bold-duotone" class="text-amber-400 text-lg"></iconify-icon>
+                    Hết mình nào!
+                </div>
+            </div>
+
+            <!-- Progress Ring (SVG) -->
+            <svg
+                class="absolute inset-0 w-full h-full -rotate-90 pointer-events-none drop-shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                <circle cx="50%" cy="50%" r="48%" stroke="rgba(255,255,255,0.02)" stroke-width="4" fill="none" />
+                <circle id="progressRing" cx="50%" cy="50%" r="48%" stroke="url(#gradient)" stroke-width="6" fill="none"
+                    stroke-dasharray="1000" stroke-dashoffset="0" stroke-linecap="round"
+                    class="transition-all duration-1000" />
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#A78BFA" />
+                        <stop offset="100%" stop-color="#C084FC" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Timer Controls -->
+        <div class="flex items-center gap-6 sm:gap-10">
+            <button
+                class="w-16 h-16 sm:w-20 sm:h-20 rounded-[2rem] glass-btn flex items-center justify-center hover:bg-white/20 transition-all hover:scale-105 active:scale-95 group shadow-lg">
+                <iconify-icon icon="solar:restart-bold-duotone" width="32"
+                    class="text-white/80 group-hover:rotate-180 transition-transform duration-500"></iconify-icon>
+            </button>
+            <button id="playBtn"
+                class="w-24 h-24 sm:w-28 sm:h-28 rounded-[3rem] bg-white text-slate-900 flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.4)] group">
+                <iconify-icon icon="solar:play-bold" width="48"
+                    class="translate-x-1 group-hover:scale-110 transition-transform"></iconify-icon>
+            </button>
+            <button
+                class="w-16 h-16 sm:w-20 sm:h-20 rounded-[2rem] glass-btn flex items-center justify-center hover:bg-white/20 transition-all hover:scale-105 active:scale-95 group shadow-lg">
+                <iconify-icon icon="solar:stop-bold-duotone" width="32" class="text-white/80"></iconify-icon>
+            </button>
+        </div>
+
+        <!-- Quote -->
+        <p class="mt-16 text-white/50 italic text-sm font-medium tracking-wide max-w-sm px-4">
+            "Không quan trọng bạn đi chậm thế nào, miễn là bạn không dừng lại."
+        </p>
+    </div>
+
+    <!-- Ambient Particles mocked -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-[20%] left-[15%] w-2 h-2 bg-white/30 rounded-full blur-[2px] animate-pulse"></div>
+        <div class="absolute top-[70%] left-[25%] w-3 h-3 bg-purple-400/20 rounded-full blur-[4px] animate-pulse"
+            style="animation-duration: 4s;"></div>
+        <div class="absolute top-[30%] right-[20%] w-1.5 h-1.5 bg-white/40 rounded-full blur-[1px] animate-pulse"
+            style="animation-duration: 3s;"></div>
+        <div class="absolute top-[80%] right-[30%] w-4 h-4 bg-indigo-400/20 rounded-full blur-[5px] animate-pulse"
+            style="animation-duration: 5s;"></div>
+    </div>
+
+    <script>
+        let isPlaying = false;
+        let totalSeconds = 25 * 60;
+        let seconds = totalSeconds;
+        let timerInterval;
+
+        const playBtn = document.getElementById('playBtn');
+        const timerDisplay = document.getElementById('timer');
+        const progressRing = document.getElementById('progressRing');
+
+        // Setup SVG Dash Array for smooth animation
+        const radius = progressRing.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        progressRing.style.strokeDasharray = `${circumference} ${circumference}`;
+
+        function updateDisplay() {
+            const m = Math.floor(seconds / 60);
+            const s = seconds % 60;
+            timerDisplay.innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+
+            const offset = circumference - (seconds / totalSeconds) * circumference;
+            progressRing.style.strokeDashoffset = offset;
+        }
+
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+
+            if (isPlaying) {
+                playBtn.innerHTML = '<iconify-icon icon="solar:pause-bold" width="48" class="group-hover:scale-110 transition-transform"></iconify-icon>';
+                // Add pulsing shadow when active
+                playBtn.classList.add('shadow-[0_0_60px_rgba(139,92,246,0.6)]');
+                playBtn.classList.remove('shadow-[0_0_40px_rgba(255,255,255,0.4)]');
+
+                timerInterval = setInterval(() => {
+                    seconds--;
+                    updateDisplay();
+
+                    if (seconds <= 0) {
+                        clearInterval(timerInterval);
+                        isPlaying = false;
+                        playBtn.innerHTML = '<iconify-icon icon="solar:play-bold" width="48" class="translate-x-1 group-hover:scale-110 transition-transform"></iconify-icon>';
+                        playBtn.classList.remove('shadow-[0_0_60px_rgba(139,92,246,0.6)]');
+                        playBtn.classList.add('shadow-[0_0_40px_rgba(255,255,255,0.4)]');
+                        setTimeout(() => alert("Tuyệt vời! Thời gian tập trung đã hết \uD83C\uDF89"), 500);
+                        seconds = totalSeconds;
+                        updateDisplay();
+                    }
+                }, 1000);
+            } else {
+                playBtn.innerHTML = '<iconify-icon icon="solar:play-bold" width="48" class="translate-x-1 group-hover:scale-110 transition-transform"></iconify-icon>';
+                playBtn.classList.remove('shadow-[0_0_60px_rgba(139,92,246,0.6)]');
+                playBtn.classList.add('shadow-[0_0_40px_rgba(255,255,255,0.4)]');
+                clearInterval(timerInterval);
+            }
+        });
+
+        // Initialize display
+        updateDisplay();
+    </script>
+</body>
+
+</html>
