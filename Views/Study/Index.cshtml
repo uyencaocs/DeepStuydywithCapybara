@@ -1,159 +1,143 @@
+@model IEnumerable<DeeplearningwithCapybara.Models.Courses>
+@using DeeplearningwithCapybara.Models
 @{
     ViewData["Title"] = "Kế Hoạch Học Tập";
 }
 
 <div class="p-6 md:p-8 max-w-7xl mx-auto w-full relative min-h-full flex flex-col">
-    <!-- Header -->
-    <div class="mb-8">
-        <h1 class="text-3xl font-black text-black tracking-tight mb-2">Kế Hoạch Học Tập 📚</h1>
-        <p class="text-black font-medium">Theo dõi tiến độ và lộ trình các môn học của bạn trong học kỳ này.</p>
-    </div>
-
-    <!-- Main Grid: 2 Columns (Left: Subject List, Right: Details) -->
-    <div class="grid lg:grid-cols-3 gap-8 flex-1 relative z-10">
-        
-        <!-- LEFT COLUMN: Subject Cards -->
-        <div class="lg:col-span-2 space-y-6">
-            <div class="flex items-center justify-between mb-2">
-                <h3 class="text-lg font-extrabold text-black">Môn học hiện tại (4)</h3>
-                <button class="text-sm font-bold text-black hover:text-black transition-colors flex items-center gap-1">
-                    <iconify-icon icon="solar:add-circle-bold-duotone" width="18"></iconify-icon> Thêm môn mới
-                </button>
-            </div>
-
-            <!-- Card 1: Deep Learning -->
-            <div class="glass-card p-6 rounded-3xl cursor-pointer hover:-translate-y-1 transition-transform border border-l-4 border-l-[#F4831F] border-transparent hover:border-[#E8C9A0] shadow-sm hover:shadow-md group bg-white/60">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="px-2.5 py-1 text-[10px] font-extrabold text-black bg-red-100 rounded-lg uppercase tracking-wider">Ưu tiên cao</span>
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-black bg-[#FDF1E3] rounded-lg">3 Tín chỉ</span>
-                        </div>
-                        <h4 class="text-xl font-black text-black group-hover:text-black transition-colors">Deep Learning</h4>
-                        <p class="text-xs text-black font-semibold mt-1">Giảng viên: TS. Nguyễn Văn A</p>
-                    </div>
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#F4831F] to-[#C8620F] flex items-center justify-center text-white shadow-lg shadow-orange-200">
-                        <iconify-icon icon="solar:cpu-bold-duotone" width="24"></iconify-icon>
-                    </div>
-                </div>
-                <!-- Progress -->
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-2">
-                        <span class="text-black">Tiến độ</span>
-                        <span class="text-black">65%</span>
-                    </div>
-                    <div class="w-full bg-[#FDF1E3] rounded-full h-2.5 overflow-hidden">
-                        <div class="bg-gradient-to-r from-[#F4831F] to-[#C8620F] h-2.5 rounded-full" style="width: 65%"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2: Web Development -->
-            <div class="glass-card p-6 rounded-3xl cursor-pointer hover:-translate-y-1 transition-transform border border-l-4 border-l-[#4CAF50] border-transparent hover:border-[#E8C9A0] shadow-sm hover:shadow-md group bg-white/60">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="px-2.5 py-1 text-[10px] font-extrabold text-black bg-blue-100 rounded-lg uppercase tracking-wider">Bình thường</span>
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-black bg-[#FDF1E3] rounded-lg">4 Tín chỉ</span>
-                        </div>
-                        <h4 class="text-xl font-black text-black group-hover:text-black transition-colors">Lập trình Web Nâng cao</h4>
-                    </div>
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#4CAF50] to-[#2E7D32] flex items-center justify-center text-white shadow-lg shadow-green-200">
-                        <iconify-icon icon="solar:code-bold-duotone" width="24"></iconify-icon>
-                    </div>
-                </div>
-                <!-- Progress -->
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-2">
-                        <span class="text-black">Tiến độ</span>
-                        <span class="text-black">40%</span>
-                    </div>
-                    <div class="w-full bg-[#FDF1E3] rounded-full h-2.5 overflow-hidden">
-                        <div class="bg-gradient-to-r from-[#4CAF50] to-[#2E7D32] h-2.5 rounded-full" style="width: 40%"></div>
-                    </div>
-                </div>
-            </div>
-
-             <!-- Card 3: Database -->
-             <div class="glass-card p-6 rounded-3xl cursor-pointer hover:-translate-y-1 transition-transform border border-l-4 border-l-[#3B82F6] border-transparent hover:border-[#E8C9A0] shadow-sm hover:shadow-md group bg-white/60">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="px-2.5 py-1 text-[10px] font-bold text-black bg-[#FDF1E3] rounded-lg">3 Tín chỉ</span>
-                        </div>
-                        <h4 class="text-xl font-black text-black group-hover:text-black transition-colors">Hệ quản trị CSDL</h4>
-                    </div>
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] flex items-center justify-center text-white shadow-lg shadow-blue-200">
-                        <iconify-icon icon="solar:database-bold-duotone" width="24"></iconify-icon>
-                    </div>
-                </div>
-                <!-- Progress -->
-                <div>
-                    <div class="flex justify-between text-xs font-bold mb-2">
-                        <span class="text-black">Tiến độ</span>
-                        <span class="text-black">90%</span>
-                    </div>
-                    <div class="w-full bg-[#FDF1E3] rounded-full h-2.5 overflow-hidden">
-                        <div class="bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] h-2.5 rounded-full" style="width: 90%"></div>
-                    </div>
-                </div>
-            </div>
+    <div id="study-index-content" class="transition-all duration-500 flex-1 flex flex-col">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-black text-black tracking-tight mb-2">Kế Hoạch Học Tập 📚</h1>
+            <p class="text-black font-medium">Theo dõi tiến độ và lộ trình các môn học của bạn trong học kỳ này.</p>
         </div>
 
-        <!-- RIGHT COLUMN: Detail Panel (AI Generated Route) -->
-        <div class="relative h-full text-black">
-            <div class="bg-[#FDF1E3]/80 backdrop-blur-md rounded-3xl p-6 border border-[#E8C9A0] shadow-xl sticky top-28">
-                
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 rounded-xl bg-[#6B4226] flex items-center justify-center text-white">
-                        <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="20"></iconify-icon>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-black leading-tight">Lộ trình AI: Deep Learning</h3>
-                        <p class="text-[10px] font-bold text-black uppercase tracking-widest mt-0.5">Tạo tự động</p>
-                    </div>
+        <!-- Main Grid: 2 Columns (Left: Subject List, Right: Details) -->
+        <!-- Main Grid: 2 Columns (Left: Subject List, Right: Details) -->
+        <div class="grid lg:grid-cols-3 gap-8 flex-1 relative z-10">
+            
+            <!-- LEFT COLUMN: Subject Cards -->
+            <div class="lg:col-span-2 space-y-6">
+
+
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-extrabold text-black">Môn học hiện tại (@Model.Count())</h3>
+                    <a asp-action="Create" class="bg-[#6B4226] text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-black transition-all flex items-center gap-2 shadow-md no-underline">
+                        <iconify-icon icon="solar:add-square-bold-duotone" width="18"></iconify-icon> Thêm môn mới
+                    </a>
                 </div>
 
-                <!-- Timeline Syllabus -->
-                <div class="space-y-5 px-2">
-                    <!-- Complete -->
-                    <div class="relative border-l-2 border-[#F4831F] pl-5 pb-1">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F4831F] border-[3px] border-[#FDF1E3]"></span>
-                        <h5 class="text-sm font-black text-black line-through opacity-60">Chương 1: Mạng Nơ-ron Cơ bản</h5>
-                        <p class="text-xs text-black mt-1 line-through opacity-60">Perceptron, Feedforward, Backpropagation.</p>
+                <!-- Danh sách môn học để lập kế hoạch -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                    @if (ViewBag.AllCourses != null)
+                    {
+                        @foreach (var course in (IEnumerable<DeeplearningwithCapybara.Models.Courses>)ViewBag.AllCourses)
+                        {
+                            <div class="bg-white/90 p-4 rounded-2xl border border-[#E8C9A0] flex justify-between items-center hover:shadow-lg transition-all border-b-4 border-b-[#E8C9A0] hover:border-b-[#F4831F] group">
+                                <div class="flex-1 mr-4">
+                                    <h5 class="text-sm font-black text-black group-hover:text-[#F4831F] transition-colors truncate">@course.CourseName</h5>
+                                    <p class="text-[10px] font-bold text-[#8B5E3C]">@course.Credits Tín chỉ</p>
+                                </div>
+                                <button class="bg-[#F4831F] text-white px-4 py-2 rounded-xl text-[10px] font-black hover:bg-black transition-all uppercase tracking-wider shadow-sm shrink-0 flex items-center gap-1">
+                                    <iconify-icon icon="solar:calendar-add-bold" width="14"></iconify-icon> Lập kế hoạch
+                                </button>
+                            </div>
+                        }
+                    }
+                    else
+                {
+                    <div class="bg-white/40 p-12 rounded-[2.5rem] border-2 border-dashed border-[#E8C9A0] text-center">
+                        <div class="w-24 h-24 mx-auto mb-4 opacity-50">
+                            <img src="~/images/capybaraa photocopy.jpg" class="rounded-full">
+                        </div>
+                        <p class="text-black font-black">Chưa có môn học nào được lập kế hoạch.</p>
+                        <p class="text-xs text-[#8B5E3C] mt-1 font-bold">Hãy thêm môn mới để Capy giúp bạn quản lý nhé! 🐾</p>
                     </div>
+                }
+                </div>
+
+            <!-- RIGHT COLUMN: Detail Panel (AI Generated Route) -->
+            <div class="relative h-full text-black">
+                <div class="bg-[#FDF1E3]/80 backdrop-blur-md rounded-3xl p-6 border border-[#E8C9A0] shadow-xl sticky top-28">
                     
-                    <!-- Current -->
-                    <div class="relative border-l-2 border-[#E8C9A0] pl-5 pb-1">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-[4px] border-[#F4831F] ring-4 ring-[#F4831F]/20 animate-pulse"></span>
-                        <div class="bg-white p-3 rounded-2xl shadow-sm border border-[#E8C9A0] -mt-2">
-                            <h5 class="text-sm font-black text-black">Chương 2: Convolutional Neural Networks (CNN)</h5>
-                            <p class="text-xs text-black mt-1 mb-2">Filters, Pooling, ResNet architecture.</p>
-                            <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-black rounded-md text-[10px] font-bold border border-red-100">
-                                <iconify-icon icon="solar:danger-circle-bold-duotone"></iconify-icon> Deadline bài tập: Tối nay
-                            </span>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-[#6B4226] flex items-center justify-center text-white">
+                            <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="20"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-black leading-tight">Lộ trình AI: Deep Learning</h3>
+                            <p class="text-[10px] font-bold text-black uppercase tracking-widest mt-0.5">Tạo tự động</p>
                         </div>
                     </div>
 
-                    <!-- Upcoming -->
-                    <div class="relative border-l-2 border-transparent pl-5">
-                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#E8C9A0] border-[3px] border-[#FDF1E3]"></span>
-                        <h5 class="text-sm font-bold text-black">Chương 3: Recurrent Neural Networks (RNN)</h5>
-                        <p class="text-xs text-black mt-1">LSTMs, GRUs, Text generation.</p>
-                    </div>
-                </div>
+                    <!-- Timeline Syllabus -->
+                    <div class="space-y-5 px-2">
+                        <!-- Complete -->
+                        <div class="relative border-l-2 border-[#F4831F] pl-5 pb-1">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#F4831F] border-[3px] border-[#FDF1E3]"></span>
+                            <h5 class="text-sm font-black text-black line-through opacity-60">Chương 1: Mạng Nơ-ron Cơ bản</h5>
+                            <p class="text-xs text-black mt-1 line-through opacity-60">Perceptron, Feedforward, Backpropagation.</p>
+                        </div>
+                        
+                        <!-- Current -->
+                        <div class="relative border-l-2 border-[#E8C9A0] pl-5 pb-1">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-[4px] border-[#F4831F] ring-4 ring-[#F4831F]/20 animate-pulse"></span>
+                            <div class="bg-white p-3 rounded-2xl shadow-sm border border-[#E8C9A0] -mt-2">
+                                <h5 class="text-sm font-black text-black">Chương 2: Convolutional Neural Networks (CNN)</h5>
+                                <p class="text-xs text-black mt-1 mb-2">Filters, Pooling, ResNet architecture.</p>
+                                <span class="inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-black rounded-md text-[10px] font-bold border border-red-100">
+                                    <iconify-icon icon="solar:danger-circle-bold-duotone"></iconify-icon> Deadline bài tập: Tối nay
+                                </span>
+                            </div>
+                        </div>
 
-                <div class="mt-8 pt-5 border-t border-[#E8C9A0]/50 text-center">
-                    <button class="w-full bg-[#6B4226] text-white py-3 rounded-xl text-sm font-extrabold hover:bg-[#000000] transition-colors shadow-md">
-                        Cập nhật tiến độ
-                    </button>
+                        <!-- Upcoming -->
+                        <div class="relative border-l-2 border-transparent pl-5">
+                            <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#E8C9A0] border-[3px] border-[#FDF1E3]"></span>
+                            <h5 class="text-sm font-bold text-black">Chương 3: Recurrent Neural Networks (RNN)</h5>
+                            <p class="text-xs text-black mt-1">LSTMs, GRUs, Text generation.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-5 border-t border-[#E8C9A0]/50 text-center">
+                        <button class="w-full bg-[#6B4226] text-white py-3 rounded-xl text-sm font-extrabold hover:bg-[#000000] transition-colors shadow-md">
+                            Cập nhật tiến độ
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Capy Corner Image - Standing by the bottom right -->
-    <div class="fixed bottom-0 right-10 w-48 md:w-64 pointer-events-none z-0 opacity-80 mix-blend-multiply">
-        <img src="~/images/tải xuống (3).jpg" alt="Capy Notebook" class="w-full h-full object-contain object-bottom drop-shadow-xl">
+        <!-- Capy Corner Image - Standing by the bottom right -->
+        <div class="fixed bottom-0 right-10 w-48 md:w-64 pointer-events-none z-0 opacity-80 mix-blend-multiply">
+            <img src="~/images/tải xuống (3).jpg" alt="Capy Notebook" class="w-full h-full object-contain object-bottom drop-shadow-xl">
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            const content = document.getElementById('study-index-content');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                content.classList.add('blur-md', 'scale-[0.98]', 'opacity-60', 'pointer-events-none');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                content.classList.remove('blur-md', 'scale-[0.98]', 'opacity-60', 'pointer-events-none');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function showPlan(name, credits) {
+            const title = document.getElementById('ai-plan-title');
+            title.innerText = "Lộ trình AI: " + name;
+            // Hiệu ứng highlight cột phải
+            const rightCol = title.closest('.glass-card') || title.parentElement.parentElement.parentElement;
+            rightCol.classList.add('ring-4', 'ring-[#F4831F]/20');
+            setTimeout(() => rightCol.classList.remove('ring-4', 'ring-[#F4831F]/20'), 1000);
+        }
+    </script>
+}
