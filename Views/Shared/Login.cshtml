@@ -1,20 +1,20 @@
 @model DeeplearningwithCapybara.Controllers.LoginDto
 @{
     ViewData["Title"] = "Đăng Nhập";
+    // KHÔNG dùng Layout = null ở đây để hệ thống tự động ghép thanh menu bên trái vào
 }
 
-<div class="flex items-center justify-center min-h-[calc(100vh-120px)] p-6">
-    <div class="glass-card w-full max-w-md p-8 rounded-[2.5rem] border border-[#E8C9A0] shadow-2xl relative overflow-hidden bg-white/70 backdrop-blur-md">
-        
-        <!-- Trang trí Capy -->
+<div class="p-6 w-full flex justify-center mt-4 mb-4">
+    <div class="glass-card w-full max-w-md p-8 rounded-[2.5rem] relative overflow-hidden">
+
         <div class="absolute -top-6 -right-6 w-24 h-24 bg-[#F4831F]/10 rounded-full blur-2xl"></div>
-        
-        <div class="text-center mb-8 relative z-10">
-            <div class="w-20 h-20 mx-auto mb-4 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md capy-breathe">
+
+        <div class="text-center mb-6 relative z-10">
+            <div class="w-16 h-16 mx-auto mb-3 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md capy-breathe">
                 <img src="~/images/tải xuống (3).jpg" alt="Capy Welcome" class="w-full h-full object-cover">
             </div>
             <h2 class="text-2xl font-black text-black tracking-tight">Chào mừng trở lại! 🐾</h2>
-            <p class="text-xs font-bold text-[#8B5E3C] mt-2">Đăng nhập để gặp gỡ Capy và tiếp tục học tập nhé.</p>
+            <p class="text-xs font-bold text-[#8B5E3C] mt-1">Đăng nhập để gặp gỡ Capy và tiếp tục học tập nhé.</p>
         </div>
 
         @if (TempData["SuccessMessage"] != null)
@@ -25,15 +25,16 @@
             </div>
         }
 
-        <form asp-action="Login" method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]" class="space-y-5 relative z-10">
+        <form asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]" class="space-y-4 relative z-10">
             <div asp-validation-summary="ModelOnly" class="text-red-500 text-xs font-bold mb-4"></div>
-            
+
             <div>
                 <label asp-for="Email" class="block text-[10px] font-black text-black uppercase tracking-widest mb-1.5 ml-1">Email Học Viên</label>
                 <div class="relative">
                     <iconify-icon icon="solar:letter-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#F4831F]" width="20"></iconify-icon>
                     <input asp-for="Email" id="username" name="Email" autocomplete="username" required placeholder="example@ftu.edu.vn" class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-3 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#F4831F]/10 outline-none transition-all shadow-sm">
                 </div>
+                <span asp-validation-for="Email" class="text-red-500 text-[10px] ml-1 mt-1 block"></span>
             </div>
 
             <div>
@@ -42,6 +43,7 @@
                     <iconify-icon icon="solar:lock-password-bold-duotone" class="absolute left-4 top-1/2 -translate-y-1/2 text-[#F4831F]" width="20"></iconify-icon>
                     <input asp-for="Password" id="password" name="Password" type="password" autocomplete="current-password" required placeholder="••••••••" class="w-full bg-[#FDF1E3]/50 border border-[#E8C9A0] rounded-2xl pl-12 pr-4 py-3 text-sm font-bold focus:bg-white focus:ring-4 focus:ring-[#F4831F]/10 outline-none transition-all shadow-sm">
                 </div>
+                <span asp-validation-for="Password" class="text-red-500 text-[10px] ml-1 mt-1 block"></span>
             </div>
 
             <div class="flex items-center justify-between px-1">
@@ -52,23 +54,18 @@
                 <a asp-page="/Account/ForgotPassword" asp-area="Identity" class="text-xs font-bold text-[#F4831F] hover:underline">Quên mật khẩu?</a>
             </div>
 
-            <button type="submit" class="w-full bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white py-3.5 rounded-2xl font-black text-sm shadow-lg shadow-orange-200 hover:scale-[1.02] active:scale-95 transition-all mt-2">
+            <button type="submit" class="w-full bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white py-3.5 rounded-2xl font-black text-sm shadow-lg shadow-orange-200 hover:scale-[1.02] active:scale-95 transition-all mt-4">
                 ĐĂNG NHẬP NGAY
             </button>
-
-            <div class="text-center">
-                <a asp-page="/Account/ResendEmailConfirmation" asp-area="Identity" class="text-[10px] font-bold text-[#8B5E3C] hover:text-[#F4831F]">Chưa nhận được email xác nhận?</a>
-            </div>
         </form>
 
-        <!-- Đăng nhập bằng bên thứ ba -->
         <div class="mt-6 relative z-10">
             <div class="relative flex py-3 items-center">
                 <div class="flex-grow border-t border-[#E8C9A0]/50"></div>
                 <span class="flex-shrink mx-4 text-[10px] font-black text-[#8B5E3C] uppercase tracking-tighter">Hoặc đăng nhập với</span>
                 <div class="flex-grow border-t border-[#E8C9A0]/50"></div>
             </div>
-            
+
             <div class="grid grid-cols-2 gap-3 mt-2">
                 <button class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm">
                     <iconify-icon icon="logos:google-icon" width="18"></iconify-icon>
@@ -81,9 +78,9 @@
             </div>
         </div>
 
-        <div class="mt-8 text-center border-t border-[#E8C9A0]/30 pt-6">
+        <div class="mt-6 text-center border-t border-[#E8C9A0]/30 pt-6">
             <p class="text-xs font-bold text-black">Chưa có tài khoản chiến binh? 🛡️</p>
-            <a asp-action="Register" class="inline-block mt-2 text-sm font-black text-[#6B4226] hover:text-[#F4831F] transition-colors">TẠO TÀI KHOẢN MỚI</a>
+            <a asp-controller="Account" asp-action="Register" class="inline-block mt-2 text-sm font-black text-[#6B4226] hover:text-[#F4831F] transition-colors">TẠO TÀI KHOẢN MỚI</a>
         </div>
     </div>
 </div>

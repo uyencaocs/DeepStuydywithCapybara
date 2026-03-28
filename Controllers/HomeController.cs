@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Linq;
+using System.Security.Claims;
 using DeeplearningwithCapybara.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +14,6 @@ namespace DeeplearningwithCapybara.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             var hour = DateTime.Now.Hour;
@@ -46,11 +47,33 @@ namespace DeeplearningwithCapybara.Controllers
             return View();
         }
 
+        public IActionResult Profile()
+        {
+            // Populate view data from the current user (claims when available)
+            var displayName = User?.Identity != null && User.Identity.IsAuthenticated
+                ? User.Identity.Name
+                : "User";
+
+            var email = User?.Claims?.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value ?? "";
+            var joinDate = User?.Claims?.FirstOrDefault(c => c.Type == "JoinDate")?.Value ?? "";
+            var major = User?.Claims?.FirstOrDefault(c => c.Type == "Major")?.Value ?? "";
+
+            ViewBag.DisplayName = displayName;
+            ViewBag.Email = email;
+            ViewBag.JoinDate = joinDate;
+            ViewBag.Major = major;
+
+            // MVC will look for Views/Home/Profile.cshtml then Views/Shared/Profile.cshtml
+            return View("Profile");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
 
     }
 }
