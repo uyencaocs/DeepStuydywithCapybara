@@ -1,223 +1,120 @@
 @{
-    ViewData["Title"] = "Trang Chủ";
-}<div class="p-6 md:p-8 space-y-6 max-w-5xl mx-auto w-full custom-scrollbar">
-
-    @{
-        var hour = DateTime.Now.Hour;
-        var isMorning = hour >= 5 && hour < 18;
-        var bannerBgClass = isMorning 
-            ? "bg-gradient-to-r from-[#FFF9F0] to-[#FEF1E0] border border-[#F0DDC8]"
-            : "bg-gradient-to-r from-[#000000] to-[#2B160C] border border-[#000000]";
-        var bannerTextClass = "text-black"; 
-        var bannerSubtextClass = "text-black/80"; 
-        var iconColorClass = "text-black";
-        var inputBgClass = "bg-white/70 border border-[#E8C9A0] focus-within:bg-white shadow-sm";
-    }
-
-   <div class="p-6 md:p-8 space-y-6 max-w-5xl mx-auto w-full custom-scrollbar">
-
-    <div class="@bannerBgClass rounded-[2rem] p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-700">
-        <div class="flex-1 space-y-2 w-full">
-            <h3 class="text-3xl sm:text-4xl font-black tracking-tight leading-snug @bannerTextClass">
-                @ViewBag.Greeting
-            </h3>
-                <h3 class="text-3xl sm:text-4xl font-black tracking-tight leading-snug !text-black">
-                    @ViewBag.Greeting
-                </h3>
-                <p class="text-sm font-bold !text-black opacity-90">
-                    @ViewBag.SubGreeting Hãy để AI gợi ý lộ trình ngay.
-                </p>
-
-            <div class="flex flex-col sm:flex-row gap-3 mt-6 w-full">
-                <div class="flex-1 flex items-center gap-2 @inputBgClass rounded-xl p-2 transition-all shadow-sm">
-                    <iconify-icon icon="solar:book-bookmark-bold-duotone" width="18" class="@iconColorClass ml-2 shrink-0"></iconify-icon>
-                    <input type="text" id="ai-input" placeholder="Nhập tên môn học (vd: Deep Learning)"
-                           class="flex-1 bg-transparent @bannerTextClass outline-none font-bold text-sm py-1.5 min-w-0 placeholder:text-black/30">
-                </div>
-                
-                <div class="flex items-center gap-2 @inputBgClass rounded-xl p-2 transition-all shrink-0 shadow-sm">
-                    <iconify-icon icon="solar:calendar-date-bold-duotone" width="18" class="@iconColorClass ml-2 shrink-0"></iconify-icon>
-                    <input type="date" id="ai-deadline" 
-                           class="bg-transparent @bannerTextClass outline-none font-bold text-sm py-1.5 min-w-[120px]">
-                    <button type="button" id="btn-ai-analyse"
-                            class="bg-[#3D2010] text-white px-5 py-2 rounded-xl flex items-center gap-2 font-black text-sm hover:bg-[#6B4226] transition-all shadow-md active:scale-95">
-                        <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="16"></iconify-icon>
-                        Hỏi AI
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="w-24 h-24 sm:w-32 sm:h-32 shrink-0 rounded-[2rem] overflow-hidden border-4 border-white shadow-xl capy-breathe hidden md:block">
-            <img src="~/images/tải xuống (2).jpg" alt="Capy Avatar" class="w-full h-full object-cover">
-        </div>
-    </div>
-    <!-- Middle: 3 Thẻ Stats Tối Giản -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div class="bg-white p-5 rounded-2xl border border-[#E8C9A0] flex items-center gap-4 hover:border-[#F4831F] hover:shadow-sm transition-all group">
-            <div class="text-black bg-[#FFF9F0] p-3.5 rounded-xl group-hover:scale-110 transition-transform">
-                <iconify-icon icon="solar:fire-bold-duotone" width="26"></iconify-icon>
-            </div>
-            <div>
-                <p class="text-[10px] text-black font-black uppercase tracking-widest">Lửa học tập</p>
-                <p class="text-2xl font-black text-black">12 <span class="text-sm font-semibold">Ngày</span></p>
-            </div>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-[#E8C9A0] flex items-center gap-4 hover:border-[#F4831F] hover:shadow-sm transition-all group">
-            <div class="text-black bg-[#FDF1E3] p-3.5 rounded-xl group-hover:scale-110 transition-transform">
-                <iconify-icon icon="solar:graph-up-bold-duotone" width="26"></iconify-icon>
-            </div>
-            <div>
-                <p class="text-[10px] text-black font-black uppercase tracking-widest">Tiến độ tuần</p>
-                <p class="text-2xl font-black text-black">85%</p>
-            </div>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-[#E8C9A0] flex items-center gap-4 hover:border-[#F4831F] hover:shadow-sm transition-all group">
-            <div class="text-black bg-[#FEF3C7] p-3.5 rounded-xl group-hover:scale-110 transition-transform">
-                <iconify-icon icon="solar:checklist-minimalistic-bold-duotone" width="26"></iconify-icon>
-            </div>
-            <div>
-                <p class="text-[10px] text-black font-black uppercase tracking-widest">Hoàn thành</p>
-                <p class="text-2xl font-black text-black">14 <span class="text-sm font-semibold">Task</span></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bottom: Today's Task List -->
-    <div class="bg-white rounded-2xl border border-[#F0DDC8] overflow-hidden shadow-sm">
-        <div class="px-6 py-5 border-b border-[#F0DDC8] bg-[#FDF8F3] flex justify-between items-center">
-            <h4 class="text-[15px] font-black text-black flex items-center gap-2">
-                <iconify-icon icon="solar:list-check-bold-duotone" width="18" class="text-black"></iconify-icon>
-                Danh sách Task (Hôm nay)
-            </h4>
-            <span class="text-[10px] font-black bg-[#FDF1E3] text-black px-2.5 py-1 uppercase tracking-widest rounded-lg">3 Cần làm</span>
-        </div>
-
-        <div class="p-3 bg-white" id="task-list">
-            <!-- Task 1 -->
-            <label class="flex items-center gap-4 p-3 rounded-xl hover:bg-[#FDF1E3]/50 transition-colors cursor-pointer group border border-transparent hover:border-[#F0DDC8]">
-                <div class="relative flex items-center justify-center">
-                    <input type="checkbox" class="task-checkbox appearance-none w-5 h-5 border-2 border-[#C4A882] rounded checked:bg-[#000000] checked:border-[#000000] transition-all cursor-pointer">
-                    <iconify-icon icon="solar:check-read-bold" width="14" class="text-white absolute opacity-0 pointer-events-none transition-opacity"></iconify-icon>
-                </div>
-                <span class="font-bold text-sm text-black task-text transition-all leading-tight">Hoàn thành Slide Chương 4 Deep Learning</span>
-                <span class="ml-auto flex items-center gap-1 text-[11px] font-bold text-black">
-                    <iconify-icon icon="solar:clock-circle-linear" width="12"></iconify-icon>
-                    10:00
-                </span>
-            </label>
-            
-            <!-- Task 2 -->
-            <label class="flex items-center gap-4 p-3 rounded-xl hover:bg-[#FDF1E3]/50 transition-colors cursor-pointer group border border-transparent hover:border-[#F0DDC8]">
-                <div class="relative flex items-center justify-center">
-                    <input type="checkbox" class="task-checkbox appearance-none w-5 h-5 border-2 border-[#C4A882] rounded checked:bg-[#000000] checked:border-[#000000] transition-all cursor-pointer">
-                    <iconify-icon icon="solar:check-read-bold" width="14" class="text-white absolute opacity-0 pointer-events-none transition-opacity"></iconify-icon>
-                </div>
-                <span class="font-bold text-sm text-black task-text transition-all leading-tight">Luyện nghe TOEIC Part 3 (30 phút)</span>
-                <span class="ml-auto flex items-center gap-1 text-[11px] font-bold text-black">
-                    <iconify-icon icon="solar:clock-circle-linear" width="12"></iconify-icon>
-                    14:30
-                </span>
-            </label>
-
-            <!-- Task 3 -->
-            <label class="flex items-center gap-4 p-3 rounded-xl hover:bg-[#FDF1E3]/50 transition-colors cursor-pointer group border border-transparent hover:border-[#F0DDC8]">
-                <div class="relative flex items-center justify-center">
-                    <input type="checkbox" class="task-checkbox appearance-none w-5 h-5 border-2 border-[#C4A882] rounded checked:bg-[#000000] checked:border-[#000000] transition-all cursor-pointer">
-                    <iconify-icon icon="solar:check-read-bold" width="14" class="text-white absolute opacity-0 pointer-events-none transition-opacity"></iconify-icon>
-                </div>
-                <span class="font-bold text-sm text-black task-text transition-all leading-tight">Code xong Dashboard UI</span>
-                <span class="ml-auto flex items-center gap-1 text-[11px] font-bold text-black">
-                    <iconify-icon icon="solar:clock-circle-linear" width="12"></iconify-icon>
-                    16:00
-                </span>
-            </label>
-        </div>
-    </div>
-</div>
-
-@section Scripts {
-    <script>
-        document.getElementById('btn-ai-analyse')?.addEventListener('click', async function () {
-            const inputField = document.getElementById('ai-input');
-            const deadlineField = document.getElementById('ai-deadline');
-            const rawSubject = inputField.value.trim();
-            const rawDeadline = deadlineField.value;
-            const btn = this;
-
-            if (!rawSubject) {
-                inputField.focus();
-                return;
-            }
-            if (!rawDeadline) {
-                deadlineField.focus();
-                return;
-            }
-
-            // 1. Tách chuỗi logic 
-            let subject = rawSubject;
-            let deadline = new Date(rawDeadline).toISOString();
-
-            // 2. Loading state
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<iconify-icon icon="solar:refresh-circle-bold-duotone" class="animate-spin" width="18"></iconify-icon> Đang tính...';
-            btn.disabled = true;
-
-            try {
-                // 3. Gọi API của Siri
-                const response = await fetch('/api/ai/schedule-advise', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ subject: subject, deadline: deadline })
-                });
-
-                if (!response.ok) throw new Error('Hệ thống AI bận');
-
-                const data = await response.json();
-
-                // 4. Update UI linh hoạt
-                document.getElementById('display-subject').innerText = `Lộ trình môn: ${data.subject}`;
-                document.getElementById('res-deadline').innerText = `Deadline: ${data.deadline}`;
-                document.getElementById('res-days').innerText = `Còn ${data.daysLeft} ngày`;
-                document.getElementById('res-tip').innerText = data.tip;
-
-                const grid = document.getElementById('res-slots-grid');
-                grid.innerHTML = data.suggestions.map(s => `
-                        <div class="bg-white border border-[#E8C9A0] p-4 rounded-3xl hover:shadow-lg transition-all group cursor-pointer">
-                            <p class="text-[10px] font-black text-black uppercase mb-1">${s.day}</p>
-                            <p class="font-bold text-black text-sm">${s.time}</p>
-                            <div class="mt-3 flex items-center justify-between">
-                                <span class="text-[9px] bg-[#FDF1E3] px-2 py-1 rounded-lg font-black text-black">${s.duration}</span>
-                                <iconify-icon icon="solar:calendar-add-bold-duotone" class="text-black opacity-30 group-hover:opacity-100 transition-opacity" width="20"></iconify-icon>
-                            </div>
-                        </div>
-                    `).join('');
-
-                // 5. Show Panel
-                const container = document.getElementById('ai-result-container');
-                container.classList.remove('hidden');
-                container.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            } catch (err) {
-                alert("Siri ơi: " + err.message);
-            } finally {
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            }
-        });
-
-        // Task List Checkbox Toggle Effect
-        document.querySelectorAll('.task-checkbox').forEach(box => {
-            box.addEventListener('change', function() {
-                const textEl = this.nextElementSibling.nextElementSibling; // the span with text
-                if(this.checked) {
-                    textEl.classList.add('line-through', 'opacity-50', 'text-black');
-                    this.closest('label').classList.add('opacity-70');
-                } else {
-                    textEl.classList.remove('line-through', 'opacity-50', 'text-black');
-                    this.closest('label').classList.remove('opacity-70');
-                }
-            });
-        });
-    </script>
+    ViewData["Title"] = "Trang Chủ - CapyStudy AI";
 }
+
+<div class="bg-[#FDF8F3] min-h-screen p-6 md:p-8 space-y-6">
+
+    <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 md:p-8 shadow-sm">
+        <h1 class="text-2xl md:text-3xl font-black text-black mb-2 flex items-center gap-2">
+            Chào buổi chiều! ☕
+        </h1>
+        <p class="text-sm font-semibold text-black/60 mb-6">Đừng quên nghỉ ngơi một chút giữa các task nhé. Hãy để AI gợi ý lộ trình ngay.</p>
+
+        <div class="flex flex-col md:flex-row gap-4 mb-4">
+            <div class="flex-1 flex items-center border border-[#E8C9A0] rounded-xl px-4 py-3 bg-white">
+                <iconify-icon icon="solar:server-square-outline" width="20" class="text-[#8B5E3C] mr-3"></iconify-icon>
+                <input type="text" placeholder="Nhập tên môn học (vd: Deep Learning)"
+                       class="w-full bg-transparent outline-none text-sm font-semibold text-black placeholder:text-black/40" />
+            </div>
+
+            <div class="flex items-center border border-[#E8C9A0] rounded-xl px-4 py-3 bg-white">
+                <iconify-icon icon="solar:calendar-linear" width="20" class="text-black/60 mr-2"></iconify-icon>
+                <input type="text" placeholder="dd/mm/yyyy" class="bg-transparent outline-none text-sm font-semibold text-black w-28" />
+            </div>
+
+            <button class="bg-[#3D2010] text-white rounded-xl px-6 py-3 text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#6B4226] transition-colors">
+                <iconify-icon icon="solar:pen-new-square-linear" width="18"></iconify-icon> Hỏi AI
+            </button>
+
+            <div class="hidden md:flex ml-2 items-center justify-center">
+                <img src="~/images/capybaraa photocopy.jpg" alt="Capy" class="w-12 h-12 object-cover rounded-full border border-[#E8C9A0] shadow-sm" />
+            </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+            <button class="border border-[#E8C9A0] rounded-xl px-4 py-2 flex items-center gap-2 text-sm font-bold text-black bg-white hover:bg-[#FDF1E3] transition-colors">
+                <iconify-icon icon="solar:star-fall-minimalistic-bold-duotone" width="18" class="text-orange-500"></iconify-icon> Mức độ <iconify-icon icon="solar:alt-arrow-down-linear" class="text-black/50"></iconify-icon>
+            </button>
+            <button class="border border-[#E8C9A0] rounded-xl px-4 py-2 flex items-center gap-2 text-sm font-bold text-black bg-white hover:bg-[#FDF1E3] transition-colors">
+                <iconify-icon icon="solar:clock-circle-bold-duotone" width="18" class="text-sky-500"></iconify-icon> Thời lượng <iconify-icon icon="solar:alt-arrow-down-linear" class="text-black/50"></iconify-icon>
+            </button>
+            <button class="border border-[#E8C9A0] rounded-xl px-4 py-2 flex items-center gap-2 text-sm font-bold text-black bg-white hover:bg-[#FDF1E3] transition-colors">
+                <iconify-icon icon="solar:target-bold-duotone" width="18" class="text-emerald-500"></iconify-icon> Mục tiêu <iconify-icon icon="solar:alt-arrow-down-linear" class="text-black/50"></iconify-icon>
+            </button>
+            <button class="border border-[#E8C9A0] rounded-xl px-4 py-2 flex items-center gap-2 text-sm font-bold text-black bg-white hover:bg-[#FDF1E3] transition-colors">
+                <iconify-icon icon="solar:pen-bold-duotone" width="18" class="text-indigo-500"></iconify-icon> Cách học <iconify-icon icon="solar:alt-arrow-down-linear" class="text-black/50"></iconify-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 flex flex-col justify-between h-36 shadow-sm">
+            <div class="flex justify-between items-start">
+                <span class="text-xs font-black uppercase text-black">Lửa học tập</span>
+                <div class="bg-orange-50 p-2 rounded-xl"><iconify-icon icon="solar:fire-bold-duotone" class="text-orange-500 text-xl"></iconify-icon></div>
+            </div>
+            <div class="text-2xl font-black text-black mt-4">12 <span class="text-sm font-bold">Ngày</span></div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 flex flex-col justify-between h-36 shadow-sm">
+            <div class="flex justify-between items-start">
+                <span class="text-xs font-black uppercase text-black">Tiến độ tuần</span>
+                <div class="bg-sky-50 p-2 rounded-xl"><iconify-icon icon="solar:chart-square-bold-duotone" class="text-sky-500 text-xl"></iconify-icon></div>
+            </div>
+            <div class="text-2xl font-black text-black mt-4">85 <span class="text-sm font-bold">%</span></div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 flex flex-col justify-between h-36 shadow-sm">
+            <div class="flex justify-between items-start">
+                <span class="text-xs font-black uppercase text-black">Hoàn thành</span>
+                <div class="bg-emerald-50 p-2 rounded-xl"><iconify-icon icon="solar:check-circle-bold-duotone" class="text-emerald-500 text-xl"></iconify-icon></div>
+            </div>
+            <div class="text-2xl font-black text-black mt-4">14 <span class="text-sm font-bold">Task</span></div>
+        </div>
+
+        <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 flex flex-col justify-between h-36 shadow-sm">
+            <div class="flex justify-between items-start">
+                <span class="text-xs font-black uppercase text-black">Giờ tập trung</span>
+                <div class="bg-indigo-50 p-2 rounded-xl"><iconify-icon icon="solar:clock-circle-bold-duotone" class="text-indigo-500 text-xl"></iconify-icon></div>
+            </div>
+            <div class="text-2xl font-black text-black mt-4">128 <span class="text-sm font-bold">Giờ</span></div>
+        </div>
+
+    </div>
+
+    <div class="bg-white rounded-[2rem] border border-[#E8C9A0] p-6 md:p-8 shadow-sm">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg font-black text-black flex items-center gap-2">
+                <iconify-icon icon="solar:list-check-bold-duotone" class="text-[#8B5E3C]"></iconify-icon>
+                Danh sách Task (Hôm nay)
+            </h2>
+            <span class="bg-[#FFF4E5] text-[#F4831F] text-[10px] font-black uppercase px-4 py-2 rounded-xl border border-[#F4831F]/20">3 Cần làm</span>
+        </div>
+
+        <div class="space-y-4">
+
+            <div class="border border-[#E8C9A0] rounded-2xl p-4 flex justify-between items-center hover:bg-[#FDF8F3] transition-colors">
+                <div class="flex items-center gap-4">
+                    <div class="w-1.5 h-1.5 bg-[#8B5E3C] rounded-full"></div>
+                    <span class="text-sm font-bold text-black">Hoàn thành Slide Chương 4 Deep Learning</span>
+                </div>
+                <div class="flex items-center gap-1 bg-orange-50 text-orange-600 px-3 py-1.5 rounded-lg text-xs font-bold border border-orange-100">
+                    <iconify-icon icon="solar:clock-circle-linear"></iconify-icon> 10:00
+                </div>
+            </div>
+
+            <div class="border border-[#E8C9A0] rounded-2xl p-4 flex justify-between items-center hover:bg-[#FDF8F3] transition-colors">
+                <div class="flex items-center gap-4">
+                    <div class="w-1.5 h-1.5 bg-[#8B5E3C] rounded-full"></div>
+                    <span class="text-sm font-bold text-black">Luyện nghe TOEIC Part 3 (30 phút)</span>
+                </div>
+                <div class="flex items-center gap-1 bg-[#FDF1E3] text-[#8B5E3C] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#E8C9A0]/50">
+                    <iconify-icon icon="solar:clock-circle-linear"></iconify-icon> 14:30
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

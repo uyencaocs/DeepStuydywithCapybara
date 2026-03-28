@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập & Đăng ký | CapyStudy AI</title>
-    <link rel="stylesheet" href="style-tailwind.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
         body {
@@ -26,11 +25,7 @@
 
         .bg-gradient-mesh {
             background-color: #f3e8e2;
-            background-image:
-                radial-gradient(at 10% 20%, rgba(139, 92, 246, 0.2) 0px, transparent 50%),
-                radial-gradient(at 90% 10%, rgba(245, 158, 11, 0.2) 0px, transparent 50%),
-                radial-gradient(at 30% 80%, rgba(253, 224, 71, 0.2) 0px, transparent 50%),
-                radial-gradient(at 80% 90%, rgba(139, 92, 246, 0.3) 0px, transparent 50%);
+            background-image: radial-gradient(at 10% 20%, rgba(139, 92, 246, 0.2) 0px, transparent 50%), radial-gradient(at 90% 10%, rgba(245, 158, 11, 0.2) 0px, transparent 50%), radial-gradient(at 30% 80%, rgba(253, 224, 71, 0.2) 0px, transparent 50%), radial-gradient(at 80% 90%, rgba(139, 92, 246, 0.3) 0px, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -39,14 +34,12 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
 
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-15px);
             }
         }
 
@@ -57,7 +50,7 @@
         @keyframes fadeInView {
             from {
                 opacity: 0;
-                transform: translateY(20px) scale(0.98);
+                transform: translateY(15px) scale(0.98);
             }
 
             to {
@@ -70,182 +63,140 @@
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
             border-color: #8B5CF6;
         }
+
+        .auth-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 
-<body class="bg-gradient-mesh text-slate-800 min-h-screen flex items-center justify-center p-4 sm:p-8">
-    <div
-        class="w-full max-w-6xl glass-panel rounded-[2.5rem] overflow-hidden flex flex-col md:flex-row min-h-[750px] relative z-10">
+<body class="bg-gradient-mesh text-slate-800 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl glass-panel rounded-[2rem] overflow-hidden flex flex-col md:flex-row min-h-[550px] relative z-10 shadow-2xl">
 
-        <!-- Left Side: Visuals & Branding -->
-        <div
-            class="hidden md:flex flex-col items-center justify-center w-1/2 p-12 relative overflow-hidden bg-white/30 border-r border-white/50">
+        <div class="hidden md:flex flex-col items-center justify-center w-1/2 p-8 relative overflow-hidden bg-white/30 border-r border-white/50">
             <div class="relative z-10 text-center flex flex-col items-center">
-                <div
-                    class="animate-float mb-10 w-80 h-80 rounded-full bg-gradient-to-tr from-purple-200 to-amber-100 flex items-center justify-center shadow-2xl p-4">
-                    <img src="images/auth-capy.png" alt="Capybara Welcome"
-                        class="w-full h-full object-cover rounded-full mix-blend-multiply">
+                <div class="animate-float mb-6 w-56 h-56 rounded-full bg-gradient-to-tr from-purple-200 to-amber-100 flex items-center justify-center shadow-xl p-4">
+                    <img src="images/auth-capy.png" alt="Capybara Welcome" class="auth-image rounded-full mix-blend-multiply">
                 </div>
-                <h2 class="text-4xl font-extrabold text-slate-800 mb-4 tracking-tight">Học Tập Thật "Chill"</h2>
-                <p class="text-lg text-slate-600 font-medium max-w-sm mx-auto leading-relaxed">
-                    Đồng hành cùng Capybara AI lên kế hoạch và chinh phục mọi deadline một cách thảnh thơi nhất.
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2 tracking-tight">Học Tập Thật "Chill"</h2>
+                <p class="text-base text-slate-600 font-medium max-w-xs mx-auto leading-relaxed">
+                    Đồng hành cùng Capybara AI lên kế hoạch và thảnh thơi chạy deadline.
                 </p>
             </div>
 
-            <div
-                class="absolute bottom-8 left-12 flex items-center gap-2 text-capy-primary font-bold bg-white/50 px-4 py-2 rounded-full border border-white/60">
-                <iconify-icon icon="solar:stars-minimalistic-bold-duotone" width="20"></iconify-icon>
-                <span class="text-sm">Hiệu suất X2 với AI phân tích</span>
+            <div class="absolute bottom-6 left-8 flex items-center gap-2 text-indigo-600 font-bold bg-white/60 px-4 py-2 rounded-full border border-white/60 shadow-sm">
+                <iconify-icon icon="solar:stars-minimalistic-bold-duotone" width="18"></iconify-icon>
+                <span class="text-xs">Hiệu suất X2 với AI</span>
             </div>
         </div>
 
-        <!-- Right Side: Forms -->
-        <div class="w-full md:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center relative bg-white/60">
+        <div class="w-full md:w-1/2 p-8 sm:p-10 flex flex-col justify-center relative bg-white/60">
 
-            <div class="md:hidden absolute top-8 left-8">
-                <div class="flex items-center gap-2 text-capy-primary font-extrabold text-2xl">
-                    <iconify-icon icon="solar:leaf-line-duotone" width="28"></iconify-icon>
+            <div class="md:hidden absolute top-6 left-6">
+                <div class="flex items-center gap-2 text-indigo-600 font-extrabold text-xl">
+                    <iconify-icon icon="solar:leaf-line-duotone" width="24"></iconify-icon>
                     CapyStudy
                 </div>
             </div>
 
-            <div class="hidden md:flex absolute top-8 right-12 items-center gap-2 text-slate-400 text-sm font-semibold">
-                <iconify-icon icon="solar:shield-check-bold-duotone" width="18" class="text-green-500"></iconify-icon>
-                Bảo mật an toàn 100%
-            </div>
-
-            <!-- Login View -->
-            <div id="login-view" class="fade-in-view space-y-8 w-full max-w-sm mx-auto">
-                <div class="text-left mt-10 md:mt-0">
-                    <h1 class="text-4xl font-extrabold mb-3 text-slate-900 tracking-tight">Chào mừng! 👋</h1>
-                    <p class="text-slate-500 font-medium">Đăng nhập để tiếp tục hành trình của bạn.</p>
+            <div id="login-view" class="fade-in-view space-y-6 w-full max-w-sm mx-auto mt-8 md:mt-0">
+                <div class="text-left">
+                    <h1 class="text-3xl font-extrabold mb-1 text-slate-900 tracking-tight">Chào mừng! 👋</h1>
+                    <p class="text-sm text-slate-500 font-medium">Đăng nhập để tiếp tục hành trình của bạn.</p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <button
-                        class="flex items-center justify-center gap-2 bg-white border border-slate-200 py-3.5 rounded-2xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all font-bold text-slate-700">
-                        <iconify-icon icon="logos:google-icon" width="20"></iconify-icon>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="flex items-center justify-center gap-2 bg-white border border-slate-200 py-2.5 rounded-xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all font-bold text-sm text-slate-700">
+                        <iconify-icon icon="logos:google-icon" width="18"></iconify-icon>
                         Google
                     </button>
-                    <button
-                        class="flex items-center justify-center gap-2 bg-white border border-slate-200 py-3.5 rounded-2xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all font-bold text-slate-700">
-                        <iconify-icon icon="logos:facebook" width="20"></iconify-icon>
+                    <button class="flex items-center justify-center gap-2 bg-white border border-slate-200 py-2.5 rounded-xl hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all font-bold text-sm text-slate-700">
+                        <iconify-icon icon="logos:facebook" width="18"></iconify-icon>
                         Facebook
                     </button>
                 </div>
 
-                <div class="relative py-2 flex items-center justify-center">
+                <div class="relative py-1 flex items-center justify-center">
                     <div class="w-full border-t border-slate-200"></div>
-                    <span
-                        class="absolute bg-[#FDFCFB] px-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Hoặc
-                        Email</span>
+                    <span class="absolute bg-[#FDFCFB] px-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider">Hoặc</span>
                 </div>
 
-                <form class="space-y-5" onsubmit="window.location.href='dashboard.html'; return false;">
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-700 ml-1">Email</label>
-                        <div
-                            class="relative flex items-center rounded-2xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
-                            <iconify-icon icon="solar:letter-line-duotone" class="absolute left-4 text-slate-400"
-                                width="22"></iconify-icon>
-                            <input type="email" placeholder="example@gmail.com"
-                                class="w-full bg-transparent border-none pl-12 pr-4 py-4 text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                required>
+                <form class="space-y-4" onsubmit="window.location.href='dashboard.html'; return false;">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-700 ml-1">Email</label>
+                        <div class="relative flex items-center rounded-xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
+                            <iconify-icon icon="solar:letter-line-duotone" class="absolute left-3 text-slate-400" width="20"></iconify-icon>
+                            <input type="email" placeholder="example@gmail.com" class="w-full bg-transparent border-none pl-10 pr-3 py-3 text-sm text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0" required>
                         </div>
                     </div>
 
-                    <div class="space-y-2">
+                    <div class="space-y-1.5">
                         <div class="flex justify-between items-center px-1">
-                            <label class="text-sm font-bold text-slate-700">Mật khẩu</label>
-                            <a href="#"
-                                class="text-xs font-bold text-capy-primary hover:text-indigo-700 transition-colors">Quên
-                                mật khẩu?</a>
+                            <label class="text-xs font-bold text-slate-700">Mật khẩu</label>
+                            <a href="#" class="text-[11px] font-bold text-indigo-600 hover:text-indigo-800 transition-colors">Quên mật khẩu?</a>
                         </div>
-                        <div
-                            class="relative flex items-center rounded-2xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
-                            <iconify-icon icon="solar:lock-password-line-duotone" class="absolute left-4 text-slate-400"
-                                width="22"></iconify-icon>
-                            <input type="password" placeholder="••••••••"
-                                class="w-full bg-transparent border-none pl-12 pr-12 py-4 text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                required>
-                            <button type="button"
-                                class="absolute right-4 text-slate-400 hover:text-slate-600 transition-colors">
-                                <iconify-icon icon="solar:eye-linear" width="20"></iconify-icon>
+                        <div class="relative flex items-center rounded-xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
+                            <iconify-icon icon="solar:lock-password-line-duotone" class="absolute left-3 text-slate-400" width="20"></iconify-icon>
+                            <input type="password" placeholder="••••••••" class="w-full bg-transparent border-none pl-10 pr-10 py-3 text-sm text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0" required>
+                            <button type="button" class="absolute right-3 text-slate-400 hover:text-slate-600 transition-colors">
+                                <iconify-icon icon="solar:eye-linear" width="18"></iconify-icon>
                             </button>
                         </div>
                     </div>
 
-                    <button type="submit"
-                        class="w-full bg-capy-primary text-white py-4 rounded-2xl font-extrabold text-lg hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-[0.98] mt-2 flex items-center justify-center gap-2 group">
+                    <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl font-bold text-sm hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/30 transition-all active:scale-[0.98] mt-2 flex items-center justify-center gap-2 group">
                         Đăng Nhập
-                        <iconify-icon icon="solar:arrow-right-line-duotone" width="20"
-                            class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                        <iconify-icon icon="solar:arrow-right-line-duotone" width="18" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
                     </button>
                 </form>
 
-                <p class="text-center text-sm text-slate-500 font-medium">
+                <p class="text-center text-xs text-slate-500 font-medium mt-4">
                     Chưa có tài khoản?
-                    <button onclick="toggleView()"
-                        class="font-bold text-capy-primary hover:text-indigo-700 hover:underline transition-all">Đăng ký
-                        ngay</button>
+                    <button onclick="toggleView()" class="font-bold text-indigo-600 hover:text-indigo-800 hover:underline transition-all">Đăng ký ngay</button>
                 </p>
             </div>
 
-            <!-- Register View -->
-            <div id="register-view" class="hidden fade-in-view space-y-8 w-full max-w-sm mx-auto">
-                <div class="text-left mt-10 md:mt-0">
-                    <h1 class="text-4xl font-extrabold mb-3 text-slate-900 tracking-tight">Tạo tài khoản ✨</h1>
-                    <p class="text-slate-500 font-medium">Bước vào thế giới học tập hiệu suất cao.</p>
+            <div id="register-view" class="hidden fade-in-view space-y-5 w-full max-w-sm mx-auto mt-8 md:mt-0">
+                <div class="text-left">
+                    <h1 class="text-3xl font-extrabold mb-1 text-slate-900 tracking-tight">Tạo tài khoản ✨</h1>
+                    <p class="text-sm text-slate-500 font-medium">Bước vào thế giới học tập hiệu suất cao.</p>
                 </div>
 
-                <form class="space-y-5" onsubmit="window.location.href='dashboard.html'; return false;">
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-700 ml-1">Họ và tên</label>
-                        <div
-                            class="relative flex items-center rounded-2xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
-                            <iconify-icon icon="solar:user-line-duotone" class="absolute left-4 text-slate-400"
-                                width="22"></iconify-icon>
-                            <input type="text" placeholder="Nguyễn Văn A"
-                                class="w-full bg-transparent border-none pl-12 pr-4 py-4 text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                required>
+                <form class="space-y-4" onsubmit="window.location.href='dashboard.html'; return false;">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-700 ml-1">Họ và tên</label>
+                        <div class="relative flex items-center rounded-xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
+                            <iconify-icon icon="solar:user-line-duotone" class="absolute left-3 text-slate-400" width="20"></iconify-icon>
+                            <input type="text" placeholder="Nguyễn Văn A" class="w-full bg-transparent border-none pl-10 pr-3 py-3 text-sm text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0" required>
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-700 ml-1">Email</label>
-                        <div
-                            class="relative flex items-center rounded-2xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
-                            <iconify-icon icon="solar:letter-line-duotone" class="absolute left-4 text-slate-400"
-                                width="22"></iconify-icon>
-                            <input type="email" placeholder="example@gmail.com"
-                                class="w-full bg-transparent border-none pl-12 pr-4 py-4 text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                required>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-700 ml-1">Email</label>
+                        <div class="relative flex items-center rounded-xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
+                            <iconify-icon icon="solar:letter-line-duotone" class="absolute left-3 text-slate-400" width="20"></iconify-icon>
+                            <input type="email" placeholder="example@gmail.com" class="w-full bg-transparent border-none pl-10 pr-3 py-3 text-sm text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0" required>
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-700 ml-1">Mật khẩu</label>
-                        <div
-                            class="relative flex items-center rounded-2xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
-                            <iconify-icon icon="solar:lock-password-line-duotone" class="absolute left-4 text-slate-400"
-                                width="22"></iconify-icon>
-                            <input type="password" placeholder="Tối thiểu 8 ký tự"
-                                class="w-full bg-transparent border-none pl-12 pr-12 py-4 text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0"
-                                required>
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-bold text-slate-700 ml-1">Mật khẩu</label>
+                        <div class="relative flex items-center rounded-xl bg-white border border-slate-200 transition-all input-glow overflow-hidden">
+                            <iconify-icon icon="solar:lock-password-line-duotone" class="absolute left-3 text-slate-400" width="20"></iconify-icon>
+                            <input type="password" placeholder="Tối thiểu 8 ký tự" class="w-full bg-transparent border-none pl-10 pr-10 py-3 text-sm text-slate-700 font-medium placeholder:text-slate-400 focus:outline-none focus:ring-0" required>
                         </div>
                     </div>
 
-                    <button type="submit"
-                        class="w-full bg-slate-900 text-white py-4 rounded-2xl font-extrabold text-lg hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 transition-all active:scale-[0.98] mt-2 border border-slate-700">
+                    <button type="submit" class="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 transition-all active:scale-[0.98] mt-2 border border-slate-700">
                         Đăng Ký
                     </button>
                 </form>
 
-                <p class="text-center text-sm text-slate-500 font-medium">
+                <p class="text-center text-xs text-slate-500 font-medium mt-4">
                     Đã có tài khoản?
-                    <button onclick="toggleView()"
-                        class="font-bold text-slate-800 hover:text-black hover:underline transition-all">Đăng
-                        nhập</button>
+                    <button onclick="toggleView()" class="font-bold text-slate-800 hover:text-black hover:underline transition-all">Đăng nhập</button>
                 </p>
             </div>
 
@@ -258,24 +209,19 @@
             const register = document.getElementById('register-view');
 
             if (login.classList.contains('hidden')) {
-                // Show login
                 register.classList.remove('fade-in-view');
                 register.classList.add('hidden');
                 login.classList.remove('hidden');
-                // Trigger reflow to restart animation
                 void login.offsetWidth;
                 login.classList.add('fade-in-view');
             } else {
-                // Show register
                 login.classList.remove('fade-in-view');
                 login.classList.add('hidden');
                 register.classList.remove('hidden');
-                // Trigger reflow to restart animation
                 void register.offsetWidth;
                 register.classList.add('fade-in-view');
             }
         }
     </script>
 </body>
-
 </html>

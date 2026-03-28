@@ -11,50 +11,49 @@
     <link rel="stylesheet" href="~/DeeplearningwithCapybara.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+          rel="stylesheet">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <style>
         :root {
+            /* Hệ màu mới: Sinh động và nhiều năng lượng hơn */
             --capy-brown: #6B4226;
             --capy-brown-mid: #8B5E3C;
             --capy-brown-light: #FDF1E3;
-            --capy-orange: #F4831F;
-            --capy-orange-dark: #C8620F;
+            --capy-orange: #F4831F; /* Màu Cam Yuzu chủ đạo */
+            --capy-orange-light: #FFF4E5;
+            --capy-matcha: #8CA894; /* Màu Xanh Rêu */
             --capy-bg: #FDF8F3;
             --sidebar-w: 5rem;
-            /* 80px */
         }
 
         * {
             font-family: 'Be Vietnam Pro', sans-serif;
         }
 
-        body {
-            background-color: var(--capy-bg);
-            background-image: radial-gradient(#E7D9CC 1px, transparent 1px);
-            background-size: 24px 24px;
-            color: #000000;
-        }
-
-        /* ===== Collapsible Sidebar ===== */
         #sidebar {
             width: var(--sidebar-w);
             flex-shrink: 0;
-            overflow: visible; /* To allow dropdowns */
+            overflow: visible;
         }
 
-        #toggle-sidebar-btn {
-            transition: background 0.2s;
-        }
-
-        /* ===== Sidebar Styling ===== */
+        /* ===== MÀU SẮC MỚI CHO SIDEBAR (TƯƠI SÁNG HƠN) ===== */
         .sidebar-item-active {
-            background: linear-gradient(90deg, rgba(107, 66, 38, 0.12) 0%, rgba(107, 66, 38, 0) 100%);
-            border-left: 4px solid var(--capy-brown);
-            color: var(--capy-brown) !important;
+            background: linear-gradient(90deg, rgba(244, 131, 31, 0.15) 0%, rgba(244, 131, 31, 0) 100%);
+            border-left: 4px solid var(--capy-orange);
+            color: var(--capy-orange) !important;
         }
+
+        #sidebar nav a:not(.sidebar-item-active):hover {
+            background-color: var(--capy-orange) !important;
+            color: #fff !important;
+            box-shadow: 0 4px 15px rgba(244, 131, 31, 0.35); /* Bóng mờ màu cam */
+            transform: scale(1.05) translateY(-2px);
+        }
+
+            #sidebar nav a:not(.sidebar-item-active):hover iconify-icon {
+                color: #fff !important;
+            }
 
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
@@ -69,35 +68,6 @@
             border-radius: 10px;
         }
 
-        /* ===== Cards ===== */
-        .glass-card {
-            background: rgba(255, 252, 248, 0.9);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(240, 221, 200, 0.85);
-            box-shadow: 0 8px 24px -8px rgba(107, 66, 38, 0.08);
-        }
-
-        .gradient-card {
-            background: linear-gradient(135deg, var(--capy-brown) 0%, #000000 100%);
-        }
-
-        /* ===== Animations ===== */
-        /* ===== Sidebar hover: white text on capy-brown ===== */
-        #sidebar nav a:not(.sidebar-item-active):hover {
-            background-color: var(--capy-brown) !important;
-            color: #fff !important;
-        }
-
-        #sidebar nav a:not(.sidebar-item-active):hover iconify-icon {
-            color: var(--capy-orange) !important;
-        }
-
-        /* whitespace nowrap prevents text wrapping during collapse */
-        #sidebar {
-            white-space: nowrap;
-        }
-
-        /* Profile Avatar fixed size */
         .profile-avatar {
             width: 44px;
             height: 44px;
@@ -113,9 +83,7 @@
         }
 
         @@keyframes breathe {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: scale(1);
             }
 
@@ -124,26 +92,26 @@
             }
         }
 
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @@keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-14px);
-            }
-        }
-
         /* ===== Profile Dropdown ===== */
-        .profile-dropdown {
+        .profile-wrapper {
             position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 100;
         }
+
+            .profile-wrapper::before {
+                content: "";
+                position: absolute;
+                left: 100%;
+                top: 0;
+                width: 14px;
+                height: 100%;
+                background: transparent;
+                pointer-events: auto;
+                z-index: 110;
+            }
 
         .profile-menu {
             display: none;
@@ -154,18 +122,17 @@
             background: #fff;
             border: 1px solid #F3E4D0;
             border-radius: 1.25rem;
-            box-shadow: 0 20px 40px -10px rgba(107, 66, 38, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(244, 131, 31, 0.15); /* Bóng đổ cam nhạt */
             z-index: 200;
             overflow: hidden;
         }
 
-        .profile-dropdown:focus-within .profile-menu,
-        .profile-dropdown:hover .profile-menu {
+        .profile-wrapper:hover .profile-menu,
+        .profile-wrapper:focus-within .profile-menu {
             display: block;
         }
 
-        .profile-menu a,
-        .profile-menu button {
+        .profile-menu a, .profile-menu button {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -179,13 +146,14 @@
             text-decoration: none;
             text-align: left;
             cursor: pointer;
-            transition: background 0.15s;
+            transition: all 0.2s;
         }
 
-        .profile-menu a:hover,
-        .profile-menu button:hover {
-            background: var(--capy-brown-light);
-        }
+            /* MÀU HOVER CỦA MENU PROFILE ĐỔI THÀNH CAM NHẠT */
+            .profile-menu a:hover, .profile-menu button:hover {
+                background: var(--capy-orange-light);
+                color: var(--capy-orange);
+            }
 
         .profile-menu .menu-divider {
             height: 1px;
@@ -197,100 +165,94 @@
             color: #c0392b;
         }
 
-        .profile-menu .logout-btn:hover {
-            background: #fff5f5;
-        }
+            .profile-menu .logout-btn:hover {
+                background: #fff5f5;
+                color: #e74c3c;
+            }
     </style>
 </head>
 
 <body class="min-h-screen flex">
 
-    <!-- ===== SIDEBAR ===== -->
-    <aside id="sidebar" class="bg-white/90 backdrop-blur-xl border-r border-[#F0DDC8] hidden lg:flex flex-col items-center py-6 h-screen sticky top-0 z-50">
-        <!-- Logo -->
-        <a href="/" class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#E8C9A0] shadow-md capy-breathe mb-8 block transition-transform hover:scale-105">
+    <aside id="sidebar" class="bg-white/90 backdrop-blur-xl border-r border-[#F0DDC8] hidden lg:flex flex-col items-center py-6 h-screen sticky top-0 z-[60]">
+        <a href="/" class="w-12 h-12 rounded-2xl overflow-hidden border-2 border-[#F4831F]/30 shadow-md capy-breathe mb-8 block hover:border-[#F4831F] transition-colors">
             <img src="~/images/capybaraa photocopy.jpg" alt="CapyStudy Logo" class="w-full h-full object-cover">
         </a>
 
         <nav class="flex-1 flex flex-col items-center gap-4 w-full">
             <a asp-controller="Home" asp-action="Index" title="Dashboard"
-                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+               class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "sidebar-item-active" : "text-[#8B5E3C]")">
                 <iconify-icon icon="solar:widget-add-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
             </a>
-            <a asp-controller="Study" asp-action="Index" title="Kế hoạch học tập"
-                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Study" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
-                <iconify-icon icon="solar:clipboard-list-bold-duotone" width="26" class="transition-transform group-hover:rotate-6"></iconify-icon>
-            </a>
             <a asp-controller="Schedule" asp-action="Index" title="Lịch Trình"
-                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+               class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "sidebar-item-active" : "text-[#8B5E3C]")">
                 <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
             </a>
-            <a asp-controller="Stats" asp-action="Index" title="Thống Kê"
-                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Stats" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
-                <iconify-icon icon="solar:chart-2-bold-duotone" width="26" class="transition-transform group-hover:scale-110"></iconify-icon>
-            </a>
             <a asp-controller="Focus" asp-action="Index" title="Tập Trung"
-                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "bg-[#FDF1E3] text-black shadow-sm border border-[#E8C9A0]" : "text-black hover:text-black hover:bg-[#FDF1E3]")">
+               class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "sidebar-item-active" : "text-[#8B5E3C]")">
                 <iconify-icon icon="solar:clock-circle-line-duotone" width="26" class="transition-transform group-hover:rotate-12"></iconify-icon>
             </a>
         </nav>
 
-        <!-- Profile at the bottom -->
-        <div class="mt-auto profile-dropdown w-full flex justify-center">
-            <div class="w-12 h-12 rounded-full border-2 border-[#E8C9A0] overflow-hidden cursor-pointer shadow-sm hover:shadow-md transition-shadow">
-                <img src="~/images/tải xuống.jpg" alt="Avatar" class="w-full h-full object-cover">
-            </div>
-            <!-- Profile Menu -->
-            <div class="profile-menu">
-                <div class="px-4 py-3 border-b border-[#F3E4D0]">
-                    <p class="text-xs font-black text-black">@(User.Identity != null && User.Identity.IsAuthenticated ? User.Identity.Name ?? "Người dùng" : "Khách viếng thăm")</p>
-                    <p class="text-[10px] text-black font-semibold mt-0.5">@(User.Identity != null && User.Identity.IsAuthenticated ? "Đã đăng nhập" : "Chưa đăng nhập")</p>
+        <div class="mt-auto w-full flex justify-center">
+            <div class="profile-wrapper">
+                <div class="w-12 h-12 rounded-full border-2 border-[#E8C9A0] overflow-hidden cursor-pointer shadow-sm hover:border-[#F4831F] transition-colors">
+                    <img src="~/images/tải xuống.jpg" alt="Avatar" class="w-full h-full object-cover">
                 </div>
-                <a href="#"><iconify-icon icon="solar:user-circle-line-duotone" width="18"></iconify-icon>Hồ sơ</a>
-                <a href="#"><iconify-icon icon="solar:settings-line-duotone" width="18"></iconify-icon>Cài đặt</a>
-                <div class="menu-divider"></div>
-                @if (User.Identity != null && User.Identity.IsAuthenticated)
-                {
-                    <form asp-controller="Account" asp-action="Logout" class="m-0" method="post">
-                        <button type="submit" class="logout-btn w-full text-left"><iconify-icon icon="solar:logout-2-bold-duotone" width="18"></iconify-icon>Đăng xuất</button>
-                    </form>
-                }
-                else
-                {
-                    <a asp-controller="Account" asp-action="Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
-                }
+                <div class="profile-menu" role="menu" aria-hidden="true">
+                    <div class="px-4 py-3 border-b border-[#F3E4D0] bg-[#FAFAFA]">
+                        <p class="text-xs font-black text-black">@(User.Identity != null && User.Identity.IsAuthenticated ? User.Identity.Name ?? "Người dùng" : "Khách viếng thăm")</p>
+                        <p class="text-[10px] text-[#F4831F] font-black mt-0.5">@(User.Identity != null && User.Identity.IsAuthenticated ? "Đã đăng nhập" : "Chưa đăng nhập")</p>
+                    </div>
+                    <a asp-controller="Home" asp-action="Profile" role="menuitem"><iconify-icon icon="solar:user-circle-line-duotone" width="18"></iconify-icon>Hồ sơ</a>
+                    <a href="#" role="menuitem"><iconify-icon icon="solar:settings-line-duotone" width="18"></iconify-icon>Cài đặt</a>
+                    <div class="menu-divider"></div>
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" class="m-0">
+                            <button type="submit" class="logout-btn w-full text-left"><iconify-icon icon="solar:logout-2-bold-duotone" width="18"></iconify-icon>Đăng xuất</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-area="" asp-controller="Account" asp-action="Login"><iconify-icon icon="solar:login-2-bold-duotone" width="18"></iconify-icon>Đăng nhập</a>
+                    }
+                </div>
             </div>
         </div>
     </aside>
 
-    <!-- ===== MAIN CONTENT ===== -->
     <main class="flex-1 flex flex-col min-h-screen overflow-x-hidden transition-all duration-300">
-        <!-- Top Header -->
-        <header
-            class="h-20 bg-white/80 backdrop-blur-xl border-b border-[#F0DDC8] flex items-center justify-between px-6 sticky top-0 z-20">
+        <header class="h-20 bg-white/80 backdrop-blur-xl border-b border-[#F0DDC8] flex items-center justify-between px-6 sticky top-0 z-[40]">
             <div class="flex items-center gap-4">
-    <!-- Removed Header Profile and Toggle since Sidebar is minimal now -->
-                <!-- Search -->
-                <div class="relative hidden md:block group">
-                    <input type="text" placeholder="Tìm kiếm..."
-                        class="bg-[#FDF1E3]/80 border border-[#E8C9A0] rounded-full pl-11 pr-5 py-2.5 text-sm w-56 focus:bg-white focus:ring-2 focus:ring-[#F4831F]/30 focus:border-[#F4831F] transition-all outline-none font-semibold placeholder:text-black">
-                    <iconify-icon icon="solar:magnifer-linear" width="18"
-                        class="absolute left-4 top-1/2 -translate-y-1/2 text-black group-focus-within:text-black transition-colors"></iconify-icon>
+
+                <div class="relative hidden md:block group w-72 z-[100]">
+                    <div class="rounded-full border-2 border-white p-[2px] bg-[#FDF1E3]/80 shadow-sm group-focus-within:bg-[#FFF4E5] transition-colors">
+                        <div class="relative">
+                            <input type="text" id="global-search" placeholder="Tìm kiếm Task, Lộ trình..." autocomplete="off"
+                                   class="border-2 border-[#8B5E3C]/40 rounded-full pl-11 pr-5 py-2 text-sm w-full bg-white focus:bg-white focus:ring-4 focus:ring-[#F4831F]/20 focus:border-[#F4831F] transition-all outline-none font-semibold placeholder:text-[#8B5E3C]/60">
+
+                            <iconify-icon icon="solar:magnifer-linear" width="18"
+                                          class="absolute left-4 top-1/2 -translate-y-1/2 text-[#8B5E3C] group-focus-within:text-[#F4831F] transition-colors"></iconify-icon>
+                        </div>
+                    </div>
+
+                    <div id="search-dropdown" class="absolute left-0 top-full mt-2 w-80 bg-white rounded-2xl shadow-xl border border-[#F4831F]/30 overflow-hidden hidden opacity-0 transition-opacity duration-200 origin-top">
+                    </div>
                 </div>
-                <!-- Notifications -->
-                <button
-                    class="relative p-2.5 text-black hover:text-black hover:bg-[#FDF1E3] transition-all bg-white rounded-full border border-[#E8C9A0] shadow-sm hover:shadow-md">
+
+                <button class="relative p-2.5 text-black hover:text-black hover:bg-[#FDF1E3] transition-all bg-white rounded-full border border-[#E8C9A0] shadow-sm hover:border-[#F4831F] hover:shadow-md">
                     <div class="relative">
                         <img src="~/images/tải xuống.jpg" alt="Avatar" class="profile-avatar">
-                        <div
-                            class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-[#8CA894] border-2 border-white rounded-full">
-                        </div>
+                        <span class="absolute -bottom-1 -right-1 flex h-4 w-4">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8CA894] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-4 w-4 bg-[#8CA894] border-2 border-white"></span>
+                        </span>
                     </div>
                 </button>
             </div>
         </header>
 
-        <!-- Dynamic Body -->
         <div class="w-full flex-1">
             @RenderBody()
         </div>
@@ -300,9 +262,73 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <!-- Removed Collapsible Sidebar JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('global-search');
+            const searchDropdown = document.getElementById('search-dropdown');
+
+            if(!searchInput || !searchDropdown) return;
+
+            let debounceTimer;
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim();
+
+                if (query.length === 0) {
+                    searchDropdown.classList.add('hidden');
+                    searchDropdown.classList.remove('opacity-100');
+                    return;
+                }
+
+                searchDropdown.innerHTML = `
+                    <div class="p-6 text-center">
+                        <iconify-icon icon="solar:refresh-circle-bold-duotone" width="30" class="text-[#F4831F] animate-spin mb-2"></iconify-icon>
+                        <p class="text-xs font-bold text-[#8B5E3C]">Đang tìm bé Capy...</p>
+                    </div>`;
+                searchDropdown.classList.remove('hidden');
+                searchDropdown.classList.add('opacity-100');
+
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(async () => {
+                    try {
+                        const response = await fetch(`/Search/GlobalSearch?query=${encodeURIComponent(query)}`);
+                        if (!response.ok) throw new Error("Lỗi mạng");
+
+                        const data = await response.json();
+                        let html = '';
+
+                        if (data.plans.length > 0 || data.tasks.length > 0) {
+                            if (data.plans.length > 0) {
+                                html += `<div class="bg-[#FFF4E5] px-4 py-2 text-[10px] font-black text-[#F4831F] uppercase tracking-widest border-b border-[#F0DDC8]">Lộ trình đã lưu</div>`;
+                                data.plans.forEach(p => {
+                                    html += `<a href="#" class="flex items-center gap-3 p-3 hover:bg-[#FDF1E3] transition-colors border-b border-[#F0DDC8]/50 last:border-0 group"><div class="${p.bg} ${p.color} p-2 rounded-xl flex shrink-0 group-hover:scale-110 transition-transform"><iconify-icon icon="${p.icon}" width="18"></iconify-icon></div><div><p class="text-sm font-bold text-black line-clamp-1 group-hover:text-[#F4831F] transition-colors">${p.name}</p><p class="text-[10px] font-semibold text-black/50">${p.time}</p></div></a>`;
+                                });
+                            }
+                            if (data.tasks.length > 0) {
+                                html += `<div class="bg-[#F0FDF4] px-4 py-2 text-[10px] font-black text-[#16A34A] uppercase tracking-widest border-b border-[#F0DDC8] border-t">Task đang mở</div>`;
+                                data.tasks.forEach(t => {
+                                    html += `<a href="#" class="flex items-center gap-3 p-3 hover:bg-[#FDF1E3] transition-colors border-b border-[#F0DDC8]/50 last:border-0 group"><div class="${t.bg} ${t.color} p-2 rounded-xl flex shrink-0 group-hover:scale-110 transition-transform"><iconify-icon icon="${t.icon}" width="18"></iconify-icon></div><div><p class="text-sm font-bold text-black line-clamp-1 group-hover:text-[#16A34A] transition-colors">${t.name}</p><p class="text-[10px] font-semibold text-black/50">${t.deadline}</p></div></a>`;
+                                });
+                            }
+                        } else {
+                            html = `<div class="p-6 text-center"><iconify-icon icon="solar:ghost-smile-bold-duotone" width="40" class="text-[#E8C9A0] mb-2"></iconify-icon><p class="text-sm font-bold text-black/60">Không tìm thấy "${query}"</p></div>`;
+                        }
+                        searchDropdown.innerHTML = html;
+                    } catch (error) {
+                        searchDropdown.innerHTML = `<div class="p-4 text-center text-xs text-red-500 font-bold">Chưa kết nối C# Controller!</div>`;
+                    }
+                }, 300);
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
+                    searchDropdown.classList.add('hidden');
+                    searchDropdown.classList.remove('opacity-100');
+                }
+            });
+        });
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
-
 </html>
