@@ -1,0 +1,61 @@
+@model IEnumerable<DeeplearningwithCapybara.Models.Users>
+@{
+    ViewData["Title"] = "Quản Lý Học Viên";
+    Layout = "_AdminLayout";
+}
+
+<div class="bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden">
+    <div class="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
+        <h3 class="font-black text-slate-800 text-lg flex items-center gap-2">
+            <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" class="text-indigo-500"></iconify-icon> Danh sách Học viên
+        </h3>
+        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 font-bold text-xs rounded-lg badge">@Model.Count() Học viên</span>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-slate-50 text-[10px] uppercase font-black text-slate-500 tracking-wider">
+                    <th class="py-4 px-6 border-b border-slate-200"># ID</th>
+                    <th class="py-4 px-6 border-b border-slate-200">Email</th>
+                    <th class="py-4 px-6 border-b border-slate-200 text-center">Trạng Thái</th>
+                    <th class="py-4 px-6 border-b border-slate-200 text-right">Hành động</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                @if(!Model.Any())
+                {
+                    <tr>
+                        <td colspan="4" class="py-8 text-center text-slate-400 font-semibold text-sm">Chưa có học viên nào trong hệ thống.</td>
+                    </tr>
+                }
+                @foreach (var user in Model)
+                {
+                    <tr class="hover:bg-slate-50/50 transition-colors">
+                        <td class="py-4 px-6 font-mono text-xs text-slate-400">@user.Id.Substring(0, 8)...</td>
+                        <td class="py-4 px-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-xs">
+                                    @user.Email?.Substring(0, 1).ToUpper()
+                                </div>
+                                <span class="font-bold text-slate-700 text-sm">@user.Email</span>
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest bg-emerald-100 text-emerald-700 border border-emerald-200">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active
+                            </span>
+                        </td>
+                        <td class="py-4 px-6 text-right">
+                            <form asp-action="DeleteUser" asp-route-id="@user.Id" method="post" class="inline-block" onsubmit="return confirm('Bạn có chắc chắn muốn xóa học viên này? Hành động này không thể hoàn tác.');">
+                                <button type="submit" class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-500 hover:text-white transition-all border border-rose-100 flex items-center justify-center shadow-sm" title="Xóa">
+                                    <iconify-icon icon="solar:trash-bin-trash-bold-duotone" width="16"></iconify-icon>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

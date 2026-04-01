@@ -1,82 +1,138 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\",
+  "WorkspaceRootPath": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\models\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\study\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\study\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\task\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\task\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\aicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\models\\studyplans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\tasks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\studyplans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\studyplans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\models\\dlwcapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\sd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\sd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\exams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\exams.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\models\\dlwcapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:models\\dlwcapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\schedule\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\shared\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\shared\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\shared\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\shared\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\shared\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\shared\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\app_code\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:app_code\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\studycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\studycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\statscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\statscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\settingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\controllers\\focuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\focuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Laptrinhweb\\DeepStuydywithCapybara\\DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|c:\\users\\asus\\source\\repos\\deepstuydywithcapybara\\controllers\\studycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:controllers\\studycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\deeplearningwithcapybara.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:deeplearningwithcapybara.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\settings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\app_code\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:app_code\\claimsprincipalextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:views\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Laptrinhweb\\DeeplearningwithCapybara\\.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
@@ -101,6 +157,10 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_output.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|d:\\laptrinhweb\\deepstuydywithcapybara\\migrations\\20260401133443_dlwcapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{589B5F55-7226-422D-94C4-CE965AF0E7CA}|DeeplearningwithCapybara.csproj|solutionrelative:migrations\\20260401133443_dlwcapybara.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -110,65 +170,296 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Task\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Task\\Index.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Task\\Index.cshtml",
+              "RelativeToolTip": "Views\\Task\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T19:06:26.199Z"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Study\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Study\\Details.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Study\\Details.cshtml",
+              "RelativeToolTip": "Views\\Study\\Details.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAjwDIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T19:06:20.247Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SearchController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\SearchController.cs",
-              "RelativeDocumentMoniker": "Models\\SearchController.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\SearchController.cs",
-              "RelativeToolTip": "Models\\SearchController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABDAAAAAAAAAA==",
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TaskController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "Controllers\\TaskController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAmwHQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T07:00:22.189Z",
+              "WhenOpened": "2026-04-01T19:06:12.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Users.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "Models\\Users.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Users.cs",
+              "RelativeToolTip": "Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:22:06.718Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Tasks.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Tasks.cs",
+              "RelativeDocumentMoniker": "Models\\Tasks.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Tasks.cs",
+              "RelativeToolTip": "Models\\Tasks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T14:21:58.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:48.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ScheduleController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\ScheduleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ScheduleController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\ScheduleController.cs",
+              "RelativeToolTip": "Controllers\\ScheduleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:26.314Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "AiController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\AiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AiController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\AiController.cs",
+              "RelativeToolTip": "Controllers\\AiController.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAjwIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:06.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Schedules.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Schedules.cs",
+              "RelativeDocumentMoniker": "Models\\Schedules.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Schedules.cs",
+              "RelativeToolTip": "Models\\Schedules.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwBcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T15:14:40.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SearchController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\SearchController.cs",
+              "RelativeDocumentMoniker": "Models\\SearchController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\SearchController.cs",
+              "RelativeToolTip": "Models\\SearchController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T07:00:22.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T02:37:14.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Schedule\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Schedule\\Index.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Schedule\\Index.cshtml",
+              "RelativeToolTip": "Views\\Schedule\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-31T11:59:13.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADYBAAAAAAAAAAAAwC8BAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T04:42:12.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "DLWcapybara.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\DLWcapybara.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\DLWcapybara.cs",
               "RelativeDocumentMoniker": "Models\\DLWcapybara.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\DLWcapybara.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\DLWcapybara.cs",
               "RelativeToolTip": "Models\\DLWcapybara.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAmwBIAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-27T06:47:55.101Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAkwGAAAACIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-27T04:42:12.307Z",
-              "EditorCaption": ""
+              "DocumentIndex": 11,
+              "Title": "Exams.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Exams.cs",
+              "RelativeDocumentMoniker": "Models\\Exams.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\Exams.cs",
+              "RelativeToolTip": "Models\\Exams.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:51.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
+              "Title": "SD.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\SD.cs",
+              "RelativeDocumentMoniker": "Models\\SD.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\SD.cs",
+              "RelativeToolTip": "Models\\SD.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:54.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudyPlans.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\StudyPlans.cs",
+              "RelativeDocumentMoniker": "Models\\StudyPlans.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Models\\StudyPlans.cs",
+              "RelativeToolTip": "Models\\StudyPlans.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA2wBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T07:01:38.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SettingsController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\SettingsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SettingsController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\SettingsController.cs",
+              "RelativeToolTip": "Controllers\\SettingsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:27.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StatsController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\StatsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\StatsController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\StatsController.cs",
+              "RelativeToolTip": "Controllers\\StatsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:28.967Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FocusController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\FocusController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FocusController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\FocusController.cs",
+              "RelativeToolTip": "Controllers\\FocusController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:42:20.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-27T03:14:18.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "20260401133443_DLWCapybara.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Migrations\\20260401133443_DLWCapybara.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260401133443_DLWCapybara.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Migrations\\20260401133443_DLWCapybara.cs",
+              "RelativeToolTip": "Migrations\\20260401133443_DLWCapybara.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAgwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:34:43.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
               "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -176,179 +467,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-27T03:14:18.357Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T20:08:07.234Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAC8BAAAAAAAAAAAkwD4BAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T19:04:53.37Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "StudyPlans.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\StudyPlans.cs",
-              "RelativeDocumentMoniker": "Models\\StudyPlans.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Models\\StudyPlans.cs",
-              "RelativeToolTip": "Models\\StudyPlans.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAiwBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T07:01:38.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Profile.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Profile.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Profile.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Profile.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGoAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T19:36:32.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Login.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T19:25:47.175Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Settings\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Settings\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Settings\\Index.cshtml",
-              "RelativeToolTip": "Views\\Settings\\Index.cshtml",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T19:25:12.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ClaimsPrincipalExtensions.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\App_Code\\ClaimsPrincipalExtensions.cs",
-              "RelativeDocumentMoniker": "App_Code\\ClaimsPrincipalExtensions.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\App_Code\\ClaimsPrincipalExtensions.cs",
-              "RelativeToolTip": "App_Code\\ClaimsPrincipalExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T19:51:53.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Register.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Register.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\Shared\\Register.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Register.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T19:25:50.439Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAA6wIMAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T02:37:14.494Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-26T18:55:46.414Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\index.html",
-              "RelativeDocumentMoniker": "Views\\index.html",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Views\\index.html",
-              "RelativeToolTip": "Views\\index.html",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAUwNMAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-03-26T19:14:23.424Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "WeatherForecast.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\WeatherForecast.cs",
-              "RelativeDocumentMoniker": "WeatherForecast.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\WeatherForecast.cs",
-              "RelativeToolTip": "WeatherForecast.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T18:56:00.843Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-26T18:49:58.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
               "Title": "StudyController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\StudyController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\StudyController.cs",
               "RelativeDocumentMoniker": "Controllers\\StudyController.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\DeepStuydywithCapybara\\Controllers\\StudyController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\StudyController.cs",
               "RelativeToolTip": "Controllers\\StudyController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -356,73 +479,208 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:29:04.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T20:08:07.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20260401133255_DLWCapybara.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs",
+              "RelativeDocumentMoniker": "DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs",
+              "RelativeToolTip": "DeepStuydywithCapybara\\Migrations\\20260401133255_DLWCapybara.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T13:32:55.948Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-26T18:49:58.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "DeeplearningwithCapybara",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\DeeplearningwithCapybara.csproj",
+              "RelativeDocumentMoniker": "DeeplearningwithCapybara.csproj",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\DeeplearningwithCapybara.csproj",
+              "RelativeToolTip": "DeeplearningwithCapybara.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-01T12:57:39.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Settings\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Settings\\Index.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\Settings\\Index.cshtml",
+              "RelativeToolTip": "Views\\Settings\\Index.cshtml",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T19:25:12.275Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ClaimsPrincipalExtensions.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\App_Code\\ClaimsPrincipalExtensions.cs",
+              "RelativeDocumentMoniker": "App_Code\\ClaimsPrincipalExtensions.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\App_Code\\ClaimsPrincipalExtensions.cs",
+              "RelativeToolTip": "App_Code\\ClaimsPrincipalExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T19:51:53.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-26T18:55:46.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\index.html",
+              "RelativeDocumentMoniker": "Views\\index.html",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\Views\\index.html",
+              "RelativeToolTip": "Views\\index.html",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAUwNMAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-03-26T19:14:23.424Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "D:\\Laptrinhweb\\DeepStuydywithCapybara\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T18:56:00.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "build.log",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build.log",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\build.log",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build.log",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\build.log",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-03-20T11:17:08.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 34,
               "Title": "auth.html",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\auth.html",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\auth.html",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\auth.html",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\auth.html",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-03-20T12:13:35.698Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 36,
               "Title": "index.html",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\index.html",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\index.html",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\index.html",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\DeepStuydywithCapybara\\index.html",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-03-20T12:14:10.554Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 37,
               "Title": "ScaffoldingReadMe.txt",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\ScaffoldingReadMe.txt",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\ScaffoldingReadMe.txt",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\ScaffoldingReadMe.txt",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\ScaffoldingReadMe.txt",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-03-18T09:27:32.397Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 38,
               "Title": "build_err.txt",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_err.txt",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\build_err.txt",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_err.txt",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\build_err.txt",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-03-20T08:19:04.045Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 39,
               "Title": "build_log.txt",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_log.txt",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\build_log.txt",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_log.txt",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\build_log.txt",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-03-20T08:19:04.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 40,
               "Title": "build_output.txt",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_output.txt",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\build_output.txt",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\build_output.txt",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\build_output.txt",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-03-20T08:19:05.769Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 33,
               "Title": ".http",
               "DocumentMoniker": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\.http",
+              "RelativeDocumentMoniker": "..\\DeeplearningwithCapybara\\.http",
               "ToolTip": "D:\\Laptrinhweb\\DeeplearningwithCapybara\\.http",
+              "RelativeToolTip": "..\\DeeplearningwithCapybara\\.http",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
               "WhenOpened": "2026-03-18T08:59:57.883Z"
             }

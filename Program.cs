@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using DeeplearningwithCapybara.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.OpenApi.Models; // Added for OpenApiInfo
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,18 +13,28 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "AI Study Planner API", Version = "v1" });
-}); // Cực kỳ quan trọng để có Swagger!
+});
 
-// Giả sử dùng 1 Context duy nhất cho gọn
+
 builder.Services.AddDbContext<DLWcapybara>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DeeplearningwithCapybaraContextConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DLWcapybara")));
 
 builder.Services.AddIdentity<Users, IdentityRole>()
     .AddDefaultTokenProviders()
     .AddDefaultUI()
-    .AddEntityFrameworkStores<DLWcapybara>(); // Đã đổi ApplicationDbContext thành DLWcapybara
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false) // Tạm để false để test cho nhanh
-//    .AddEntityFrameworkStores<DeeplearningwithCapybaraContext>();
+    .AddEntityFrameworkStores<DLWcapybara>(); 
+
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:Google:ClientId"] ?? "YOUR_GOOGLE_CLIENT_ID";
+        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"] ?? "YOUR_GOOGLE_CLIENT_SECRET";
+    })
+    .AddFacebook(options =>
+    {
+        options.AppId = builder.Configuration["Authentication:Facebook:AppId"] ?? "YOUR_FACEBOOK_APP_ID";
+        options.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"] ?? "YOUR_FACEBOOK_APP_SECRET";
+    }); 
 
 var app = builder.Build();
 

@@ -1,0 +1,67 @@
+@model DeeplearningwithCapybara.Models.Courses
+@{
+    ViewData["Title"] = "Chỉnh Sửa Môn Học";
+    Layout = "_AdminLayout";
+}
+
+<div class="max-w-3xl mx-auto">
+    <div class="bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden relative">
+        <div class="absolute -left-16 -top-16 w-64 h-64 bg-indigo-50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="p-8 relative z-10 border-b border-slate-100 flex items-center justify-between bg-slate-50/30">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center shadow-inner border border-indigo-100">
+                    <iconify-icon icon="solar:pen-bold-duotone" width="24"></iconify-icon>
+                </div>
+                <div>
+                    <h3 class="font-black text-slate-800 text-2xl tracking-tight">Cập Nhật Môn Học</h3>
+                    <p class="text-[10px] font-bold uppercase text-slate-400 tracking-widest mt-1">#ID: @Model.CourseId</p>
+                </div>
+            </div>
+            <a asp-action="Courses" class="w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 flex items-center justify-center transition-colors">
+                <iconify-icon icon="solar:close-circle-bold-duotone" width="24"></iconify-icon>
+            </a>
+        </div>
+
+        <div class="p-8 relative z-10">
+            <form asp-action="EditCourse" method="post" class="space-y-6">
+                <!-- Hidden ID để binding -->
+                <input type="hidden" asp-for="CourseId" />
+                
+                <div asp-validation-summary="ModelOnly" class="text-rose-500 text-xs font-bold bg-rose-50 p-3 rounded-xl border border-rose-100"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label asp-for="CourseName" class="block text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 ml-1">Tên môn học</label>
+                        <input asp-for="CourseName" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold text-slate-700 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm" />
+                        <span asp-validation-for="CourseName" class="text-rose-500 text-[10px] font-bold mt-1 ml-1 block"></span>
+                    </div>
+
+                    <div>
+                        <label asp-for="Credits" class="block text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 ml-1">Số Tín Chỉ</label>
+                        <input asp-for="Credits" type="number" min="1" max="10" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-bold text-slate-700 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm" />
+                        <span asp-validation-for="Credits" class="text-rose-500 text-[10px] font-bold mt-1 ml-1 block"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label asp-for="Description" class="block text-[10px] font-black uppercase text-slate-500 tracking-widest mb-2 ml-1">Mô tả chi tiết</label>
+                    <textarea asp-for="Description" rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 outline-none transition-all shadow-sm resize-y"></textarea>
+                    <span asp-validation-for="Description" class="text-rose-500 text-[10px] font-bold mt-1 ml-1 block"></span>
+                </div>
+
+                <div class="pt-6 border-t border-slate-100 flex items-center justify-end gap-3 mt-8">
+                    <a asp-action="Courses" class="px-6 py-3 bg-slate-100 text-slate-600 hover:bg-slate-200 font-bold text-sm rounded-xl transition-colors border border-slate-200">
+                        Hủy thay đổi
+                    </a>
+                    <button type="submit" class="px-8 py-3 bg-indigo-500 text-white font-bold text-sm rounded-xl hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-500/30 flex items-center gap-2">
+                        <iconify-icon icon="solar:check-circle-bold-duotone" width="18"></iconify-icon> Lưu Cập Nhật
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

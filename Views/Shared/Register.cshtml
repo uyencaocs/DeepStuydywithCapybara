@@ -57,7 +57,26 @@
             </button>
         </form>
 
-        <div class="mt-8 text-center">
+        <div class="mt-6 relative z-10">
+            <div class="relative flex py-3 items-center">
+                <div class="flex-grow border-t border-[#E8C9A0]/50"></div>
+                <span class="flex-shrink mx-4 text-[10px] font-black text-[#8B5E3C] uppercase tracking-tighter">Hoặc đăng ký với</span>
+                <div class="flex-grow border-t border-[#E8C9A0]/50"></div>
+            </div>
+
+            <form asp-controller="Account" asp-action="ExternalLogin" method="post" class="grid grid-cols-2 gap-3 mt-2">
+                <button type="submit" name="provider" value="Google" class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm w-full">
+                    <iconify-icon icon="logos:google-icon" width="18"></iconify-icon>
+                    <span class="text-xs font-bold text-black">Google</span>
+                </button>
+                <button type="submit" name="provider" value="Facebook" class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm w-full">
+                    <iconify-icon icon="logos:facebook" width="18"></iconify-icon>
+                    <span class="text-xs font-bold text-black">Facebook</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="mt-8 text-center border-t border-[#E8C9A0]/30 pt-6">
             <p class="text-xs font-bold text-black">Đã có tài khoản rồi? ✨</p>
             <a asp-action="Login" class="inline-block mt-2 text-sm font-black text-[#F4831F] hover:text-[#C8620F] transition-colors">QUAY LẠI ĐĂNG NHẬP</a>
         </div>

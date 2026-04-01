@@ -12,9 +12,15 @@ namespace DeeplearningwithCapybara.Models
 
         public string TaskName { get; set; } = null!;
 
-        public DateTime Deadline { get; set; }
+        public DateTime StartDate { get; set; }
 
-        public string Status { get; set; } = null!;
+        public DateTime EndDate { get; set; }
+
+        public bool Status { get; set; }
+
+        public int Priority { get; set; }
+
+        public int? CourseId { get; set; }
 
         [ForeignKey("PlanId")]
         public StudyPlans StudyPlans { get; set; } = null!;
