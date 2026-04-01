@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Tổng Quan Hệ Thống";
+    Layout = "_AdminLayout";
+}
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/60 relative overflow-hidden group hover:border-indigo-200 transition-colors">
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-indigo-50 rounded-full blur-2xl group-hover:bg-indigo-100 transition-colors pointer-events-none"></div>
+        <div class="flex items-start justify-between relative z-10">
+            <div>
+                <p class="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">TỔNG NGƯỜI DÙNG</p>
+                <h3 class="text-4xl font-black text-slate-800">@ViewBag.TotalUsers</h3>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-inner">
+                <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" width="24"></iconify-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/60 relative overflow-hidden group hover:border-emerald-200 transition-colors">
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-50 rounded-full blur-2xl group-hover:bg-emerald-100 transition-colors pointer-events-none"></div>
+        <div class="flex items-start justify-between relative z-10">
+            <div>
+                <p class="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">MÔN HỌC TĨNH</p>
+                <h3 class="text-4xl font-black text-slate-800">@ViewBag.TotalCourses</h3>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner">
+                <iconify-icon icon="solar:book-bookmark-bold-duotone" width="24"></iconify-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200/60 relative overflow-hidden group hover:border-amber-200 transition-colors">
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-50 rounded-full blur-2xl group-hover:bg-amber-100 transition-colors pointer-events-none"></div>
+        <div class="flex items-start justify-between relative z-10">
+            <div>
+                <p class="text-[10px] font-black uppercase text-slate-500 tracking-widest mb-1">LỘ TRÌNH AI TẠO</p>
+                <h3 class="text-4xl font-black text-slate-800">@ViewBag.TotalPlans</h3>
+            </div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center shadow-inner">
+                <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="24"></iconify-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-8 bg-white rounded-3xl p-8 shadow-sm border border-slate-200/60">
+    <div class="flex items-center gap-4 mb-6">
+        <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center">
+            <iconify-icon icon="solar:widget-add-bold-duotone" width="20"></iconify-icon>
+        </div>
+        <h3 class="font-black text-lg text-slate-800">Lối Cập Tắt</h3>
+    </div>
+    <div class="flex gap-4">
+        <a asp-action="Courses" class="px-6 py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition-colors shadow-lg shadow-slate-900/20">Quản Lý Môn Học</a>
+        <a asp-action="CreateCourse" class="px-6 py-3 bg-indigo-500 text-white rounded-xl font-bold text-sm hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-500/20">+ Thêm Mới</a>
+        <a asp-action="Users" class="px-6 py-3 text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl font-bold text-sm transition-colors border border-slate-200">Danh sách Học Viên</a>
+    </div>
+</div>

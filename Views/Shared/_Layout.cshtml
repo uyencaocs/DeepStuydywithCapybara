@@ -188,6 +188,10 @@
                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Schedule" ? "sidebar-item-active" : "text-[#8B5E3C]")">
                 <iconify-icon icon="solar:calendar-minimalistic-line-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
             </a>
+            <a asp-controller="Task" asp-action="Index" title="Công Việc"
+               class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Task" ? "sidebar-item-active" : "text-[#8B5E3C]")">
+                <iconify-icon icon="solar:checklist-bold-duotone" width="26" class="transition-transform group-hover:-translate-y-0.5"></iconify-icon>
+            </a>
             <a asp-controller="Focus" asp-action="Index" title="Tập Trung"
                class="w-12 h-12 flex items-center justify-center rounded-2xl transition-all group @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Focus" ? "sidebar-item-active" : "text-[#8B5E3C]")">
                 <iconify-icon icon="solar:clock-circle-line-duotone" width="26" class="transition-transform group-hover:rotate-12"></iconify-icon>

@@ -5,7 +5,7 @@ using DeeplearningwithCapybara.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
+using System.Security.Claims;
 namespace DeeplearningwithCapybara.Controllers
 {
     [AllowAnonymous]
@@ -25,16 +25,13 @@ namespace DeeplearningwithCapybara.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            // Đảm bảo các Role mặc định tồn tại trong Database
             if (!_roleManager.RoleExistsAsync(SD.Role_Customer).GetAwaiter().GetResult())
             {
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_Customer)).GetAwaiter().GetResult();
                 _roleManager.CreateAsync(new IdentityRole(SD.Role_Admin)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Company)).GetAwaiter().GetResult();
-                _roleManager.CreateAsync(new IdentityRole(SD.Role_Employee)).GetAwaiter().GetResult();
+             
             }
 
-            // Khởi tạo model và nạp danh sách Role để View có dữ liệu hiển thị dropdown
             RegisterDto model = new RegisterDto()
             {
                 RoleList = _roleManager.Roles.Select(r => new SelectListItem
@@ -66,7 +63,6 @@ namespace DeeplearningwithCapybara.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, model.Role);
                 }
-                // Chỉnh sửa: Quay lại trang đăng nhập sau khi đăng ký thành công
                 TempData["SuccessMessage"] = "Đăng ký thành công! Mời bạn đăng nhập.";
                 return RedirectToAction("Login");
             }
@@ -79,7 +75,7 @@ namespace DeeplearningwithCapybara.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public IActionResult Login(string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             return View();
@@ -109,6 +105,64 @@ namespace DeeplearningwithCapybara.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public IActionResult ExternalLogin(string provider, string? returnUrl = null)
+        {
+            var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+            return new ChallengeResult(provider, properties);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string? returnUrl = null, string? remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Lỗi từ hệ thống ngoài: {remoteError}");
+                return View("Login");
+            }
+
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            if (result.Succeeded)
+            {
+                return LocalRedirect(returnUrl);
+            }
+            if (result.IsLockedOut)
+            {
+                return View("Lockout");
+            }
+            else
+            {
+                var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+                if (email != null)
+                {
+                    var user = await _userManager.FindByEmailAsync(email);
+                    if (user == null)
+                    {
+                        user = new Users { UserName = email, Email = email };
+                        await _userManager.CreateAsync(user);
+                        await _userManager.AddToRoleAsync(user, SD.Role_Customer);
+                    }
+                    await _userManager.AddLoginAsync(user, info);
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
+                }
+                
+                ModelState.AddModelError(string.Empty, "Không thể lấy Email từ nhà cung cấp dịch vụ.");
+                return View("Login");
+            }
         }
     }
 

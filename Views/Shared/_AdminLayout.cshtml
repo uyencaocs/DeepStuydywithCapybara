@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CapyStudy Admin</title>
+    <link rel="stylesheet" href="~/css/tailwind.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #F8FAFC; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden text-slate-800">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-slate-900 text-white flex flex-col h-full shrink-0 shadow-2xl z-50">
+        <div class="h-20 flex items-center gap-3 px-6 border-b border-slate-800 shrink-0 bg-slate-950/50">
+            <div class="w-10 h-10 rounded-xl overflow-hidden shadow-lg border-2 border-indigo-500/30">
+                <img src="~/images/capybaraa photocopy.jpg" alt="Logo" class="w-full h-full object-cover">
+            </div>
+            <div>
+                <h1 class="font-black text-white text-lg tracking-tight leading-tight">Admin<span class="text-indigo-400">Panel</span>.</h1>
+                <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">CapyStudy System</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto">
+            <a asp-controller="Admin" asp-action="Index" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/20" : "text-slate-400 hover:bg-slate-800 hover:text-white")">
+                <iconify-icon icon="solar:pie-chart-2-bold-duotone" width="20"></iconify-icon> Dashboard
+            </a>
+            
+            <div class="pt-4 pb-2">
+                <p class="px-4 text-[10px] font-black uppercase text-slate-500 tracking-widest">Quản Lý</p>
+            </div>
+            
+            <a asp-controller="Admin" asp-action="Users" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold @(ViewContext.RouteData.Values["Action"].ToString().Contains("User") ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/20" : "text-slate-400 hover:bg-slate-800 hover:text-white")">
+                <iconify-icon icon="solar:users-group-rounded-bold-duotone" width="20"></iconify-icon> Học viên
+            </a>
+            <a asp-controller="Admin" asp-action="Courses" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-semibold @(ViewContext.RouteData.Values["Action"].ToString().Contains("Course") ? "bg-indigo-500 text-white shadow-lg shadow-indigo-500/20" : "text-slate-400 hover:bg-slate-800 hover:text-white")">
+                <iconify-icon icon="solar:book-bookmark-bold-duotone" width="20"></iconify-icon> Môn học
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-slate-800">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" class="w-full">
+                <button type="submit" class="flex items-center gap-3 px-4 py-3 rounded-xl w-full text-left font-semibold text-rose-400 hover:bg-rose-500/10 hover:text-rose-300 transition-colors">
+                    <iconify-icon icon="solar:logout-2-bold-duotone" width="20"></iconify-icon> Đăng xuất
+                </button>
+            </form>
+        </div>
+    </aside>
+
+    <!-- CONTENT MODULE -->
+    <main class="flex-1 flex flex-col h-full bg-slate-50 relative overflow-hidden">
+        
+        <!-- HEADER -->
+        <header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-8 z-40 shrink-0 relative shadow-sm">
+            <h2 class="text-xl font-black text-slate-800">@ViewData["Title"]</h2>
+            
+            <div class="flex items-center gap-5">
+                <span class="text-sm font-bold text-slate-500">Xin chào, <span class="text-slate-800">@User.Identity?.Name</span> 🌟</span>
+            </div>
+        </header>
+
+        <!-- MAIN SCROLLABLE AREA -->
+        <div class="flex-1 overflow-y-auto p-8 border-l border-slate-200/50 shadow-[inset_1px_0_0_0_rgba(0,0,0,0.02)]">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="mb-6 p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-bold rounded-2xl flex items-center gap-3 shadow-sm">
+                    <iconify-icon icon="solar:check-circle-bold-duotone" width="24" class="text-emerald-500"></iconify-icon>
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+            
+            @RenderBody()
+        </div>
+    </main>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

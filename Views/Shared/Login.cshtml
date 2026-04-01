@@ -66,16 +66,16 @@
                 <div class="flex-grow border-t border-[#E8C9A0]/50"></div>
             </div>
 
-            <div class="grid grid-cols-2 gap-3 mt-2">
-                <button class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm">
+            <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" class="grid grid-cols-2 gap-3 mt-2">
+                <button type="submit" name="provider" value="Google" class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm w-full">
                     <iconify-icon icon="logos:google-icon" width="18"></iconify-icon>
                     <span class="text-xs font-bold text-black">Google</span>
                 </button>
-                <button class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm">
+                <button type="submit" name="provider" value="Facebook" class="flex items-center justify-center gap-2 py-2.5 border border-[#E8C9A0] rounded-xl bg-white hover:bg-[#FDF1E3] transition-colors shadow-sm w-full">
                     <iconify-icon icon="logos:facebook" width="18"></iconify-icon>
                     <span class="text-xs font-bold text-black">Facebook</span>
                 </button>
-            </div>
+            </form>
         </div>
 
         <div class="mt-6 text-center border-t border-[#E8C9A0]/30 pt-6">

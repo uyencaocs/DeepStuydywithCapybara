@@ -1,0 +1,76 @@
+@model IEnumerable<DeeplearningwithCapybara.Models.Courses>
+@{
+    ViewData["Title"] = "Quản Lý Môn Học";
+    Layout = "_AdminLayout";
+}
+
+<div class="bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden">
+    <div class="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
+        <h3 class="font-black text-slate-800 text-lg flex items-center gap-2">
+            <iconify-icon icon="solar:book-bookmark-bold-duotone" class="text-indigo-500"></iconify-icon> Thư viện Môn học
+        </h3>
+        <a asp-action="CreateCourse" class="px-5 py-2.5 bg-indigo-500 text-white rounded-xl font-bold text-[11px] uppercase tracking-wider hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-500/20 flex items-center gap-2">
+            <iconify-icon icon="solar:add-circle-bold-duotone" width="16"></iconify-icon> Thêm Môn Mới
+        </a>
+    </div>
+
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-slate-50 text-[10px] shadow-inner uppercase font-black text-slate-500 tracking-wider">
+                    <th class="py-4 px-6 border-b border-slate-200 w-16 text-center">ID</th>
+                    <th class="py-4 px-6 border-b border-slate-200">Tên Môn Học</th>
+                    <th class="py-4 px-6 border-b border-slate-200 text-center">Tín Chỉ</th>
+                    <th class="py-4 px-6 border-b border-slate-200 text-right">Trạng thái / Hành động</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+                @if(!Model.Any())
+                {
+                    <tr>
+                        <td colspan="5" class="py-12 text-center">
+                            <iconify-icon icon="solar:book-minimalistic-bold-duotone" width="48" class="text-slate-200 mb-3 mx-auto"></iconify-icon>
+                            <p class="text-slate-400 font-semibold text-sm">Chưa có môn học tĩnh nào. Vui lòng thêm môn học mới.</p>
+                        </td>
+                    </tr>
+                }
+                @foreach (var c in Model)
+                {
+                    <tr class="hover:bg-slate-50/50 transition-colors group">
+                        <td class="py-4 px-6 text-center">
+                            <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 font-bold text-xs flex items-center justify-center mx-auto border border-slate-200 shadow-sm">
+                                @c.CourseId
+                            </span>
+                        </td>
+                        <td class="py-4 px-6">
+                            <div class="font-bold text-slate-700 text-sm flex items-center gap-2">
+                                <iconify-icon icon="solar:folder-with-files-bold-duotone" class="text-indigo-400"></iconify-icon>
+                                @c.CourseName
+                            </div>
+                            <div class="text-[10px] text-slate-400 font-medium mt-1 uppercase tracking-widest flex items-center gap-1 group-hover:text-indigo-400 transition-colors">
+                                <iconify-icon icon="solar:link-bold"></iconify-icon> ID NỘI BỘ: @c.CourseId
+                            </div>
+                        </td>
+                        <td class="py-4 px-6 text-center">
+                            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 font-black text-xs border border-indigo-100 shadow-sm">
+                                @c.Credits
+                            </span>
+                        </td>
+                        <td class="py-4 px-6 text-right">
+                            <div class="flex items-center justify-end gap-2">
+                                <a asp-action="EditCourse" asp-route-id="@c.CourseId" class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 hover:bg-indigo-500 hover:text-white transition-all border border-indigo-100 flex items-center justify-center shadow-sm" title="Sửa">
+                                    <iconify-icon icon="solar:pen-bold-duotone" width="16"></iconify-icon>
+                                </a>
+                                <form asp-action="DeleteCourse" asp-route-id="@c.CourseId" method="post" class="inline-block" onsubmit="return confirm('Xóa môn học này sẽ ảnh hưởng đến lộ trình AI của học viên nếu có. Bạn có chắc chắn?');">
+                                    <button type="submit" class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-500 hover:text-white transition-all border border-rose-100 flex items-center justify-center shadow-sm" title="Xóa">
+                                        <iconify-icon icon="solar:trash-bin-trash-bold-duotone" width="16"></iconify-icon>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

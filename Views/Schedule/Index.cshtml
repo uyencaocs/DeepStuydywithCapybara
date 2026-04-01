@@ -1,72 +1,45 @@
 @{
     ViewData["Title"] = "Lịch Trình";
-
-
-
-
-
-
-
     var days = new[] { "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "CN" };
-
-
-
-
-
-
-
-    var hours = Enumerable.Range(0, 24).Select(h => $"{h:D2}:00").ToList(); // 00:00 to 23:00
+    var hours = Enumerable.Range(0, 24).Select(h => $"{h:D2}:00").ToList();
 }
 
 <div class="p-6 md:p-8 space-y-6 max-w-[1600px] mx-auto w-full">
 
-    <!-- Hero Banner with Overlay -->
-    <div class="gradient-card rounded-[2rem] overflow-hidden relative min-h-[160px] flex items-center shadow-lg">
-        <!-- Overlay -->
-        <div class="absolute inset-0 bg-[#000000]/60 z-0 pointer-events-none"></div>
+    <div class="gradient-card bg-white rounded-[2rem] overflow-hidden relative min-h-[160px] flex items-center shadow-lg">
 
-        <!-- Text Content -->
         <div class="relative z-10 p-8 w-full md:w-1/2">
-            <h2 class="text-3xl font-black text-white mb-2 tracking-tight drop-shadow-lg">Hành trình hôm nay của bạn 🎒
+            <h2 class="text-3xl font-extrabold text-gray-950 mb-2 tracking-tight">
+                Hành trình hôm nay của bạn 🎒
             </h2>
-            <p class="text-white/80 font-medium drop-shadow-md">Sắp xếp thời gian thông minh, học tập nhàn tênh cùng
-                Capy.</p>
+
+            <p class="text-gray-700 font-medium">
+                Sắp xếp thời gian thông minh, học tập nhàn tênh cùng Capy.
+            </p>
         </div>
 
-        <!-- Capy Backpack Image -->
         <div class="absolute right-0 top-0 bottom-0 w-1/3 md:w-1/4 pointer-events-none">
-            <img src="~/images/tải xuống (2).jpg" alt="Capy Backpack"
-                class="w-full h-full object-cover object-center opacity-90 drop-shadow-2xl">
+            <img src="~/images/capy-backpack.jpg" alt="Capy Backpack" class="w-full h-full object-cover object-center opacity-90 drop-shadow-2xl">
         </div>
     </div>
 
-    <!-- Toolbar -->
-    <div
-        class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/80 backdrop-blur-md p-4 rounded-3xl border border-[#E8C9A0] shadow-sm">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/80 backdrop-blur-md p-4 rounded-3xl border border-[#E8C9A0] shadow-sm">
         <div class="flex gap-2 items-center">
-            <button
-                class="bg-[#FDF1E3] text-black p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon
-                    icon="solar:alt-arrow-left-line-duotone" width="20"></iconify-icon></button>
-            <div
-                class="bg-white border border-[#E8C9A0] px-4 py-2 rounded-xl flex items-center justify-center font-black text-black shadow-sm tracking-wide">
+            <button class="bg-[#FDF1E3] text-black p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon icon="solar:alt-arrow-left-line-duotone" width="20"></iconify-icon></button>
+            <div class="bg-white border border-[#E8C9A0] px-4 py-2 rounded-xl flex items-center justify-center font-black text-black shadow-sm tracking-wide">
                 Tuần 20 - 26 Tháng 3, 2026
             </div>
-            <button
-                class="bg-[#FDF1E3] text-black p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon
-                    icon="solar:alt-arrow-right-line-duotone" width="20"></iconify-icon></button>
+            <button class="bg-[#FDF1E3] text-black p-2 rounded-xl hover:bg-[#E8C9A0] transition-colors"><iconify-icon icon="solar:alt-arrow-right-line-duotone" width="20"></iconify-icon></button>
         </div>
 
-        <button id="btn-optimize-ai"
-            class="bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white px-6 py-3 rounded-2xl flex items-center gap-2 font-black text-sm shadow-lg shadow-orange-200 hover:-translate-y-0.5 active:scale-95 transition-all">
+        <button id="btn-optimize-ai" class="bg-gradient-to-r from-[#F4831F] to-[#C8620F] text-white px-6 py-3 rounded-2xl flex items-center gap-2 font-black text-sm shadow-lg shadow-orange-200 hover:-translate-y-0.5 active:scale-95 transition-all">
             <iconify-icon icon="solar:magic-stick-3-bold-duotone" width="20" class="animate-pulse"></iconify-icon>
             AI TỐI ƯU HÓA
         </button>
     </div>
 
-    <!-- CSS Grid Calendar (6:00 - 23:00) -->
     <div class="bg-white rounded-[2.5rem] border border-[#E8C9A0] shadow-xl overflow-hidden flex flex-col h-[700px] w-full relative">
 
-        <!-- Header Row (Days) -->
         <div class="grid grid-cols-8 border-b border-[#E8C9A0] bg-[#FDF1E3] sticky top-0 z-30">
             <div class="p-4 border-r border-[#E8C9A0]/50 text-center flex items-center justify-center">
                 <iconify-icon icon="solar:clock-circle-bold-duotone" width="24" class="text-black"></iconify-icon>
@@ -88,20 +61,11 @@
             }
         </div>
 
-        <!-- Scrollable Grid Body -->
         <div class="overflow-auto flex-1 custom-scrollbar relative">
             <div class="grid grid-cols-8 relative min-w-[700px] md:min-w-0">
 
-                <!-- Time Column -->
                 <div class="col-span-1 border-r border-[#E8C9A0]/50 bg-slate-50/50 sticky left-0 z-20">
                     @foreach (var hour in hours)
-
-
-
-
-
-
-
                     {
                         <div class="h-16 border-b border-dashed border-[#E8C9A0]/30 flex items-start justify-center pt-2">
                             <span class="text-[11px] font-bold text-black">@hour</span>
@@ -109,134 +73,130 @@
                     }
                 </div>
 
-                <!-- 7 Days Columns -->
-                <div class="col-span-7 grid grid-cols-7 relative h-full">
+                <div id="calendar-grid-area" class="col-span-7 grid grid-cols-7 relative h-full cursor-pointer group">
                     <div class="absolute inset-0 grid grid-cols-7 pointer-events-none z-0">
                         @for (int i = 0; i < 7; i++)
-
-
-
-
-
-
-
                         {
                             <div class="border-r border-[#E8C9A0]/30 last:border-0 h-full"></div>
                         }
                     </div>
                     <div class="absolute inset-0 pointer-events-none flex flex-col z-0">
                         @foreach (var cur in hours)
-
-
-
-
-
-
-
                         {
                             <div class="h-16 w-full border-b border-dashed border-[#E8C9A0]/30 shrink-0"></div>
                         }
                     </div>
 
-                    <!-- Hardcoded Event 1: Deep Learning -->
-                    <!-- Tuesday (col 2): 10:00 to 12:00 (Starts at 10:00 -> 10*64=640px top, height 2*64=128px) -->
-                    <div class="absolute w-[14.28%] px-1 z-10"
-                        style="left: calc(14.28% * 1); top: 640px; height: 128px;">
-                        <div
-                            class="event-slot w-full h-full bg-[#FDF8F3] border-l-4 border-[#F4831F] rounded-xl p-3 shadow-md relative group hover:scale-[1.02] transition-transform cursor-pointer overflow-hidden"
-                            data-title="Deep Learning" data-time="10:00 - 12:00" data-desc="Sắp thi cuối kỳ">
+                    <div class="absolute w-[14.28%] px-1 z-10" style="left: calc(14.28% * 1); top: 640px; height: 128px;">
+                        <div class="event-slot w-full h-full bg-[#FDF8F3] border-l-4 border-[#F4831F] rounded-xl p-3 shadow-md relative group hover:scale-[1.02] transition-transform cursor-pointer overflow-hidden"
+                             data-title="Deep Learning" data-time="10:00 - 12:00" data-desc="Sắp thi cuối kỳ">
                             <span class="absolute top-2 right-2 flex h-2 w-2">
-                                <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E07A5F] opacity-75"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E07A5F] opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-[#E07A5F]"></span>
                             </span>
                             <p class="text-[10px] font-black text-black">10:00 - 12:00</p>
                             <p class="text-xs font-black text-black leading-tight mt-1">Deep Learning</p>
                             <p class="text-[10px] text-black font-semibold mt-1">Sắp thi cuối kỳ</p>
-                            <iconify-icon icon="solar:cpu-bold-duotone"
-                                class="absolute bottom-1 right-2 text-black/20 group-hover:text-black/40 transition-colors"
-                                width="36"></iconify-icon>
                         </div>
                     </div>
 
-                    <!-- AI Suggested Slots -->
-                    <!-- Thursday 09:00 - 11:00 (Starts at 09:00 -> 9*64=576px) -->
-                    <div class="ai-suggestion absolute w-[14.28%] px-1 z-10 opacity-0 scale-95 transition-all duration-500"
-                        style="left: calc(14.28% * 3); top: 576px; height: 128px;">
-                        <div
-                            class="event-slot w-full h-full bg-gradient-to-br from-[#FDF8F3] to-[#FDF1E3] border-2 border-dashed border-[#F4831F] rounded-xl p-2 relative flex flex-col items-center justify-center text-center cursor-pointer hover:border-solid hover:scale-[1.02]"
-                            data-title="Làm bài tập CSDL" data-time="09:00 - 11:00" data-desc="Gợi ý AI tối ưu hóa thời gian">
-                            <iconify-icon icon="solar:magic-stick-3-bold-duotone" class="text-black mb-1"
-                                width="24"></iconify-icon>
+                    <div class="ai-suggestion absolute w-[14.28%] px-1 z-10 opacity-0 scale-95 transition-all duration-500" style="left: calc(14.28% * 3); top: 576px; height: 128px;">
+                        <div class="event-slot w-full h-full bg-gradient-to-br from-[#FDF8F3] to-[#FDF1E3] border-2 border-dashed border-[#F4831F] rounded-xl p-2 relative flex flex-col items-center justify-center text-center cursor-pointer hover:border-solid hover:scale-[1.02]"
+                             data-title="Làm bài tập CSDL" data-time="09:00 - 11:00" data-desc="Gợi ý AI tối ưu hóa thời gian">
                             <p class="text-[9px] font-black text-black uppercase">Gợi ý AI</p>
                             <p class="text-[11px] font-bold text-black leading-tight mt-0.5">Làm bài tập CSDL</p>
                         </div>
                     </div>
 
-                    <!-- Saturday 14:00 - 16:00 (Starts at 14:00 -> 14*64=896px) -->
-                    <div class="ai-suggestion absolute w-[14.28%] px-1 z-10 opacity-0 scale-95 transition-all duration-700"
-                        style="left: calc(14.28% * 5); top: 896px; height: 128px;">
-                        <div
-                            class="event-slot w-full h-full bg-gradient-to-br from-[#FDF8F3] to-[#FDF1E3] border-2 border-dashed border-[#F4831F] rounded-xl p-2 relative flex flex-col items-center justify-center text-center cursor-pointer hover:border-solid hover:scale-[1.02]"
-                            data-title="Ôn tập Deep Learning" data-time="14:00 - 16:00" data-desc="Gợi ý AI tối ưu hóa thời gian">
-                            <iconify-icon icon="solar:magic-stick-3-bold-duotone" class="text-black mb-1"
-                                width="24"></iconify-icon>
-                            <p class="text-[9px] font-black text-black uppercase">Gợi ý AI</p>
-                            <p class="text-[11px] font-bold text-black leading-tight mt-0.5">Ôn tập Deep Learning
-                            </p>
+                    <div id="modal-content-add" onclick="event.stopPropagation()" style="width: 420px; position: absolute; z-index: 9999;" class="bg-white rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.16)] border border-gray-200 hidden opacity-0 transition-opacity duration-200 flex-col cursor-default">
+                        <div class="flex justify-end px-2 pt-2 bg-gray-50/50 rounded-t-xl">
+                            <button id="close-modal-btn" class="p-2 text-gray-500 hover:bg-gray-200 rounded-full transition-colors">
+                                <iconify-icon icon="solar:close-square-linear" width="20"></iconify-icon>
+                            </button>
+                        </div>
+
+                        <div class="px-6 pb-2 mt-2">
+                            <div class="ml-10 mb-5">
+                                <input type="text" id="schedule-title" placeholder="Thêm tiêu đề"
+                                       class="w-full text-[22px] text-gray-800 border-b-2 border-transparent hover:bg-gray-50 focus:border-[#F4831F] focus:bg-white outline-none pb-1 transition-colors placeholder:text-gray-400">
+                            </div>
+
+                            <div class="ml-10 flex gap-2 mb-4">
+                                <button class="px-3 py-1.5 bg-[#FDF1E3] text-[#F4831F] text-sm font-semibold rounded-md">Sự kiện</button>
+                                <button class="px-3 py-1.5 text-gray-600 text-sm font-semibold hover:bg-gray-100 rounded-md transition-colors">Việc cần làm</button>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 text-sm text-gray-700">
+                                    <div class="w-6 flex justify-center">
+                                        <iconify-icon icon="solar:clock-circle-linear" width="20" class="text-gray-500"></iconify-icon>
+                                    </div>
+                                    <div class="flex-1 flex flex-wrap items-center gap-2">
+                                        <input type="date" id="schedule-date" class="hover:bg-gray-100 px-2 py-1.5 rounded outline-none focus:bg-[#FDF1E3] cursor-pointer border border-transparent hover:border-gray-200">
+                                        <input type="time" id="schedule-start" class="hover:bg-gray-100 px-2 py-1.5 rounded outline-none focus:bg-[#FDF1E3] cursor-pointer border border-transparent hover:border-gray-200">
+                                        <span>-</span>
+                                        <input type="time" id="schedule-end" class="hover:bg-gray-100 px-2 py-1.5 rounded outline-none focus:bg-[#FDF1E3] cursor-pointer border border-transparent hover:border-gray-200">
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-4 text-sm text-gray-700">
+                                    <div class="w-6 flex justify-center">
+                                        <iconify-icon icon="solar:tag-horizontal-linear" width="20" class="text-gray-500"></iconify-icon>
+                                    </div>
+                                    <select id="schedule-type" class="flex-1 hover:bg-gray-100 px-2 py-1.5 rounded outline-none focus:bg-[#FDF1E3] cursor-pointer border border-transparent hover:border-gray-200 appearance-none">
+                                        <option value="hoc-tap">📚 Học tập</option>
+                                        <option value="thi-cu">🔥 Thi cử</option>
+                                        <option value="ca-nhan">☕ Cá nhân</option>
+                                    </select>
+                                </div>
+
+                                <div class="flex items-start gap-4 text-sm text-gray-700">
+                                    <div class="w-6 flex justify-center pt-2">
+                                        <iconify-icon icon="solar:text-align-left-linear" width="20" class="text-gray-500"></iconify-icon>
+                                    </div>
+                                    <textarea id="schedule-note" rows="3" placeholder="Thêm mô tả..."
+                                              class="flex-1 w-full bg-gray-50 hover:bg-gray-100 px-3 py-2 rounded-md outline-none focus:bg-white focus:ring-1 focus:ring-[#F4831F] resize-none border border-transparent transition-all"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center px-6 py-4 mt-2">
+                            <button id="cancel-schedule-btn" class="px-4 py-2 text-sm font-semibold text-gray-600 hover:bg-gray-100 rounded-md transition-colors">
+                                Tùy chọn khác
+                            </button>
+                            <button id="save-schedule-btn" class="px-6 py-2 text-sm font-semibold text-white bg-[#F4831F] hover:bg-[#C8620F] rounded-md transition-colors shadow-sm">
+                                Lưu
+                            </button>
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- Current Time Indicator (10:30 -> 10.5*64 = 672px) -->
             <div class="absolute left-0 right-0 border-t-2 border-[#E07A5F] z-30 pointer-events-none" style="top: 672px;">
-                <div class="absolute -left-1.5 -top-2 w-4 h-4 bg-[#E07A5F] rounded-full border-2 border-white shadow-sm">
-                </div>
+                <div class="absolute -left-1.5 -top-2 w-4 h-4 bg-[#E07A5F] rounded-full border-2 border-white shadow-sm"></div>
             </div>
         </div>
-        </div> <!-- End Calendar Main -->
+    </div>
 
-        <!-- Analytics Section at Bottom -->
-        <div class="mt-12 mb-8 px-6">
-            <h3 class="text-xl font-black text-black mb-6 flex items-center gap-2">
-                <iconify-icon icon="solar:chart-square-bold-duotone" class="text-black" width="24"></iconify-icon>
-                Thống kê học tập theo môn
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Deep Learning -->
-                <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm">
-                    <h4 class="text-sm font-black text-black text-center mb-4">Deep Learning</h4>
-                    <div class="relative h-48 w-full">
-                        <canvas id="chart-dl"></canvas>
-                    </div>
-                </div>
-                <!-- TOEIC -->
-                <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm">
-                    <h4 class="text-sm font-black text-black text-center mb-4">Luyện thi TOEIC</h4>
-                    <div class="relative h-48 w-full">
-                        <canvas id="chart-toeic"></canvas>
-                    </div>
-                </div>
-                <!-- CSDL -->
-                <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm">
-                    <h4 class="text-sm font-black text-black text-center mb-4">Cơ sở dữ liệu</h4>
-                    <div class="relative h-48 w-full">
-                        <canvas id="chart-csdl"></canvas>
-                    </div>
-                </div>
-            </div>
+    <div class="mt-12 mb-8 px-6">
+        <h3 class="text-xl font-black text-black mb-6 flex items-center gap-2">
+            <iconify-icon icon="solar:chart-square-bold-duotone" class="text-black" width="24"></iconify-icon>
+            Thống kê học tập theo môn
+        </h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm"><canvas id="chart-dl"></canvas></div>
+            <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm"><canvas id="chart-toeic"></canvas></div>
+            <div class="bg-white p-6 rounded-[2rem] border border-[#E8C9A0] shadow-sm"><canvas id="chart-csdl"></canvas></div>
         </div>
-
+    </div>
 </div>
 
-<!-- Event Detail Modal -->
-<div id="event-modal" class="fixed inset-0 z-[100] bg-[#000000]/40 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300">
+<div id="modal-backdrop-add" style="z-index: 9998;" class="fixed inset-0 bg-transparent hidden"></div>
+
+<div id="event-modal" style="z-index: 9999;" class="fixed inset-0 bg-[#000000]/40 backdrop-blur-sm hidden items-center justify-center transition-all duration-300">
     <div class="bg-white rounded-[2rem] p-8 w-full max-w-sm border border-[#E8C9A0] shadow-2xl transform scale-95 transition-transform duration-300" id="event-modal-content">
         <div class="flex justify-between items-start mb-4">
             <h3 class="text-xl font-black text-black" id="modal-title">Tên môn học</h3>
-            <button id="btn-close-modal" class="text-black hover:text-black bg-[#FDF1E3] p-2 rounded-xl transition-colors">
+            <button id="btn-close-detail" class="text-black hover:text-black bg-[#FDF1E3] p-2 rounded-xl transition-colors">
                 <iconify-icon icon="solar:close-circle-bold-duotone" width="20"></iconify-icon>
             </button>
         </div>
@@ -250,120 +210,188 @@
 </div>
 
 @section Scripts {
-    <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // AI Tối Ưu Hóa Button
-        document.getElementById('btn-optimize-ai').addEventListener('click', function () {
-            var btn = this;
+        document.addEventListener('DOMContentLoaded', function () {
 
-            btn.innerHTML = '<iconify-icon icon="solar:spuare-academic-bold-duotone" width="20" class="animate-spin"></iconify-icon> Đang phân tích...';
-            btn.classList.add('opacity-80', 'cursor-not-allowed', 'scale-95');
+            // ==========================================
+            // 1. LOGIC CLICK LƯỚI & MỞ MODAL TẠI CHỖ
+            // ==========================================
+            const calendarGrid = document.getElementById('calendar-grid-area');
+            const addModalContent = document.getElementById('modal-content-add');
+            const addBackdrop = document.getElementById('modal-backdrop-add');
 
-            setTimeout(() => {
-                const suggestions = document.querySelectorAll('.ai-suggestion');
-                suggestions.forEach((el, index) => {
+            function closeAddModal() {
+                if(!addModalContent) return;
+                addModalContent.classList.remove('opacity-100');
+                addModalContent.classList.add('opacity-0');
+                setTimeout(() => {
+                    addModalContent.classList.add('hidden');
+                    addModalContent.classList.remove('flex');
+                    addBackdrop.classList.add('hidden');
+                }, 200);
+            }
+
+            document.getElementById('close-modal-btn')?.addEventListener('click', closeAddModal);
+            document.getElementById('cancel-schedule-btn')?.addEventListener('click', closeAddModal);
+            addBackdrop?.addEventListener('click', closeAddModal);
+
+            if (calendarGrid) {
+                calendarGrid.addEventListener('click', function(e) {
+                    if (e.target.closest('.event-slot') || e.target.closest('.ai-suggestion')) {
+                        return;
+                    }
+
+                    // Tính tọa độ click nội bộ của Grid (để cuộn trôi theo lịch)
+                    const rect = calendarGrid.getBoundingClientRect();
+                    const clickXGrid = e.clientX - rect.left;
+                    const clickYGrid = e.clientY - rect.top;
+
+                    const colWidth = rect.width / 7;
+                    const rowHeight = 64;
+
+                    const colIndex = Math.floor(clickXGrid / colWidth);
+                    const rowIndex = Math.floor(clickYGrid / rowHeight);
+
+                    const baseDate = new Date(2026, 2, 23);
+                    baseDate.setDate(baseDate.getDate() + colIndex);
+
+                    const year = baseDate.getFullYear();
+                    const month = String(baseDate.getMonth() + 1).padStart(2, '0');
+                    const day = String(baseDate.getDate()).padStart(2, '0');
+
+                    document.getElementById('schedule-date').value = `${year}-${month}-${day}`;
+                    document.getElementById('schedule-start').value = String(rowIndex).padStart(2, '0') + ":00";
+                    document.getElementById('schedule-end').value = String(rowIndex + 1).padStart(2, '0') + ":00";
+                    document.getElementById('schedule-title').value = '';
+                    document.getElementById('schedule-note').value = '';
+
+                    // Tính vị trí để hiển thị Modal
+                    let posX = clickXGrid + 15;
+                    let posY = clickYGrid - 15;
+
+                    // Ngăn tràn lề phải
+                    if (posX + 420 > rect.width) {
+                        posX = clickXGrid - 420 - 15;
+                    }
+
+                    addModalContent.style.left = posX + 'px';
+                    addModalContent.style.top = posY + 'px';
+
+                    // Hiện Modal lên
+                    addBackdrop.classList.remove('hidden');
+                    addModalContent.classList.remove('hidden');
+                    addModalContent.classList.add('flex');
                     setTimeout(() => {
-                        el.classList.remove('opacity-0', 'scale-95');
-                        el.classList.add('opacity-100', 'scale-100');
-                    }, index * 200);
+                        addModalContent.classList.remove('opacity-0');
+                        addModalContent.classList.add('opacity-100');
+                    }, 10);
+                });
+            }
+
+            // ==========================================
+            // 2. LOGIC NÚT LƯU & VẼ LỊCH
+            // ==========================================
+            document.getElementById('save-schedule-btn')?.addEventListener('click', function() {
+                const title = document.getElementById('schedule-title').value || '(Không có tiêu đề)';
+                const dateVal = document.getElementById('schedule-date').value;
+                const startVal = document.getElementById('schedule-start').value;
+                const endVal = document.getElementById('schedule-end').value;
+                const typeVal = document.getElementById('schedule-type').value;
+                const desc = document.getElementById('schedule-note').value;
+
+                if(!dateVal || !startVal || !endVal) return;
+
+                const baseDate = new Date(2026, 2, 23);
+                const selectedDate = new Date(dateVal);
+                const colIndex = Math.floor((selectedDate - baseDate) / (1000 * 60 * 60 * 24));
+                if(colIndex < 0 || colIndex > 6) return;
+
+                const startParts = startVal.split(':');
+                const startHour = parseInt(startParts[0]) + parseInt(startParts[1])/60;
+                const topPx = startHour * 64;
+
+                const endParts = endVal.split(':');
+                const endHour = parseInt(endParts[0]) + parseInt(endParts[1])/60;
+                const heightPx = (endHour - startHour) * 64;
+
+                let borderColor = 'border-[#F4831F]'; let bgColor = 'bg-[#FDF8F3]'; let dotColor = 'bg-[#E07A5F]'; let iconStr = 'solar:book-bookmark-bold-duotone';
+                if(typeVal === 'thi-cu') { borderColor = 'border-red-500'; bgColor = 'bg-red-50'; dotColor = 'bg-red-500'; iconStr = 'solar:danger-triangle-bold-duotone'; }
+                else if (typeVal === 'ca-nhan') { borderColor = 'border-sky-500'; bgColor = 'bg-sky-50'; dotColor = 'bg-sky-500'; iconStr = 'solar:cup-hot-bold-duotone'; }
+
+                const newEventHTML = `
+                    <div class="absolute w-[14.28%] px-1 z-10" style="left: calc(14.28% * ${colIndex}); top: ${topPx}px; height: ${heightPx}px;">
+                        <div class="event-slot w-full h-full ${bgColor} border-l-4 ${borderColor} rounded-xl p-3 shadow-md relative group hover:scale-[1.02] transition-transform cursor-pointer overflow-hidden"
+                             data-title="${title}" data-time="${startVal} - ${endVal}" data-desc="${desc}">
+                            <span class="absolute top-2 right-2 flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full ${dotColor} opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 ${dotColor}"></span></span>
+                            <p class="text-[10px] font-black text-black">${startVal} - ${endVal}</p>
+                            <p class="text-xs font-black text-black leading-tight mt-1 truncate">${title}</p>
+                            <iconify-icon icon="${iconStr}" class="absolute bottom-1 right-2 text-black/20 group-hover:text-black/40 transition-colors" width="36"></iconify-icon>
+                        </div>
+                    </div>`;
+
+                calendarGrid.insertAdjacentHTML('beforeend', newEventHTML);
+
+                const newlyAddedSlots = document.querySelectorAll('.event-slot');
+                newlyAddedSlots[newlyAddedSlots.length - 1].addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    document.getElementById('modal-title').textContent = this.dataset.title;
+                    document.getElementById('modal-time').textContent = this.dataset.time;
+                    document.getElementById('modal-desc').textContent = this.dataset.desc || "Không có mô tả chi tiết";
+
+                    const detailModal = document.getElementById('event-modal');
+                    const detailModalContent = document.getElementById('event-modal-content');
+                    detailModal.classList.remove('hidden'); detailModal.classList.add('flex');
+                    setTimeout(() => { detailModalContent.classList.remove('scale-95'); detailModalContent.classList.add('scale-100'); }, 10);
                 });
 
-                btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold-duotone" width="20"></iconify-icon> Đã tối ưu';
-                btn.classList.remove('opacity-80', 'cursor-not-allowed', 'from-[#F4831F]', 'to-[#C8620F]', 'scale-95');
-                btn.classList.add('from-green-500', 'to-emerald-600', 'scale-100');
-            }, 1000);
-        });
-
-        // Common Options for Analytics Charts
-        const commonOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'bottom', labels: { font: { family: 'Be Vietnam Pro', weight: 'bold', size: 10 } } }
-            },
-            scales: {
-                x: {
-                    grid: { display: false },
-                    ticks: { color: '#000000', font: { family: 'Be Vietnam Pro', weight: 'bold', size: 10 } }
-                },
-                y: {
-                    grid: { color: '#E8C9A0', borderDash: [4, 4], drawBorder: false },
-                    ticks: { color: '#000000', font: { family: 'Be Vietnam Pro', size: 10 }, stepSize: 2 }
-                }
-            }
-        };
-
-        // Deep Learning Chart
-        new Chart(document.getElementById('chart-dl').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
-                datasets: [
-                    { label: 'Học tập (h)', data: [2.5, 3.8, 1.2, 4.0, 2.0, 5.5, 3.5], backgroundColor: '#F4831F', borderRadius: 4 },
-                    { label: 'Focus (h)', data: [1.5, 2.0, 1.0, 3.0, 1.5, 4.0, 2.5], backgroundColor: '#8CA894', borderRadius: 4 }
-                ]
-            },
-            options: commonOptions
-        });
-
-        // TOEIC Chart
-        new Chart(document.getElementById('chart-toeic').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
-                datasets: [
-                    { label: 'Học tập (h)', data: [1.0, 1.5, 2.0, 1.5, 2.5, 1.0, 2.0], backgroundColor: '#F4831F', borderRadius: 4 },
-                    { label: 'Focus (h)', data: [0.5, 1.0, 1.5, 1.0, 2.0, 0.5, 1.5], backgroundColor: '#8CA894', borderRadius: 4 }
-                ]
-            },
-            options: commonOptions
-        });
-
-        // CSDL Chart
-        new Chart(document.getElementById('chart-csdl').getContext('2d'), {
-            type: 'bar',
-            data: {
-                labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'],
-                datasets: [
-                    { label: 'Học tập (h)', data: [3.0, 0, 4.0, 0, 3.5, 0, 2.0], backgroundColor: '#F4831F', borderRadius: 4 },
-                    { label: 'Focus (h)', data: [2.0, 0, 3.0, 0, 2.5, 0, 1.5], backgroundColor: '#8CA894', borderRadius: 4 }
-                ]
-            },
-            options: commonOptions
-        });
-
-        // Modal Logic
-        const modal = document.getElementById('event-modal');
-        const modalContent = document.getElementById('event-modal-content');
-        const btnClose = document.getElementById('btn-close-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalTime = document.getElementById('modal-time');
-        const modalDesc = document.getElementById('modal-desc');
-
-        document.querySelectorAll('.event-slot').forEach(slot => {
-            slot.addEventListener('click', function() {
-                modalTitle.textContent = this.dataset.title;
-                modalTime.textContent = this.dataset.time;
-                modalDesc.textContent = this.dataset.desc;
-                
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
+                closeAddModal();
             });
-        });
 
-        btnClose.addEventListener('click', function() {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-        });
+            // ==========================================
+            // 3. LOGIC XEM CHI TIẾT VÀ CÁC LOGIC KHÁC GIỮ NGUYÊN
+            // ==========================================
+            const detailModal = document.getElementById('event-modal');
+            const detailModalContent = document.getElementById('event-modal-content');
+            document.getElementById('btn-close-detail')?.addEventListener('click', () => {
+                detailModalContent.classList.remove('scale-100'); detailModalContent.classList.add('scale-95');
+                setTimeout(() => { detailModal.classList.add('hidden'); detailModal.classList.remove('flex'); }, 200);
+            });
+            detailModal?.addEventListener('click', (e) => { if(e.target === detailModal) document.getElementById('btn-close-detail').click(); });
+            document.querySelectorAll('.event-slot').forEach(slot => {
+                slot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    document.getElementById('modal-title').textContent = this.dataset.title;
+                    document.getElementById('modal-time').textContent = this.dataset.time;
+                    document.getElementById('modal-desc').textContent = this.dataset.desc;
+                    detailModal.classList.remove('hidden'); detailModal.classList.add('flex');
+                    setTimeout(() => { detailModalContent.classList.remove('scale-95'); detailModalContent.classList.add('scale-100'); }, 10);
+                });
+            });
 
-        // Close when clicking outside content
-        modal.addEventListener('click', function(e) {
-            if(e.target === modal) {
-                btnClose.click();
-            }
+            // Logic AI Optimize
+            document.getElementById('btn-optimize-ai')?.addEventListener('click', function () {
+                var btn = this;
+                btn.innerHTML = '<iconify-icon icon="solar:spuare-academic-bold-duotone" width="20" class="animate-spin"></iconify-icon> Đang phân tích...';
+                btn.classList.add('opacity-80', 'cursor-not-allowed', 'scale-95');
+                setTimeout(() => {
+                    document.querySelectorAll('.ai-suggestion').forEach((el, index) => {
+                        setTimeout(() => { el.classList.remove('opacity-0', 'scale-95'); el.classList.add('opacity-100', 'scale-100'); }, index * 200);
+                    });
+                    btn.innerHTML = '<iconify-icon icon="solar:check-circle-bold-duotone" width="20"></iconify-icon> Đã tối ưu';
+                    btn.classList.remove('opacity-80', 'cursor-not-allowed', 'from-[#F4831F]', 'to-[#C8620F]', 'scale-95');
+                    btn.classList.add('from-green-500', 'to-emerald-600', 'scale-100');
+                }, 1000);
+            });
+
+            // Logic Chart.js
+            const commonOptions = { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { family: 'Be Vietnam Pro', weight: 'bold', size: 10 } } } }, scales: { x: { grid: { display: false }, ticks: { color: '#000000', font: { family: 'Be Vietnam Pro', weight: 'bold', size: 10 } } }, y: { grid: { color: '#E8C9A0', borderDash: [4, 4], drawBorder: false }, ticks: { color: '#000000', font: { family: 'Be Vietnam Pro', size: 10 }, stepSize: 2 } } } };
+            const dlCtx = document.getElementById('chart-dl')?.getContext('2d');
+            if(dlCtx) new Chart(dlCtx, { type: 'bar', data: { labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'], datasets: [ { label: 'Học tập (h)', data: [2.5, 3.8, 1.2, 4.0, 2.0, 5.5, 3.5], backgroundColor: '#F4831F', borderRadius: 4 }, { label: 'Focus (h)', data: [1.5, 2.0, 1.0, 3.0, 1.5, 4.0, 2.5], backgroundColor: '#8CA894', borderRadius: 4 } ] }, options: commonOptions });
+            const toeicCtx = document.getElementById('chart-toeic')?.getContext('2d');
+            if(toeicCtx) new Chart(toeicCtx, { type: 'bar', data: { labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'], datasets: [ { label: 'Học tập (h)', data: [1.0, 1.5, 2.0, 1.5, 2.5, 1.0, 2.0], backgroundColor: '#F4831F', borderRadius: 4 }, { label: 'Focus (h)', data: [0.5, 1.0, 1.5, 1.0, 2.0, 0.5, 1.5], backgroundColor: '#8CA894', borderRadius: 4 } ] }, options: commonOptions });
+            const csdlCtx = document.getElementById('chart-csdl')?.getContext('2d');
+            if(csdlCtx) new Chart(csdlCtx, { type: 'bar', data: { labels: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'], datasets: [ { label: 'Học tập (h)', data: [3.0, 0, 4.0, 0, 3.5, 0, 2.0], backgroundColor: '#F4831F', borderRadius: 4 }, { label: 'Focus (h)', data: [2.0, 0, 3.0, 0, 2.5, 0, 1.5], backgroundColor: '#8CA894', borderRadius: 4 } ] }, options: commonOptions });
         });
     </script>
 }

@@ -14,7 +14,7 @@ namespace DeeplearningwithCapybara.Models
 
         public DateTime ExamDate { get; set; }
 
-        public string Room { get; set; } = null!;
+        public string? Room { get; set; }
 
         public string Note { get; set; } = null!;
 
